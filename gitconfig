@@ -1,0 +1,5 @@
+[user]
+	name = lars
+	email = lars@socialcast.com
+[apply]
+	whitespace = nowarn
