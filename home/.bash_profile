@@ -27,9 +27,5 @@ else
   start_agent;
 fi
 
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=/opt/ruby-enterprise-1.8.7-2010.01/bin:$PATH
-export PATH=/opt/nginx/sbin:$PATH
-
-#find public IP of native OS
-alias copyip='ifconfig en1 | grep '\''inet '\'' | cut -f 2 -d\ | pbcopy'
+source ~/.bash_aliases
+source ~/.bash_paths
