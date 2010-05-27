@@ -1,5 +1,19 @@
 [user]
-	name = Lars Klevan
-	email = lars@socialcast.com
-[apply]
-	whitespace = nowarn
+	name = Ryan Sonnek
+	email = ryan@socialcast.com
+[alias]
+	put = push origin HEAD
+	done = commit -a -m
+	co = checkout
+	undo = reset --hard
+	l =  log --pretty=oneline --relative-date
+  ll = log --summary --stat --pretty=oneline --relative-date
+[color]
+	ui = auto
+	status = auto
+	branch = auto
+	diff = auto
+[core]
+	editor = mate -w
+[merge]
+	tool = opendiff
