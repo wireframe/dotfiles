@@ -17,3 +17,5 @@
 	editor = mate -w
 [merge]
 	tool = opendiff
+[github]
+	user = wireframe
