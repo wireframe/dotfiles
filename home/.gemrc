@@ -4,7 +4,6 @@ gem: --no-ri --no-rdoc
 :update_sources: true
 :sources: 
 - http://rubygems.org
-- http://gems.rubyforge.org
 - http://gems.github.com
 
 :backtrace: false
