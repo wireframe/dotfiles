@@ -19,3 +19,5 @@
 	tool = opendiff
 [github]
 	user = wireframe
+[branch]
+	autosetupmerge = always
