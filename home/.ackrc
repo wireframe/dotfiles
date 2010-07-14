@@ -1,2 +1,3 @@
 --type-add=ruby=.haml,.sass,.rake
---type-add=text=.pp
+--type-set
+puppet=.pp
