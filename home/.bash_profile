@@ -6,6 +6,7 @@ if [ -f ~/.git-bash-prompt ]; then
 fi
 
 SSH_ENV="$HOME/.ssh/environment"
+export EDITOR=mate
 
 function start_agent {
   echo "Initializing new SSH agent..."
