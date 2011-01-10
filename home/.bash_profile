@@ -7,6 +7,7 @@ fi
 
 SSH_ENV="$HOME/.ssh/environment"
 export EDITOR=mate
+export RUBYOPT=rubygems
 
 function start_agent {
   echo "Initializing new SSH agent..."
