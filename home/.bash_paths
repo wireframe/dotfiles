@@ -4,3 +4,5 @@ export PATH=/opt/ruby-enterprise-1.8.7-2010.02/bin:$PATH
 export PATH=/Users/ryan/Tools/adobe-air-2.5/bin:$PATH
 export PATH=/opt/nginx/sbin:$PATH
 export PATH=/Users/ryan/Projects/git-extensions/bin:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
