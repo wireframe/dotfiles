@@ -1,13 +1,23 @@
-if [ -f /opt/local/etc/bash_completion ]; then
-  . /opt/local/etc/bash_completion
+#set -x
+echo 'Loading bash profile...'
+
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
+if [ -f ~/.bash_paths ]; then
+  . ~/.bash_paths
+fi
+if [ -f ~/.bash_env ]; then
+  . ~/.bash_env
+fi
+if [ -f ~/.bash_completion ]; then
+  . ~/.bash_completion
 fi
 if [ -f ~/.git-bash-prompt ]; then
   . ~/.git-bash-prompt
 fi
 
 SSH_ENV="$HOME/.ssh/environment"
-export EDITOR=mate
-export RUBYOPT=rubygems
 
 function start_agent {
   echo "Initializing new SSH agent..."
@@ -28,6 +38,3 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
-
-source ~/.bash_aliases
-source ~/.bash_paths
