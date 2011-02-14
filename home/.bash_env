@@ -1,0 +1,3 @@
+echo 'Loading bash environment variables...'
+export EDITOR=mate
+export RUBYOPT=rubygems
