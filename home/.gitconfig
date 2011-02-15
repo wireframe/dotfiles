@@ -19,5 +19,6 @@
 	tool = opendiff
 [github]
 	user = wireframe
+	token = 5610af432001342aa93c60006b17e72b
 [branch]
 	autosetupmerge = always
