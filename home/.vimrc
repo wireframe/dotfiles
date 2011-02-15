@@ -128,7 +128,7 @@ map <leader>c <c-_><c-_>
 nmap <space> :
 
 "Automatically change current directory to that of the file in the buffer
-autocmd BufEnter * cd %:p:h
+" autocmd BufEnter * cd %:p:h
 
 "Map code completion to , + tab
 imap <leader><tab> <C-x><C-o>
