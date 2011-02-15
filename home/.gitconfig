@@ -14,7 +14,7 @@
 	branch = auto
 	diff = auto
 [core]
-	editor = mate -w
+	editor = mvim -f
 [merge]
 	tool = opendiff
 [github]
