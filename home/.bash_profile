@@ -1,6 +1,5 @@
 #set -x
 echo 'Loading bash profile...'
-
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
@@ -16,6 +15,7 @@ fi
 if [ -f ~/.git-bash-prompt ]; then
   . ~/.git-bash-prompt
 fi
+echo 'Profile loaded.'
 
 SSH_ENV="$HOME/.ssh/environment"
 

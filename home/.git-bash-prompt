@@ -1,4 +1,4 @@
-
+echo 'Loading git bash prompt extension...'
 
 
 git_check_changes ()
