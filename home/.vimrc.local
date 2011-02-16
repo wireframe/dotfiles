@@ -6,7 +6,7 @@ let mapleader = ","
 set guifont=Menlo:h14
 " Default color scheme
 color twilight
-set transparency=10
+" set transparency=10
 
 "Prefer a slightly higher line height
 set linespace=3
