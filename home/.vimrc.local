@@ -5,14 +5,14 @@ let mapleader = ","
 "Set font type and size. Depends on the resolution. Larger screens, prefer h20
 set guifont=Menlo:h14
 " Default color scheme
-color herald
+color twilight
+set transparency=10
 
 "Prefer a slightly higher line height
 set linespace=3
 
 "Always show the status line
 set laststatus=2
-
 " show git branch in the status line
 set statusline=%{fugitive#statusline()}
 
