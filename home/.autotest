@@ -1,0 +1,18 @@
+require "autotest/fsevent"
+require "autotest/growl"
+
+Autotest.add_hook:initialize do |autotest|
+  # ignore files that do not impact tests 
+  %w{.git .DS_Store Gemfile vendor tmp }.each do |exception|
+    autotest.add_exception(exception)
+  end
+end
+
+
+# Don't run entire test suite when going from red to green
+class Autotest
+  def tainted
+    false
+  end
+end
+
