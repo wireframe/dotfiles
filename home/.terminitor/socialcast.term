@@ -6,7 +6,10 @@ setup 'echo "setup"'
 
 tab "cd ~/Projects/socialcast", "script/console"
 tab "cd ~/Projects/socialcast", "mvim"
-tab "cd ~/Projects/socialcast", "autotest"
+
+window "autotest" do 
+  tab "cd ~/Projects/socialcast", "autotest"
+end
 
 # window do
 # 
@@ -17,7 +20,4 @@ tab "cd ~/Projects/socialcast", "autotest"
 #     run "ls"
 #   end
 # end
-# 
-# window "autotest" do 
-#   tab "echo 'window and tab without options'"
-# end
+
