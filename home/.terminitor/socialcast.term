@@ -5,7 +5,8 @@
 setup 'echo "setup"'
 
 tab "cd ~/Projects/socialcast", "script/console"
-tab "cd ~/Projects/socialcast", "mate ."
+tab "cd ~/Projects/socialcast", "mvim"
+tab "cd ~/Projects/socialcast", "autotest"
 
 # window do
 # 
