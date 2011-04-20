@@ -8,6 +8,7 @@
 	undo = reset --hard
 	l =  log --pretty=oneline --relative-date
   ll = log --summary --stat --pretty=oneline --relative-date
+  who = shortlog -n -s --no-merges
 [color]
 	ui = auto
 	status = auto
