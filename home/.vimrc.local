@@ -37,3 +37,7 @@ nnoremap <esc> :noh<return><esc>
 
 "exclude files from command-t autocomplete
 set wildignore+=*.orig
+set wildignore+=spec/reports/SPEC-*.xml
+
+" include rabl as ruby syntax
+au BufRead,BufNewFile *.rabl setf ruby
