@@ -1,0 +1,21 @@
+# COMMENT OF SCRIPT HERE
+# you can make as many tabs as you wish...
+# tab names are actually arbitrary at this point too.
+
+setup 'echo "setup"'
+
+project_path = "~/Projects/pack"
+tab "cd #{project_path}", "bundle exec guard start"
+tab "cd #{project_path}", "mvim ."
+
+# window do
+#   tab "echo 'first tab'", "echo 'of window'"
+#   tab "named tab", :settings => "Ocean" do
+#     run "echo 'named tab'"
+#     run "ls"
+#   end
+# end
+
+# window "autotest" do 
+#   tab "echo 'window and tab without options'"
+# end
