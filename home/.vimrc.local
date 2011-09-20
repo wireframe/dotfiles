@@ -22,3 +22,22 @@ set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
+"github gist support
+let g:github_user='wireframe'
+let g:github_token='fillinhere'
+
+"NerdTree config
+" let loaded_nerd_tree=1
+
+"Tlist config
+map <Leader>m :TlistToggle<CR>
+
+"clear the last search pattern register by hitting return
+nnoremap <esc> :noh<return><esc>
+
+"exclude files from command-t autocomplete
+set wildignore+=*.orig
+set wildignore+=spec/reports/SPEC-*.xml
+
+" include rabl as ruby syntax
+au BufRead,BufNewFile *.rabl setf ruby
