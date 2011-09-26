@@ -23,8 +23,9 @@ set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
 
 "github gist support
-let g:github_user='wireframe'
-let g:github_token='fillinhere'
+"load settings from global ~/.gitconfig
+let g:github_user=system('git config -z --global --get github.user')
+let g:github_token=system('git config -z --global --get github.token')
 
 "NerdTree config
 " let loaded_nerd_tree=1
@@ -41,3 +42,5 @@ set wildignore+=spec/reports/SPEC-*.xml
 
 " include rabl as ruby syntax
 au BufRead,BufNewFile *.rabl setf ruby
+" include jsonify as ruby syntax
+au BufRead,BufNewFile *.jsonify setf ruby
