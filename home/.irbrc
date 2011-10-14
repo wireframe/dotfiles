@@ -21,9 +21,6 @@ if rails_env = ENV['RAILS_ENV']
   # been loaded (props: Mike Clark).
   IRB.conf[:IRB_RC] = Proc.new do
     ActiveRecord::Base.logger = Logger.new(STDOUT)
-    ActiveRecord::Base.instance_eval { alias :[] :find }
     ActiveRecord::Base.logger.level = 0
-    reload!
   end
 end
-

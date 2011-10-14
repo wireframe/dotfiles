@@ -1,0 +1,6 @@
+# Socialcast Rails Project
+setup 'echo "setup"'
+
+project_path = "~/Projects/socialcast"
+tab "cd #{project_path}", "bundle exec guard start"
+tab "cd #{project_path}", "mvim ."
