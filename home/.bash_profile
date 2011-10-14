@@ -15,6 +15,9 @@ fi
 if [ -f ~/.git-bash-prompt ]; then
   . ~/.git-bash-prompt
 fi
+if [ -f ~/.bundler-exec.sh ]; then
+  . ~/.bundler-exec.sh
+fi
 echo 'Profile loaded.'
 
 SSH_ENV="$HOME/.ssh/environment"
