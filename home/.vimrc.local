@@ -44,3 +44,6 @@ set wildignore+=spec/reports/SPEC-*.xml
 au BufRead,BufNewFile *.rabl setf ruby
 " include jsonify as ruby syntax
 au BufRead,BufNewFile *.jsonify setf ruby
+
+" include ctags from gems
+set tags+=gems.tags
