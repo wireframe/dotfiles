@@ -2,5 +2,5 @@
 setup 'echo "setup"'
 
 project_path = "~/Projects/pack"
-tab "cd #{project_path}", "bundle exec guard start"
+tab "cd #{project_path}", "bundle exec guard start --clear"
 tab "cd #{project_path}", "mvim ."
