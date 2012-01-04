@@ -79,17 +79,13 @@ map Q gq
 
 let mapleader=","
 
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" http://vimrasts.org/e/14
+" define %% as helper for directory of current file
+" see http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+
+" command T mappings
+map <C-t> :CommandTFlush<cr>\|:CommandT<cr>           " search for all files in project
+map <C-T> :CommandTFlush<cr>\|:CommandT %%<cr>        " search for files in same directory as the current file
 
 " mappings for ackmate plugin
 map <C-F> :Ack<space>
