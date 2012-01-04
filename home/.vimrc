@@ -87,12 +87,17 @@ map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-" http://vimcasts.org/e/14
+" http://vimrasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
-" ignore Rubinius, Sass cache files
-set wildignore+=*.rbc,*.scssc,*.sassc
+" mappings for ackmate plugin
+map <C-F> :Ack<space>
+
+" exclude files from command-t autocomplete
+set wildignore+=*.rbc,*.scssc,*.sassc      " sass cache files
+set wildignore+=*.orig                     " git conflict files
+set wildignore+=spec/reports/SPEC-*.xml    " rspec generated files
 
 nnoremap <leader><leader> <c-^>
 
@@ -120,10 +125,10 @@ if has("statusline") && !&cp
   set statusline+=%{fugitive#statusline()}
 
   " Finish the statusline
-  set statusline+=Line:%l/%L[%p%%]
-  set statusline+=Col:%v
-  set statusline+=Buf:#%n
-  set statusline+=[%b][0x%B]
+  " set statusline+=Line:%l/%L[%p%%]
+  " set statusline+=Col:%v
+  " set statusline+=Buf:#%n
+  " set statusline+=[%b][0x%B]
 endif
 
 let g:CommandTMaxHeight=10
@@ -132,3 +137,6 @@ let g:CommandTMaxHeight=10
 "load settings from global ~/.gitconfig
 let g:github_user=system('git config -z --global --get github.user')
 let g:github_token=system('git config -z --global --get github.token')
+
+" include ctags from gems
+set tags+=gems.tags
