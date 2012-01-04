@@ -44,6 +44,7 @@ set hlsearch                      " highlight matches
 set incsearch                     " incremental searching
 set ignorecase                    " searches are case insensitive...
 set smartcase                     " ... unless they contain at least one capital letter
+nnoremap <esc> :noh<return><esc>  " clear last search pattern register by hitting return or escape
 
 function s:setupWrapping()
   set wrap
@@ -76,9 +77,6 @@ set scrolloff=3
 " don't use Ex mode, use Q for formatting
 map Q gq
 
-" clear the search buffer when hitting return
-:nnoremap <CR> :nohlsearch<cr>
-
 let mapleader=","
 
 map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
@@ -109,12 +107,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" disable cursor keys in normal mode
-map <Left>  :echo "no!"<cr>
-map <Right> :echo "no!"<cr>
-map <Up>    :echo "no!"<cr>
-map <Down>  :echo "no!"<cr>
-
 set backupdir=~/.vim/_backup    " where to put backup files.
 set directory=~/.vim/_temp      " where to put swap files.
 
@@ -135,3 +127,8 @@ if has("statusline") && !&cp
 endif
 
 let g:CommandTMaxHeight=10
+
+"github gist support
+"load settings from global ~/.gitconfig
+let g:github_user=system('git config -z --global --get github.user')
+let g:github_token=system('git config -z --global --get github.token')
