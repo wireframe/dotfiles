@@ -117,8 +117,11 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-set backupdir=~/.vim/_backup    " where to put backup files.
+" disable backups and swap files
+set noswapfile
 set directory=~/.vim/_temp      " where to put swap files.
+set nobackup
+set backupdir=~/.vim/_backup    " where to put backup files.
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
@@ -156,3 +159,8 @@ map <leader>v :view %%
 " tagbar plugin
 " http://github.com/majutsushi/tagbar
 map <leader>t :TagbarToggle<cr>
+
+
+" netrw directory plugin
+" help netrw
+let g:netrw_browse_split=0
