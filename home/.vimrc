@@ -81,11 +81,15 @@ let mapleader=","
 
 " define %% as helper for directory of current file
 " see http://vimcasts.org/episodes/the-edit-command/
-" cnoremap %% <C-R>=expand('%:h').'/'<cr>
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" command T mappings
+" command T plugin
+" mappings:
+" * search only current directory
+" options:
 noremap <D-t> <ESC>:CommandT<cr>
-noremap <D-T> <ESC>:CommandT %%<cr>
+noremap <leader>f <ESC>:CommandT<cr>
+noremap <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 let g:CommandTMaxHeight=10
 
 " mappings for ackmate plugin
@@ -136,3 +140,11 @@ let g:github_token=system('git config -z --global --get github.token')
 
 " include ctags from gems
 set tags+=gems.tags
+
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" navigate to current files
+map <leader>e :edit %%
+map <leader>v :view %%

@@ -15,4 +15,5 @@ if has("gui_macvim")
 
   " unmap <D-t> from opening new tabs (used for command-t plugin instead)
   macmenu &File.New\ Tab key=<nop>
+  macmenu &File.Open\ Tab\.\.\. key=<nop>
 end
