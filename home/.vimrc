@@ -142,8 +142,8 @@ let g:github_token=system('git config -z --global --get github.token')
 set tags+=gems.tags
 
 " Quickly edit/reload the vimrc file
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>ev :edit $MYVIMRC<CR>
 
 " navigate to current files
 map <leader>e :edit %%
