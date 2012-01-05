@@ -81,14 +81,15 @@ let mapleader=","
 
 " define %% as helper for directory of current file
 " see http://vimcasts.org/episodes/the-edit-command/
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+" cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " command T mappings
-map <C-t> :CommandTFlush<cr>\|:CommandT<cr>           " search for all files in project
-map <C-T> :CommandTFlush<cr>\|:CommandT %%<cr>        " search for files in same directory as the current file
+noremap <D-t> <ESC>:CommandT<cr>
+noremap <D-T> <ESC>:CommandT %%<cr>
+let g:CommandTMaxHeight=10
 
 " mappings for ackmate plugin
-map <C-F> :Ack<space>
+map <D-F> :Ack<space>
 
 " exclude files from command-t autocomplete
 set wildignore+=*.rbc,*.scssc,*.sassc      " sass cache files
@@ -127,7 +128,6 @@ if has("statusline") && !&cp
   " set statusline+=[%b][0x%B]
 endif
 
-let g:CommandTMaxHeight=10
 
 "github gist support
 "load settings from global ~/.gitconfig
