@@ -19,6 +19,7 @@ set nonumber
 set ruler       " show the cursor position all the time
 set cursorline
 set showcmd     " display incomplete commands
+set number      " show line numbers
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
@@ -94,6 +95,9 @@ let g:CommandTMaxHeight=10
 
 " mappings for ackmate plugin
 map <D-F> :Ack<space>
+
+" mappings for common functions
+map <D-T> :tabnew<cr>
 
 " exclude files from command-t autocomplete
 set wildignore+=*.rbc,*.scssc,*.sassc      " sass cache files
