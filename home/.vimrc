@@ -152,3 +152,7 @@ nnoremap <leader>ev :edit $MYVIMRC<CR>
 " navigate to current files
 map <leader>e :edit %%
 map <leader>v :view %%
+
+" tagbar plugin
+" http://github.com/majutsushi/tagbar
+map <leader>t :TagbarToggle<cr>
