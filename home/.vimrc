@@ -20,7 +20,6 @@ set ruler       " show the cursor position all the time
 set cursorline
 set showcmd     " display incomplete commands
 set number      " show line numbers
-set autochdir   " change directory to buffer location
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
