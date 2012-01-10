@@ -88,8 +88,8 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 " mappings:
 " * search only current directory
 " options:
-noremap <D-t> <ESC>:CommandT<cr>
-noremap <leader>f <ESC>:CommandT<cr>
+noremap <D-t> :CommandTFlush<cr>\|:CommandT<cr>
+noremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 noremap <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 let g:CommandTMaxHeight=10
 
