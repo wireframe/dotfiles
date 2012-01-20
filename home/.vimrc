@@ -20,6 +20,7 @@ set ruler       " show the cursor position all the time
 set cursorline
 set showcmd     " display incomplete commands
 set number      " show line numbers
+set clipboard=unnamed "copy to system clipboard
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
@@ -85,12 +86,8 @@ let mapleader=","
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " command T plugin
-" mappings:
-" * search only current directory
-" options:
-noremap <D-t> :CommandTFlush<cr>\|:CommandT<cr>
-noremap <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-noremap <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+" CMD-t - enter command mode, refresh command t filelist, open command-t
+noremap <D-t> <esc>\|:CommandTFlush<cr>\|:CommandT<cr>
 let g:CommandTMaxHeight=10
 
 " mappings for ackmate plugin
