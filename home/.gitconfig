@@ -1,6 +1,6 @@
 [user]
 	name = Ryan Sonnek
-	email = ryan@socialcast.com
+  email = ryan.sonnek@gmail.com
 [alias]
 	put = push origin HEAD
 	done = commit -a -m

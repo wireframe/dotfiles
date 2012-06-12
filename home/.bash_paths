@@ -2,7 +2,5 @@ echo 'Loading bash paths...'
 
 export PATH=/usr/local/bin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export PATH=/Users/ryan/Tools/adobe-air-2.5/bin:$PATH
-export PATH=/opt/nginx/sbin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
