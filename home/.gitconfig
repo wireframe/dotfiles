@@ -22,3 +22,5 @@
 	autosetupmerge = always
 [mergetool]
 	keepBackup = false
+[github]
+	user = ryan.sonnek@gmail.com
