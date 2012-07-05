@@ -1,3 +1,8 @@
+#!/usr/bin/env python
+
+# copy files from itunes album into target directory
+# each album in itunes will have it's own directory
+
 from xml.dom.minidom import parse, parseString, Node
 import os, time, stat, shutil, sys
 
@@ -22,7 +27,7 @@ def getValueElementForKey(parent, keyName):
             return sib
 
 albumDataXml="/Users/Ryan/Pictures/iPhoto Library/AlbumData.xml"
-targetDir="/Users/Ryan/Backup/Pictures"
+targetDir="/Users/Ryan/Backup/Dropbox"
 copyImg=True #set to false to run with out copying files or creating directories
 useEvents=True #set to False to use Albums instead of Events
 
