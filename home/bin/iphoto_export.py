@@ -26,8 +26,8 @@ def getValueElementForKey(parent, keyName):
                 sib = sib.nextSibling
             return sib
 
-albumDataXml="/Users/ryan/Pictures/iPhoto Library/AlbumData.xml"
-targetDir="/Users/ryan/Backup/Dropbox"
+albumDataXml=os.path.expanduser("~/Pictures/iPhoto Library/AlbumData.xml")
+targetDir=os.path.expanduser("~/Backup/Dropbox")
 copyImg=True #set to false to run with out copying files or creating directories
 useEvents=True #set to False to use Albums instead of Events
 
