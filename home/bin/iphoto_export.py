@@ -2,9 +2,15 @@
 
 # copy files from itunes album into target directory
 # each album in itunes will have it's own directory
+#
+# Options:
+# -e => regular expression to only export subset of albums (ex: "^Vacation")
+#
+# example usage to export only albums for feburary 2012:
+# ~/iphoto_export.py -e '2012-02'
 
 from xml.dom.minidom import parse, parseString, Node
-import os, time, stat, shutil, sys
+import os, time, stat, shutil, sys, re, argparse
 
 def findChildElementsByName(parent, name):
     result = []
@@ -26,6 +32,11 @@ def getValueElementForKey(parent, keyName):
                 sib = sib.nextSibling
             return sib
 
+parser = argparse.ArgumentParser(description='Export iPhoto Events into directory structure.')
+parser.add_argument('-e', dest='regex', default='', help='a regular expression to only export a subset of events (default: "")')
+args = parser.parse_args()
+
+albumRegex=re.compile(args.regex)
 albumDataXml=os.path.expanduser("~/Pictures/iPhoto Library/AlbumData.xml")
 targetDir=os.path.expanduser("~/Backup/Dropbox")
 copyImg=True #set to false to run with out copying files or creating directories
@@ -53,15 +64,11 @@ for folderDict in findChildElementsByName(listOfSomethingArray, 'dict'):
         folderName = getElementText(getValueElementForKey(folderDict, "AlbumName"))
         if folderName == 'Photos':
             continue
-        # Uncomment the following 3 lines to only export rolls/albums that start with "Something"
-        #if folderName.find('Something') != 0:
-            #print "\nSkipping Album: %s" % (folderName)
-            #continue
-        # Uncomment the following 3 lines to only export rolls/albums that containt with "Something"
-        #if folderName.find('Something') == -1:
-            #print "\nSkipping Album: %s" % (folderName)
-            #continue
         print "\n\nProcessing Album: %s" % (folderName)
+
+    if albumRegex.match(folderName) == None:
+        print "Skipping Album: does not match export filter"
+        continue
 
     #walk through all the images in this roll/event/album
     imageIdArray = getValueElementForKey(folderDict, "KeyList")
