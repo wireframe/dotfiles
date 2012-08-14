@@ -182,3 +182,6 @@ imap <D-9> <Esc>9gt
 " netrw directory plugin
 " help netrw
 let g:netrw_browse_split=0
+
+" remove trailing whitespace from file on save
+autocmd BufWritePre * :%s/\s\+$//e
