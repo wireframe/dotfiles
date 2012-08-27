@@ -99,7 +99,8 @@ map <D-T> :tabnew<cr>
 " exclude files from command-t autocomplete
 set wildignore+=*.rbc,*.scssc,*.sassc      " sass cache files
 set wildignore+=*.orig                     " git conflict files
-set wildignore+=spec/reports/SPEC-*.xml    " rspec generated files
+set wildignore+=SPEC-*.xml                 " rspec generated files
+set wildignore+=TEST-*.xml                 " testunit generated files
 
 nnoremap <leader><leader> <c-^>
 
