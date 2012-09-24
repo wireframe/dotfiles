@@ -18,6 +18,7 @@ fi
 if [ -d /usr/local/etc/bash_completion.d ]; then
   echo 'Loading homebrew bash tweaks...'
   for f in /usr/local/etc/bash_completion.d/*.bash; do source $f; done
+  source /usr/local/etc/bash_completion.d/git-prompt.sh
 fi
 echo 'Profile loaded.'
 

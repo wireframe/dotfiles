@@ -10,4 +10,4 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 
 # socialcast development environment tweaks
 export PARALLEL_TESTS=4
-export DISABLE_JS_CONSOLIDATED_ASSERTIONS=true
+# export DISABLE_JS_CONSOLIDATED_ASSERTIONS=true
