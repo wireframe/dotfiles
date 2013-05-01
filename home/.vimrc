@@ -1,16 +1,28 @@
-""
-"" Thanks:
-""   Gary Bernhardt  <destroyallsoftware.com>
-""   Drew Neil  <vimcasts.org>
-""   Tim Pope  <tbaggery.com>
-""   Janus  <github.com/carlhuda/janus>
-""
-
 set nocompatible
 syntax enable
 set encoding=utf-8
 
-call pathogen#infect()
+" Delegate plugin management to Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Bundles
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-rails'
+Bundle 'scrooloose/syntastic'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'pangloss/vim-javascript'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'tomasr/molokai'
+Bundle 'vim-ruby/vim-ruby'
+
 filetype plugin indent on
 
 set background=dark
@@ -79,28 +91,37 @@ set scrolloff=3
 " don't use Ex mode, use Q for formatting
 map Q gq
 
+" remap leader to comma
 let mapleader=","
 
 " define %% as helper for directory of current file
 " see http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" command T plugin
-" CMD-t - enter command mode, refresh command t filelist, open command-t
-noremap <D-t> <esc>\|:CommandTFlush<cr>\|:CommandT<cr>
-let g:CommandTMaxHeight=10
-
-" mappings for ackmate plugin
-map <D-F> :Ack<space>
-
-" mappings for common functions
-map <D-T> :tabnew<cr>
-
-" exclude files from command-t autocomplete
+" ctrlp plugin
+" file search tool
+" remap CMD-T to launch ctrlp
+let g:ctrlp_map = '<D-t>'
+" exclude files from autocomplete
 set wildignore+=*.rbc,*.scssc,*.sassc      " sass cache files
 set wildignore+=*.orig                     " git conflict files
 set wildignore+=SPEC-*.xml                 " rspec generated files
 set wildignore+=TEST-*.xml                 " testunit generated files
+set wildignore+=TEST-*.xml                 " testunit generated files
+set wildignore+=TEST-*.xml                 " testunit generated files
+set wildignore+=*/tmp/*                    " tmp files
+set wildignore+=*.so,*.swp,*.zip           " binary files
+
+" ackmate plugin
+" map CMD-SHIFT-F to find
+map <D-F> :Ack<space>
+" configure Ack.vim plugin to use Ag
+let g:ackprg = 'ag --smart-case --nogroup --nocolor --column'
+
+
+" mappings for common functions
+" CMD-SHIFT-T to open a new tab
+map <D-T> :tabnew<cr>
 
 nnoremap <leader><leader> <c-^>
 
@@ -179,10 +200,6 @@ map  <D-8> 8gt
 imap <D-8> <Esc>8gt
 map  <D-9> 9gt
 imap <D-9> <Esc>9gt
-
-" netrw directory plugin
-" help netrw
-let g:netrw_browse_split=0
 
 " cleanup whitespace from file on save
 " remove trailing whitespace
