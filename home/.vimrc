@@ -25,6 +25,8 @@ Bundle 'vim-ruby/vim-ruby'
 
 filetype plugin indent on
 
+:runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
+
 set background=dark
 color molokai
 set nonumber
