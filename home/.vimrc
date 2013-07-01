@@ -22,6 +22,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tomasr/molokai'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'ervandew/supertab'
 
 filetype plugin indent on
 
@@ -125,12 +126,19 @@ let g:ackprg = 'ag --smart-case --nogroup --nocolor --column'
 " CMD-SHIFT-T to open a new tab
 map <D-T> :tabnew<cr>
 
+" shortcut to toggle to 'alternate' buffer
 nnoremap <leader><leader> <c-^>
 
 " find merge conflict markers
 nmap <silent> <leader>cf <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+
+" shortcuts for creating split windows
+" | for vertical split
+" - for horizontal split
+nnoremap <leader>\| <C-w>v
+nnoremap <leader>- <C-w>h
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j

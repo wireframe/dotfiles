@@ -9,6 +9,7 @@
 	l =  log --pretty=oneline --relative-date
   ll = log --summary --stat --pretty=oneline --relative-date
   who = shortlog -n -s --no-merges
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [color]
 	ui = auto
 	status = auto
