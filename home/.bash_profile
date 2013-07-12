@@ -15,11 +15,24 @@ fi
 if [ -f ~/.bundler-exec.sh ]; then
   . ~/.bundler-exec.sh
 fi
-if [ -d /usr/local/etc/bash_completion.d ]; then
+
+# homebrew bash completion extension
+# brew info bash-completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
   echo 'Loading homebrew bash tweaks...'
-  for f in /usr/local/etc/bash_completion.d/*.bash; do source $f; done
-  source /usr/local/etc/bash_completion.d/git-prompt.sh
+  . $(brew --prefix)/etc/bash_completion
 fi
+
+# homebrew git bash completion extensions 
+# brew info git
+if [ -d /usr/local/etc/bash_completion.d ]; then
+  for f in /usr/local/etc/bash_completion.d/*.*; do
+    echo "Loading ${f}..."
+    source $f;
+  done
+fi
+
+
 echo 'Profile loaded.'
 
 # tweak console display

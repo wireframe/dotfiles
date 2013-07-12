@@ -1,5 +1,9 @@
 echo 'Loading bash environment variables...'
+
+# setup bash to use vim keybindings
 set -o vi
+
+# default environment variables
 export EDITOR=vim
 export RUBYOPT=rubygems
 
