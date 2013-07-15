@@ -9,12 +9,6 @@ fi
 if [ -f ~/.bash_env ]; then
   . ~/.bash_env
 fi
-if [ -f ~/.bash_completion ]; then
-  . ~/.bash_completion
-fi
-if [ -f ~/.bundler-exec.sh ]; then
-  . ~/.bundler-exec.sh
-fi
 
 # homebrew bash completion extension
 # brew info bash-completion
