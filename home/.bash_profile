@@ -23,20 +23,18 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi
 
-# homebrew git bash completion extensions 
+# homebrew git bash completion extensions
 # brew info git
 if [ -d /usr/local/etc/bash_completion.d ]; then
   for f in /usr/local/etc/bash_completion.d/*.*; do
     echo "Loading ${f}..."
     source $f;
   done
+  # configure console display
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  GIT_PS1_SHOWUPSTREAM="auto"
+  PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '
 fi
 
 echo 'Profile loaded.'
-
-# configure console display
-# git prompt extensions must be installed
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM="auto"
-PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '

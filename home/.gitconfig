@@ -25,3 +25,5 @@
 	keepBackup = false
 [github]
 	user = ryan.sonnek@gmail.com
+[credential]
+	helper = osxkeychain
