@@ -16,7 +16,7 @@
 	branch = auto
 	diff = auto
 [core]
-	editor = mvim -f
+	editor = subl -w
 [merge]
 	tool = opendiff
 [branch]

@@ -4,7 +4,7 @@ echo 'Loading bash environment variables...'
 set -o vi
 
 # default environment variables
-export EDITOR=vim
+export EDITOR=subl
 export RUBYOPT=rubygems
 
 # ruby garbage collection tweaks
