@@ -10,6 +10,7 @@
   ll = log --summary --stat --pretty=oneline --relative-date
   who = shortlog -n -s --no-merges
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cleanup = !~/bin/git-cleanup.sh
 [color]
 	ui = auto
 	status = auto
