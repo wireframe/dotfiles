@@ -1,0 +1,5 @@
+# ignore vundle bundles
+bundle/*
+
+#
+!bundle/.gitkeep
