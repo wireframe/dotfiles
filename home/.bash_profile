@@ -9,6 +9,9 @@ fi
 if [ -f ~/.bash_env ]; then
   . ~/.bash_env
 fi
+if [ -f ~/.bash_sublime ]; then
+  . ~/.bash_sublime
+fi
 
 # homebrew bash completion extension
 # brew info bash-completion
