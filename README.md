@@ -17,3 +17,4 @@ $ vim +BundleInstall +qall
 * bash configuration
 * environment initialization (ex: path)
 * VIM configuration
+* Sublime Text Configuration
