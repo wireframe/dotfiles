@@ -32,4 +32,4 @@ if type -t __git_ps1 > /dev/null 2>&1; then
   PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '
 fi
 
-echo 'Profile loaded.'
+echo 'Profile loaded => SONNEK BOOM!'
