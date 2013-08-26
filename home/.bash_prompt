@@ -1,11 +1,10 @@
 # see http://mediadoneright.com/content/ultimate-git-ps1-bash-prompt
+# see http://cwestblog.com/2013/01/29/bash-git-ps1-branch-based-coloring/
 
-#  Customize BASH PS1 prompt to show current GIT repository and branch.
-#  by Mike Stewart - http://MediaDoneRight.com
-
-#  SETUP CONSTANTS
-#  Bunch-o-predefined colors.  Makes reading code easier than escape sequences.
-#  I don't remember where I found this.  o_O
+# SETUP CONSTANTS
+# Bunch-o-predefined colors.  Makes reading code easier than escape sequences.
+# Colors found at https://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# Customize BASH PS1 prompt to show current GIT repository and branch.
 
 # Reset
 Color_Off="\[\033[0m\]"       # Text Reset
@@ -90,7 +89,7 @@ Jobs="\j"
 Username="\u"
 Host="\h"
 
-PS1="${Username}: ${PathShort}"
+Prompt="${Username}:${PathShort}"
 
 # configure console to include metadata for current Git repo
 # available via homebrew git bash completion extensions
@@ -100,6 +99,8 @@ if type -t __git_ps1 > /dev/null 2>&1; then
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWUNTRACKEDFILES=true
   GIT_PS1_SHOWUPSTREAM="auto"
-  PS1="${PS1} ${Yellow}$(__git_ps1 '(%s)')${Color_Off}"
+  GIT_PS1_SHOWCOLORHINTS=true
+  Prompt=$Prompt$Yellow'$(__git_ps1 " (%s)")'$Color_Off
 fi
-PS1="${PS1}\$ "
+
+PS1=$Prompt'\$ '
