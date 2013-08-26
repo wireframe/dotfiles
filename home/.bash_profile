@@ -21,15 +21,8 @@ if [ -f ${HOMEBREW_PATH}/etc/bash_completion ]; then
   source ${HOMEBREW_PATH}/etc/bash_completion
 fi
 
-# configure console to include metadata for current Git repo
-# available via homebrew git bash completion extensions
-# brew info git
-if type -t __git_ps1 > /dev/null 2>&1; then
-  echo 'Configuring Git bash prompt...'
-  GIT_PS1_SHOWDIRTYSTATE=true
-  GIT_PS1_SHOWUNTRACKEDFILES=true
-  GIT_PS1_SHOWUPSTREAM="auto"
-  PS1='\u@\h \W$(__git_ps1 " (%s)")\$ '
+if [ -f ~/.bash_prompt ]; then
+  source ~/.bash_prompt
 fi
 
 echo 'Profile loaded => SONNEK BOOM!'
