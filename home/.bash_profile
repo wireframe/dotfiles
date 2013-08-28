@@ -9,9 +9,6 @@ fi
 if [ -f ~/.bash_env ]; then
   source ~/.bash_env
 fi
-if [ -f ~/.bash_sublime ]; then
-  source ~/.bash_sublime
-fi
 
 # homebrew bash completion extensions
 # brew info bash-completion
@@ -19,6 +16,14 @@ HOMEBREW_PATH=$(brew --prefix)
 if [ -f ${HOMEBREW_PATH}/etc/bash_completion ]; then
   echo 'Loading homebrew bash tweaks...'
   source ${HOMEBREW_PATH}/etc/bash_completion
+fi
+
+# load application configurations
+if [ -d ~/.apps.d ]; then
+  for f in ~/.apps.d/*.sh; do
+    echo "Configuring ${f}..."
+    source $f;
+  done
 fi
 
 if [ -f ~/.bash_prompt ]; then
