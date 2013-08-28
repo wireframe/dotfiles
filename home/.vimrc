@@ -30,6 +30,9 @@ filetype plugin indent on
 
 :runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
 
+" remap leader to comma
+let mapleader=","
+
 set background=dark
 color molokai
 set nonumber
@@ -59,13 +62,6 @@ set listchars+=extends:>          " The character to show in the last column whe
                                   " off and the line continues beyond the right of the screen
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
-" Searching
-set hlsearch                      " highlight matches
-set incsearch                     " incremental searching
-set ignorecase                    " searches are case insensitive...
-set smartcase                     " ... unless they contain at least one capital letter
-nnoremap <CR> :noh<CR><CR>        " clear last search pattern register by hitting return or escape
-
 function s:setupWrapping()
   set wrap
   set wrapmargin=2
@@ -97,9 +93,13 @@ set scrolloff=3
 " don't use Ex mode, use Q for formatting
 map Q gq
 
-" remap leader to comma
-let mapleader=","
-
+" Searching
+set hlsearch                      " highlight matches
+set incsearch                     " incremental searching
+set ignorecase                    " searches are case insensitive...
+set smartcase                     " ... unless they contain at least one capital letter
+map <leader>h :noh<CR>       " toggle highlighting of search terms
+"
 " define %% as helper for directory of current file
 " see http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
