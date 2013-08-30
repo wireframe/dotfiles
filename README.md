@@ -2,11 +2,14 @@ wireframe's OSX dotfiles
 ========
 
 ### Functionality
-* bash configuration
-* environment initialization (ex: path)
+* environment initialization (ex: path, aliases)
+* bash configuration (ex: prompt, autocompletion, etc)
+* helpful scripts and commands (ex: git-cleanup.sh)
+* OSX system default preferences
 * VIM configuration
-* Sublime Text Configuration
-
+* Sublime Text configuration
+* Git configuration (aliases, merge settings, etc)
+* Ruby configuration (IRB, Rubygems, Rspec, etc)
 
 ### Pre-requisites
 * install Xcode via App Store
@@ -18,6 +21,7 @@ wireframe's OSX dotfiles
 ### Installation using [Homesick](https://github.com/technicalpickles/homesick)
 
 ```
+$ gem install homesick
 $ homesick clone wireframe/dotfiles
 $ homesick symlink wireframe/dotfiles
 ```
@@ -33,6 +37,6 @@ $ vim +BundleInstall +qall
 ```
 
 ### (optional) Sublime Text Configuration
-The dotfiles Sublime Text configuration depend on installing [Sublime Text](http://www.sublimetext.com/) 
+The dotfiles Sublime Text configuration depend on installing [Sublime Text](http://www.sublimetext.com/)
 plus [Package Control](http://wbond.net/sublime_packages/package_control) and then installing the Soda theme
 via Package Control
