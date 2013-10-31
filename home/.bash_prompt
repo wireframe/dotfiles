@@ -104,3 +104,6 @@ if type -t __git_ps1 > /dev/null 2>&1; then
 fi
 
 PS1=$Prompt'\$ '
+
+# use vim keybindings for bash prompts
+set -o vi
