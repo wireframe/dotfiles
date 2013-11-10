@@ -1,6 +1,6 @@
 [user]
 	name = Ryan Sonnek
-  email = ryan.sonnek@gmail.com
+  email = ryan@codecrate.com
 [alias]
 	put = push origin HEAD
 	done = commit -a -m
