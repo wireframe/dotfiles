@@ -1,4 +1,8 @@
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" turn on syntax highlighting
 syntax enable
 set encoding=utf-8
 
@@ -6,7 +10,7 @@ set encoding=utf-8
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Bundles
+" Vundle Bundles
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -86,9 +90,6 @@ if has("autocmd")
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g`\"" | endif
 endif
-
-" provide some context when editing
-set scrolloff=3
 
 " don't use Ex mode, use Q for formatting
 map Q gq
