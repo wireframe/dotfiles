@@ -101,20 +101,6 @@ let mapleader=","
 " see http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-" ctrlp plugin
-" file search tool
-" remap CMD-T to launch ctrlp
-let g:ctrlp_map = '<D-t>'
-" exclude files from autocomplete
-set wildignore+=*.rbc,*.scssc,*.sassc      " sass cache files
-set wildignore+=*.orig                     " git conflict files
-set wildignore+=SPEC-*.xml                 " rspec generated files
-set wildignore+=TEST-*.xml                 " testunit generated files
-set wildignore+=TEST-*.xml                 " testunit generated files
-set wildignore+=TEST-*.xml                 " testunit generated files
-set wildignore+=*/tmp/*                    " tmp files
-set wildignore+=*.so,*.swp,*.zip           " binary files
-
 " ackmate plugin
 " map CMD-SHIFT-F to find
 map <D-F> :Ack<space>
@@ -227,3 +213,9 @@ function! <SID>CleanupWhitespace()
     call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>CleanupWhitespace()
+
+
+" load individual settings configuration files
+for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
+  exe 'source' fpath
+endfor
