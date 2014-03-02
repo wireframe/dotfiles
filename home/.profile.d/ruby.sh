@@ -1,12 +1,3 @@
-echo 'Loading bash environment variables...'
-
-# setup bash to use vim keybindings
-set -o vi
-
-# default environment variables
-export EDITOR=subl
-export RUBYOPT=rubygems
-
 # ruby garbage collection tweaks
 export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000

@@ -23,10 +23,15 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'tomasr/molokai'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'ervandew/supertab'
+Bundle 'tpope/vim-dispatch'
+Bundle 'christoomey/vim-tmux-navigator'
 
 filetype plugin indent on
 
 :runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
+
+" remap leader to comma
+let mapleader=","
 
 set background=dark
 color molokai
@@ -41,13 +46,14 @@ set clipboard=unnamed "copy to system clipboard
 " for backgrounded buffers
 set hidden
 
-"" Whitespace
+" Whitespace
 set nowrap                        " don't wrap lines
 set tabstop=2                     " a tab is two spaces
 set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
 set backspace=indent,eol,start    " backspace through everything in insert mode
+
 " List chars
 set listchars=""                  " Reset the listchars
 set listchars=tab:\ \             " a tab should display as "  ", trailing whitespace as "."
@@ -56,13 +62,6 @@ set listchars+=extends:>          " The character to show in the last column whe
                                   " off and the line continues beyond the right of the screen
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
-"" Searching
-set hlsearch                      " highlight matches
-set incsearch                     " incremental searching
-set ignorecase                    " searches are case insensitive...
-set smartcase                     " ... unless they contain at least one capital letter
-nnoremap <esc> :noh<return><esc>  " clear last search pattern register by hitting return or escape
-
 function s:setupWrapping()
   set wrap
   set wrapmargin=2
@@ -94,9 +93,13 @@ set scrolloff=3
 " don't use Ex mode, use Q for formatting
 map Q gq
 
-" remap leader to comma
-let mapleader=","
-
+" Searching
+set hlsearch                      " highlight matches
+set incsearch                     " incremental searching
+set ignorecase                    " searches are case insensitive...
+set smartcase                     " ... unless they contain at least one capital letter
+map <leader>h :noh<CR>       " toggle highlighting of search terms
+"
 " define %% as helper for directory of current file
 " see http://vimcasts.org/episodes/the-edit-command/
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -107,7 +110,6 @@ map <D-F> :Ack<space>
 " configure Ack.vim plugin to use Ag
 let g:ackprg = 'ag --smart-case --nogroup --nocolor --column'
 
-
 " mappings for common functions
 " CMD-SHIFT-T to open a new tab
 map <D-T> :tabnew<cr>
@@ -115,16 +117,13 @@ map <D-T> :tabnew<cr>
 " shortcut to toggle to 'alternate' buffer
 nnoremap <leader><leader> <c-^>
 
-" find merge conflict markers
-nmap <silent> <leader>cf <ESC>/\v^[<=>]{7}( .*\|$)<CR>
-
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
 " shortcuts for creating split windows
-" | for vertical split
+" \ for vertical split
 " - for horizontal split
-nnoremap <leader>\| <C-w>v
-nnoremap <leader>- <C-w>h
+nnoremap <leader>\ <C-w>v
+nnoremap <leader>- <C-w>s
 
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
@@ -153,12 +152,6 @@ if has("statusline") && !&cp
   " set statusline+=Buf:#%n
   " set statusline+=[%b][0x%B]
 endif
-
-
-"github gist support
-"load settings from global ~/.gitconfig
-let g:github_user=system('git config -z --global --get github.user')
-let g:github_token=system('git config -z --global --get github.token')
 
 " include ctags from gems
 set tags+=gems.tags
@@ -213,6 +206,43 @@ function! <SID>CleanupWhitespace()
     call cursor(l, c)
 endfunction
 autocmd BufWritePre * :call <SID>CleanupWhitespace()
+
+" support renaming file directly through vim
+" see https://github.com/f1sherman/dotvim/blob/master/vimrc
+map <leader>n :call RenameFile()<cr>
+function! RenameFile()
+  let s:old_name = expand('%')
+  let s:new_name = input('New file name: ', expand('%'), 'file')
+  if s:new_name != '' && s:new_name != s:old_name
+    " create the directory if it doesn't already exist
+    let s:dir = fnamemodify(s:new_name, ":p:h")
+    if !isdirectory(s:dir)
+      call mkdir(s:dir, "p")
+    endif
+    unlet s:dir
+
+    try " first try to move with git so history is preserved properly
+      exec ':Gmove ' . s:new_name
+    catch E768
+      " swap file exists, ignore and edit the moved file
+      exec ':edit ' . s:new_name
+    catch E492
+      " file is not in git, move it outside of git
+      exec ':saveas ' . s:new_name
+      exec ':silent !rm ' . s:old_name
+    catch /fugitive: fatal: not under version control/
+      " file is not in git, move it outside of git
+      exec ':saveas ' . s:new_name
+      exec ':silent !rm ' . s:old_name
+    finally
+      exec ':CommandTFlush'
+    endtry
+    redraw!
+  endif
+
+  unlet s:old_name
+  unlet s:new_name
+endfunction
 
 
 " load individual settings configuration files

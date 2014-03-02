@@ -37,8 +37,8 @@ parser.add_argument('-e', dest='regex', default='', help='a regular expression t
 args = parser.parse_args()
 
 albumRegex=re.compile(args.regex)
-albumDataXml=os.path.expanduser("~/Pictures/iPhoto Library/AlbumData.xml")
-targetDir=os.path.expanduser("~/Backup/Dropbox")
+albumDataXml=os.path.expanduser("~/Pictures/iPhoto Library.photolibrary/AlbumData.xml")
+targetDir=os.path.expanduser("~/Google Drive/Dropbox")
 copyImg=True #set to false to run with out copying files or creating directories
 useEvents=True #set to False to use Albums instead of Events
 
