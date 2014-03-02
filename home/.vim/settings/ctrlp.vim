@@ -1,5 +1,5 @@
 " ctrlp plugin
 " file search tool
-
-" remap CMD-T to launch ctrlp
-let g:ctrlp_map = '<D-t>'
+" https://github.com/kien/ctrlp.vim
+let g:ctrlp_map = '<c-t>'
+let g:ctrlp_cmd = 'CtrlT'

@@ -6,33 +6,12 @@ set nocompatible
 syntax enable
 set encoding=utf-8
 
-" Delegate plugin management to Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Vundle Bundles
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-rails'
-Bundle 'scrooloose/syntastic'
-Bundle 'kana/vim-textobj-user'
-Bundle 'nelstrom/vim-textobj-rubyblock'
-Bundle 'pangloss/vim-javascript'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'tomasr/molokai'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'ervandew/supertab'
-Bundle 'tpope/vim-dispatch'
-Bundle 'christoomey/vim-tmux-navigator'
-
-filetype plugin indent on
-
-:runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
+" =============== Vundle Initialization ===============
+" This loads all the plugins specified in ~/.vim/vundle.vim
+" Use Vundle plugin to manage all other plugins
+if filereadable(expand("~/.vim/vundles.vim"))
+  source ~/.vim/vundles.vim
+endif
 
 " remap leader to comma
 let mapleader=","
@@ -66,30 +45,6 @@ set listchars+=extends:>          " The character to show in the last column whe
                                   " off and the line continues beyond the right of the screen
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
-function! s:setupWrapping()
-  set wrap
-  set wrapmargin=2
-  set textwidth=72
-endfunction
-
-if has("autocmd")
-  " In Makefiles, use real tabs, not tabs expanded to spaces
-  au FileType make set noexpandtab
-
-  " Make sure all mardown files have the correct filetype set and setup wrapping
-  au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
-
-  " Treat JSON files like JavaScript
-  au BufNewFile,BufRead *.json set ft=javascript
-
-  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-  au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
-
-  " Remember last location in file, but not for commit messages.
-  " see :help last-position-jump
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
-endif
 
 " don't use Ex mode, use Q for formatting
 map Q gq
@@ -100,8 +55,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " shortcut to toggle to 'alternate' buffer
 nnoremap <leader><leader> <c-^>
-
-command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
 if has("statusline") && !&cp
   set laststatus=2  " always show the status bar
@@ -128,6 +81,8 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 " load individual settings configuration files
+" see https://github.com/skwp/dotfiles/blob/master/vimrc
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
+
