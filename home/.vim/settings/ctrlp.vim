@@ -1,4 +1,5 @@
 " ctrlp plugin
 " file search tool
 " https://github.com/kien/ctrlp.vim
-let g:ctrlp_map = '<c-t>'
+" see http://stackoverflow.com/questions/11326120/how-to-map-c-leader-in-vim
+nnoremap <leader>f :CtrlP<CR>
