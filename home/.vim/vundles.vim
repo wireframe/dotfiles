@@ -24,6 +24,7 @@ Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-dispatch'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'elzr/vim-json'
+Bundle 'kchmck/vim-coffee-script'
 
 :runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
 
