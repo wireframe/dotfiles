@@ -7,7 +7,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-surround'
