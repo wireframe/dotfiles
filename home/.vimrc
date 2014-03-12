@@ -46,40 +46,6 @@ set listchars+=extends:>          " The character to show in the last column whe
 set listchars+=precedes:<         " The character to show in the last column when wrap is
                                   " off and the line continues beyond the right of the screen
 
-" don't use Ex mode, use Q for formatting
-map Q gq
-
-" define %% as helper for directory of current file
-" see http://vimcasts.org/episodes/the-edit-command/
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-" shortcut to toggle to 'alternate' buffer
-nnoremap <leader><leader> <c-^>
-
-if has("statusline") && !&cp
-  set laststatus=2  " always show the status bar
-
-  " Start the status line
-  set statusline=%f\ %m\ %r
-
-  " Add fugitive
-  set statusline+=%{fugitive#statusline()}
-
-  " Finish the statusline
-  " set statusline+=Line:%l/%L[%p%%]
-  " set statusline+=Col:%v
-  " set statusline+=Buf:#%n
-  " set statusline+=[%b][0x%B]
-endif
-
-" Quickly edit/reload the vimrc file
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>ev :edit $MYVIMRC<CR>
-
-" navigate to current files
-map <leader>e :edit %%
-map <leader>v :view %%
-
 " load individual settings configuration files
 " see https://github.com/skwp/dotfiles/blob/master/vimrc
 for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
