@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-sensible'
 Bundle 'kien/ctrlp.vim'
 Bundle 'rking/ag.vim'
 Bundle 'tpope/vim-fugitive'
@@ -25,8 +26,6 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'elzr/vim-json'
 Bundle 'kchmck/vim-coffee-script'
-
-:runtime macros/matchit.vim       " enable matchit for textobj-ruby plugin
 
 " re-enable filtypes (required)
 filetype plugin indent on
