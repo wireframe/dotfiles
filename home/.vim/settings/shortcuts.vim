@@ -19,10 +19,3 @@ nmap <leader>q :q!<cr>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 
-" shortcut to toggle to 'alternate' buffer
-nnoremap <leader><leader> <c-^>
-
-" clear search highlighting
-" see http://stackoverflow.com/questions/4372660/get-rid-of-vims-highlight-after-searching-text
-nnoremap <silent> <esc> :noh<cr><esc>
-
