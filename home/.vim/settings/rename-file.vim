@@ -1,5 +1,7 @@
 " support renaming file directly through vim
 " see https://github.com/f1sherman/dotvim/blob/master/vimrc
+" if the file is in git, rename so that history is preserved.
+" after file is renamed, clear autocomplete cache as well.
 map <leader>n :call RenameFile()<cr>
 function! RenameFile()
   let s:old_name = expand('%')
@@ -26,7 +28,8 @@ function! RenameFile()
       exec ':saveas ' . s:new_name
       exec ':silent !rm ' . s:old_name
     finally
-      exec ':CommandTFlush'
+      " clear autocomplete cache
+      exec ':CtrlPClearCache'
     endtry
     redraw!
   endif
