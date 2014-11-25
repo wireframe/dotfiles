@@ -1,1 +1,0 @@
-except-branch: master|staging|prototype|last_known_good.*
