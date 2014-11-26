@@ -1,5 +1,7 @@
 # ignore vundle bundles
 bundle/*
 
-#
 !bundle/.gitkeep
+
+# NetRC files
+.netrwhist
