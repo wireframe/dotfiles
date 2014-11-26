@@ -1,11 +1,11 @@
 #set -x
-echo 'Loading bash profile...'
+echo -n 'Loading bash profile...'
 
 # load all customizations from ~/.profile.d directory
 if [ -d ~/.profile.d ]; then
   for i in ~/.profile.d/*.sh; do
     if [ -r $i ]; then
-      echo "Loading ${i}..."
+      echo -n .
       source $i
     fi
   done
@@ -16,7 +16,7 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if [ -d ~/.osx.d ]; then
     for f in ~/.osx.d/*.sh; do
-      echo "Configuring ${f}..."
+      echo -n .
       source $f;
     done
   fi
@@ -26,5 +26,4 @@ if [ -f ~/.bash_prompt ]; then
   source ~/.bash_prompt
 fi
 
-echo 'Profile loaded'
 echo 'SONNEK BOOM 🔥🔥🔥'

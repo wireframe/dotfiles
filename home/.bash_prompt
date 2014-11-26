@@ -95,7 +95,7 @@ Prompt="${IBlack}${Username}${Color_Off} ${PathShort}"
 # available via homebrew git bash completion extensions
 # brew info git
 if type -t __git_ps1 > /dev/null 2>&1; then
-  echo 'Configuring Git bash prompt...'
+  echo -n '.'
   GIT_PS1_SHOWDIRTYSTATE=true
   GIT_PS1_SHOWUNTRACKEDFILES=true
   GIT_PS1_SHOWUPSTREAM="auto"
