@@ -8,8 +8,5 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Disable default backwards scrolling
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-
 # Disable the dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean true
