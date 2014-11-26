@@ -1,6 +1,3 @@
-# add homebrew installed components to the system path
-export PATH=/usr/local/bin:$PATH
-
 # add homebrew npm installed binaries to system path
 export PATH=/usr/local/share/npm/bin:$PATH
 
