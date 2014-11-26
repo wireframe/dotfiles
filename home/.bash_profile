@@ -12,16 +12,19 @@ if [ -d ~/.profile.d ]; then
   unset i
 fi
 
-# load application configurations
-if [ -d ~/.apps.d ]; then
-  for f in ~/.apps.d/*.sh; do
-    echo "Configuring ${f}..."
-    source $f;
-  done
+# load OSX customizations
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  if [ -d ~/.osx.d ]; then
+    for f in ~/.osx.d/*.sh; do
+      echo "Configuring ${f}..."
+      source $f;
+    done
+  fi
 fi
 
 if [ -f ~/.bash_prompt ]; then
   source ~/.bash_prompt
 fi
 
-echo 'Profile loaded => SONNEK BOOM!'
+echo 'Profile loaded'
+echo 'SONNEK BOOM 🔥🔥🔥'
