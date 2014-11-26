@@ -15,25 +15,14 @@ wireframe's OSX dotfiles
 * install Xcode via App Store
 * install [Xcode command line tools](http://stackoverflow.com/questions/8032824/cant-install-ruby-under-lion-with-rvm-gcc-issues)
 * install [Homebrew](http://brew.sh/)
-* install [RVM](http://rvm.io/)
-
+* install [Rbenv](http://rbenv.org/)
 
 ### Installation using [Homesick](https://github.com/technicalpickles/homesick)
 
-```
+```bash
 $ gem install homesick
 $ homesick clone wireframe/dotfiles
 $ homesick symlink wireframe/dotfiles
-```
-
-### (optional) VIM configuration
-```
-# install VIM via homebrew
-brew install macvim --override-system-vim
-
-# install VIM Vundle plugin
-$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-$ vim +BundleInstall +qall
 ```
 
 ### (optional) Sublime Text Configuration
