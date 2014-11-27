@@ -13,7 +13,9 @@ endif
 let mapleader=","
 
 set background=dark
-color molokai
+colorscheme gruvbox
+set guifont=Monaco:h15
+
 set nonumber
 set ruler       " show the cursor position all the time
 set cursorline
