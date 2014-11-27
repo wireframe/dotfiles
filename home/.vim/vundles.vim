@@ -27,6 +27,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'morhetz/gruvbox'
+Plugin 'bling/vim-airline'
 
 " re-enable filtypes (required)
 filetype plugin indent on
