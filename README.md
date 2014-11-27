@@ -22,7 +22,8 @@ wireframe's OSX dotfiles
 ```bash
 $ gem install homesick
 $ homesick clone wireframe/dotfiles
-$ homesick symlink wireframe/dotfiles
+$ homesick symlink dotfiles
+$ homesick rc dotfiles
 ```
 
 ### (optional) Sublime Text Configuration
