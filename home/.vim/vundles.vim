@@ -12,8 +12,8 @@ Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
 
 " Navigation Plugins
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc'
 
 " Editing Plugins
 Plugin 'tpope/vim-surround'
