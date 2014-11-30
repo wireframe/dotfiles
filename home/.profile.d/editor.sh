@@ -1,8 +1,4 @@
-if [ -f /usr/local/bin/subl ]; then
-  export EDITOR='subl'
-else
-  export EDITOR="vim"
-fi
+export EDITOR="vim"
 
 alias v="vim"
 alias s="subl"
