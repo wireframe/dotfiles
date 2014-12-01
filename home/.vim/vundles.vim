@@ -20,6 +20,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-dispatch'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Syntax plugins
 Plugin 'scrooloose/syntastic'
@@ -28,11 +31,9 @@ Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'ervandew/supertab'
-Plugin 'tpope/vim-dispatch'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'slim-template/vim-slim'
 
 " UI Plugins
 Plugin 'flazz/vim-colorschemes'
