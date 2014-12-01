@@ -1,3 +1,7 @@
+" Set default location of created splits
+set splitbelow
+set splitright
+
 " shortcuts for creating split windows
 " \ for vertical split
 " - for horizontal split
