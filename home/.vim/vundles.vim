@@ -10,6 +10,7 @@ Plugin 'gmarik/vundle'
 " Core Plugins
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-eunuch'
 
 " Navigation Plugins
 Plugin 'Shougo/unite.vim'
