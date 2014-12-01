@@ -14,6 +14,7 @@ Plugin 'tpope/vim-fugitive'
 " Navigation Plugins
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
+Plugin 'pbrisbin/vim-mkdir'
 
 " Editing Plugins
 Plugin 'tpope/vim-surround'
