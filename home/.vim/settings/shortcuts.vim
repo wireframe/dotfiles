@@ -19,3 +19,6 @@ nmap <leader>q :q!<cr>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>ev :edit $MYVIMRC<CR>
 
+" save files that need sudo access
+" http://www.catonmat.net/blog/sudo-vim/
+cnoremap sudow w !sudo tee % >/dev/null
