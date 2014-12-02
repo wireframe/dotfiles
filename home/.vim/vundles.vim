@@ -16,6 +16,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'pbrisbin/vim-mkdir'
+Plugin 'tpope/vim-vinegar'
 
 " Editing Plugins
 Plugin 'tpope/vim-surround'
