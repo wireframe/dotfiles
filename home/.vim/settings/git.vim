@@ -1,5 +1,5 @@
 " shortcuts for common operations
-noremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gl :Glog<CR>
