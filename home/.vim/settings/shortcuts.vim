@@ -7,7 +7,6 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " navigate to current files
 map <leader>e :edit %%
-map <leader>v :view %%
 
 " Fast saving of current file
 nmap <leader>w :w!<cr>
@@ -16,8 +15,8 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
 
 " Quickly edit/reload the vimrc file
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>ev :edit $MYVIMRC<CR>
+nnoremap <leader>vs :source $MYVIMRC<CR>
+nnoremap <leader>ve :edit $MYVIMRC<CR>
 
 " save files that need sudo access
 " http://www.catonmat.net/blog/sudo-vim/
