@@ -16,6 +16,9 @@ let g:unite_source_grep_default_opts =
 let g:unite_source_grep_recursive_opt = ''
 noremap <leader>c :Unite grep:.<cr>
 
+" Resume previous content search buffer
+noremap <leader>r :UniteResume<cr>
+
 " find yank history
 let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :Unite history/yank<cr>
