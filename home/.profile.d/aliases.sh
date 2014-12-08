@@ -4,6 +4,7 @@ alias p="cd ~/Projects"
 
 # Shortcuts
 alias g="git"
+alias b="bundle"
 alias o="open"
 alias oo="open ."
 
