@@ -103,7 +103,7 @@ if type -t __git_ps1 > /dev/null 2>&1; then
   Prompt=$Prompt$Yellow'$(__git_ps1 " (%s)")'$Color_Off
 fi
 
-PS1=$Prompt'\$ '
+PS1=$Prompt' \$ '
 
 # use vim keybindings for bash prompts
 set -o vi
