@@ -23,7 +23,7 @@ let g:unite_source_history_yank_enable = 1
 nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank history/yank<cr>
 
 " find buffers
-nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer -quick-match buffer<cr>
+nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer buffer<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
