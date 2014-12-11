@@ -1,12 +1,13 @@
 # Easier navigation
 alias ..="cd .."
 alias p="cd ~/Projects"
-
-# Shortcuts
-alias g="git"
-alias b="bundle"
 alias o="open"
 alias oo="open ."
+
+# Command Shortcuts
+alias g="git"
+alias b="bundle"
+alias c="consular"
 
 alias hist='history | grep $1' #Requires one input
 alias h="history"
