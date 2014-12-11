@@ -16,7 +16,7 @@ let g:unite_source_grep_default_opts =
               \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
               \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
 let g:unite_source_grep_recursive_opt = ''
-noremap <leader>c :<C-u>Unite -no-quit -keep-focus -buffer-name=grep grep:.<cr>
+noremap <leader>c :<C-u>Unite -no-quit -winheight=10 -buffer-name=grep grep:.<cr>
 
 " find yank history
 let g:unite_source_history_yank_enable = 1
