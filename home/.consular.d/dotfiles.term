@@ -1,0 +1,6 @@
+project_dir = '~/.homesick/repos/dotfiles'
+
+window do
+  before { run "cd #{project_dir}" }
+  tab 'vim .'
+end
