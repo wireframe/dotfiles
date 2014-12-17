@@ -27,6 +27,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'ervandew/supertab'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin '907th/vim-auto-save'
 
 " Syntax plugins
 Plugin 'scrooloose/syntastic'
