@@ -10,3 +10,6 @@ defaults write com.apple.dock autohide -bool true
 
 # enable OSX Yosemite Dark theme
 defaults write ~/Library/Preferences/.GlobalPreferences AppleInterfaceStyle Dark
+
+# set desktop background
+sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture "/Library/Desktop Pictures/Solid Colors/Solid Gray Pro Dark.png"
