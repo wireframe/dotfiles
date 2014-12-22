@@ -19,6 +19,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>50C67BAE-9B0E-40C3-A77F-AD35AF0FF535</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>github</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>Open Github</string>
+			<key>url</key>
+			<string>https://www.github.com</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>BAFFA631-61EB-465D-9EB1-D657357C87BD</key>
 		<dict>
 			<key>enabled</key>
