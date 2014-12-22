@@ -2,6 +2,3 @@
 puts "Installing vim plugins..."
 system 'vim +PluginInstall +qall'
 system 'cd ~/.vim/bundle/vimproc/ && make'
-
-puts "Configuring OSX settings..."
-system '~/bin/osx-init.sh'
