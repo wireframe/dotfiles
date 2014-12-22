@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.semicolons.alfred.calliphone</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>1856D15B-A2EA-484B-B28D-3D007DA6228D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8FC7D72D-0D85-4AA0-AE31-84AE447AB0FD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>EE7C0EA6-2100-4320-8475-C1FBBCC63CDA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8FC7D72D-0D85-4AA0-AE31-84AE447AB0FD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Chase Nordengren</string>
+	<key>description</key>
+	<string>Calls provided number from iPhone or from contact action</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Call from iPhone</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>open "tel://{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8FC7D72D-0D85-4AA0-AE31-84AE447AB0FD</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>call</string>
+				<key>subtext</key>
+				<string>Calls a phone number via iPhone</string>
+				<key>text</key>
+				<string>Call a phone number</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>1856D15B-A2EA-484B-B28D-3D007DA6228D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>name</key>
+				<string>Call via iPhone</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.contact</string>
+			<key>uid</key>
+			<string>EE7C0EA6-2100-4320-8475-C1FBBCC63CDA</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>A Workflow for Alfred 2  
+Chase Nordengren  
+semicolons.net  
+——  
+Requires handoff calling feature first implemented in OS X Yosemite.  
+One command: call {query}. Calls phone number using iPhone. Also adds a contacts action to the same effect.  
+TODO: Better contacts integration.
+—
+Versions:
+
+1.0.1 Added high res icon
+1.0 Initial release</string>
+	<key>uidata</key>
+	<dict>
+		<key>1856D15B-A2EA-484B-B28D-3D007DA6228D</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>8FC7D72D-0D85-4AA0-AE31-84AE447AB0FD</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>EE7C0EA6-2100-4320-8475-C1FBBCC63CDA</key>
+		<dict>
+			<key>ypos</key>
+			<real>120</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://semicolons.net</string>
+</dict>
+</plist>

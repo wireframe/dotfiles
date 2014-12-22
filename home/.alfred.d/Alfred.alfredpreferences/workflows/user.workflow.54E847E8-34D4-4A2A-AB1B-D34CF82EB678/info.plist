@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.AmosManneschmidt.callorsmscontact</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>0FAC263F-D24B-4ACB-9D59-07329F75BCD0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E4B277B2-977C-4560-8E33-DA50A32F72CE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>217E2CEF-689C-49E5-986E-8C1B55AB80C8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>65F3C990-A063-4BD2-B9EF-4EC72A8E7708</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>AA05525E-1106-40EB-8CFC-66CA0AFFF10F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E4B277B2-977C-4560-8E33-DA50A32F72CE</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>E4B277B2-977C-4560-8E33-DA50A32F72CE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>86590F04-57CC-4B1E-96FF-A87CC14063DA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>FF8E3BE3-2E94-4801-8A01-9AA8DE17340B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>217E2CEF-689C-49E5-986E-8C1B55AB80C8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Amos Manneschmidt (@amoose136)</string>
+	<key>description</key>
+	<string></string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Call or SMS contact</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+
+tell application "Contacts"
+set q to text ((offset of "Metadata/" in q)+9) thru ((offset of "." in q)-1) of q
+set phonenumber to value of phone of person id qset phonenumber to item 1 of phonenumber
+end tell
+
+set input to phonenumber	set digits to "1234567890"	copy input to nonNumbers	repeat with thisnumber in digits		set AppleScript's text item delimiters to thisnumber		set nonNumbers to every text item of nonNumbers as text	end repeat	try		repeat with thischar in nonNumbers			set endTest to item 1 of nonNumbers			set AppleScript's text item delimiters to endTest			set input to every text item of input			set nonNumbers to every text item of nonNumbers			set AppleScript's text item delimiters to ""			set input to input as text			set nonNumbers to nonNumbers as text		end repeat	end tryreturn input
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>217E2CEF-689C-49E5-986E-8C1B55AB80C8</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>open 'tel://{query}'</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>65F3C990-A063-4BD2-B9EF-4EC72A8E7708</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemPhoneNumbers</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<false/>
+						<key>value</key>
+						<string>*</string>
+						<key>words</key>
+						<false/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>keyword</key>
+				<string>call</string>
+				<key>scopes</key>
+				<array>
+					<string>~/Library/Application Support/AddressBook</string>
+				</array>
+				<key>subtext</key>
+				<string>Call using iPhone tethering if available</string>
+				<key>title</key>
+				<string>Call...[contact name]</string>
+				<key>types</key>
+				<array>
+					<string>com.apple.addressbook.person</string>
+				</array>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>FF8E3BE3-2E94-4801-8A01-9AA8DE17340B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemPhoneNumbers</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<false/>
+						<key>value</key>
+						<string>*</string>
+						<key>words</key>
+						<false/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>keyword</key>
+				<string>sms</string>
+				<key>scopes</key>
+				<array>
+					<string>~/Library/Application Support/AddressBook</string>
+				</array>
+				<key>subtext</key>
+				<string>Message contact with imessage</string>
+				<key>title</key>
+				<string>Message [Contact Name]</string>
+				<key>types</key>
+				<array>
+					<string>com.apple.addressbook.person</string>
+				</array>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>AA05525E-1106-40EB-8CFC-66CA0AFFF10F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>open 'imessage://{query}'</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.script</string>
+			<key>uid</key>
+			<string>86590F04-57CC-4B1E-96FF-A87CC14063DA</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)
+
+tell application "Contacts"
+set q to text ((offset of "Metadata/" in q)+9) thru ((offset of "." in q)-1) of q
+set phonenumber to value of phone of person id qset phonenumber to item 1 of phonenumber
+end tell
+
+set input to phonenumber	set digits to "1234567890"	copy input to nonNumbers	repeat with thisnumber in digits		set AppleScript's text item delimiters to thisnumber		set nonNumbers to every text item of nonNumbers as text	end repeat	try		repeat with thischar in nonNumbers			set endTest to item 1 of nonNumbers			set AppleScript's text item delimiters to endTest			set input to every text item of input			set nonNumbers to every text item of nonNumbers			set AppleScript's text item delimiters to ""			set input to input as text			set nonNumbers to nonNumbers as text		end repeat	end tryreturn input
+
+end alfred_script</string>
+				<key>cachescript</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>E4B277B2-977C-4560-8E33-DA50A32F72CE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>anchorfields</key>
+				<true/>
+				<key>daterange</key>
+				<integer>0</integer>
+				<key>fields</key>
+				<array>
+					<dict>
+						<key>field</key>
+						<string>kMDItemDisplayName</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemFinderComment</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<true/>
+						<key>value</key>
+						<string>{query}</string>
+						<key>words</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>field</key>
+						<string>kMDItemPhoneNumbers</string>
+						<key>not</key>
+						<false/>
+						<key>split</key>
+						<false/>
+						<key>value</key>
+						<string>*</string>
+						<key>words</key>
+						<false/>
+					</dict>
+				</array>
+				<key>includesystem</key>
+				<false/>
+				<key>keyword</key>
+				<string>im</string>
+				<key>scopes</key>
+				<array>
+					<string>~/Library/Application Support/AddressBook</string>
+				</array>
+				<key>subtext</key>
+				<string>Message contact with imessage</string>
+				<key>title</key>
+				<string>Message [Contact Name]</string>
+				<key>types</key>
+				<array>
+					<string>com.apple.addressbook.person</string>
+				</array>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.filefilter</string>
+			<key>uid</key>
+			<string>0FAC263F-D24B-4ACB-9D59-07329F75BCD0</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>0FAC263F-D24B-4ACB-9D59-07329F75BCD0</key>
+		<dict>
+			<key>ypos</key>
+			<real>240</real>
+		</dict>
+		<key>217E2CEF-689C-49E5-986E-8C1B55AB80C8</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>65F3C990-A063-4BD2-B9EF-4EC72A8E7708</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>86590F04-57CC-4B1E-96FF-A87CC14063DA</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>AA05525E-1106-40EB-8CFC-66CA0AFFF10F</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+		<key>E4B277B2-977C-4560-8E33-DA50A32F72CE</key>
+		<dict>
+			<key>ypos</key>
+			<real>180</real>
+		</dict>
+		<key>FF8E3BE3-2E94-4801-8A01-9AA8DE17340B</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tedwise.vpn</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>7C40F60B-CA0B-4F0D-8B24-868B215C2869</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D8674436-5203-4401-8629-63A652782F77</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>D48CD35D-8AB0-4616-BB6A-7B0858A38ED3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7C40F60B-CA0B-4F0D-8B24-868B215C2869</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Ted Wise</string>
+	<key>description</key>
+	<string>Control VPN connections</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>VPN Toggle</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>applescript</key>
+				<string>on alfred_script(q)	set output to "Failed"	tell application "System Events"		tell current location of network preferences			set VPNservice to service q			set isConnected to connected of current configuration of VPNservice			if isConnected then				disconnect VPNservice				set output to "Disconnected from " &amp; q			else				connect VPNservice				set output to "Connected to " &amp; q			end if		end tell	end tell	return outputend alfred_script</string>
+				<key>cachescript</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.applescript</string>
+			<key>uid</key>
+			<string>7C40F60B-CA0B-4F0D-8B24-868B215C2869</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>vpn</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>ruby vpn_list.rb</string>
+				<key>subtext</key>
+				<string>Connect to or disconnect from VPN service</string>
+				<key>title</key>
+				<string>Control VPN connections</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D48CD35D-8AB0-4616-BB6A-7B0858A38ED3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>VPN Toggle</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D8674436-5203-4401-8629-63A652782F77</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>7C40F60B-CA0B-4F0D-8B24-868B215C2869</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>D48CD35D-8AB0-4616-BB6A-7B0858A38ED3</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>D8674436-5203-4401-8629-63A652782F77</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://tedwise.com</string>
+</dict>
+</plist>

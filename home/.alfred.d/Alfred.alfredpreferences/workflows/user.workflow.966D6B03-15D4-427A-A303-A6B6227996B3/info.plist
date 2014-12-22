@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.alfredapp.david.amazonsuggest</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>221025C2-26B2-4105-B171-A62E18219FBD</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>21ACD77C-F177-4D29-9560-8D7461EC6453</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>David Ferguson</string>
+	<key>description</key>
+	<string>Get Search Suggestions from your Amazon store</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Amazon Suggest</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>36</integer>
+				<key>keyword</key>
+				<string>amazon</string>
+				<key>runningsubtext</key>
+				<string>Searching Amazon.com ...</string>
+				<key>script</key>
+				<string>require('workflows.php');
+$w = new Workflows();
+
+// Grab input and build query url string
+$in = "{query}";
+$url = "http://completion.amazon.com/search/complete?method=completion&amp;q=".urlencode( $in )."&amp;search-alias=aps&amp;mkt=1&amp;x=updateISSCompletion&amp;noCacheIE=1295031912518";
+
+// Grab the data from Amazon
+$str = $w-&gt;request( $url );
+
+// Strip off the "header" data
+$str = substr( $str, strlen( 'completion = ["'.$in.'",[' ) );
+
+// Remove the node info
+$str = substr( $str, 0, strpos( $str, ']' ) );
+
+//  Check to see if results were found
+if ( $str == "" ):
+	$w-&gt;result( time(), $in, 'No Suggestions', 'No search suggestions found. Search Amazon for '.$in, 'icon.png', 'yes' );
+else:
+	// Remove the double quotes around all the strings,
+	$str = str_replace( '"', '', $str );
+
+	// Split into an array using a comma as the delimiter
+	$options = explode( ',', $str );
+
+	// Loop through each result and make a feedback item
+	foreach( $options as $option ):
+		$w-&gt;result( time(), $option, $option, 'Find '.$option.' on Amazon', 'icon.png', 'yes', $option );
+	endforeach;
+endif;
+
+// Return the result xml
+echo $w-&gt;toxml();</string>
+				<key>subtext</key>
+				<string>Get search suggestions from Amazon.com</string>
+				<key>title</key>
+				<string>Search Amazon</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>221025C2-26B2-4105-B171-A62E18219FBD</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>searcher</key>
+				<integer>1635213677</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.systemwebsearch</string>
+			<key>uid</key>
+			<string>21ACD77C-F177-4D29-9560-8D7461EC6453</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>21ACD77C-F177-4D29-9560-8D7461EC6453</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>221025C2-26B2-4105-B171-A62E18219FBD</key>
+		<dict>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>dferg.us</string>
+</dict>
+</plist>

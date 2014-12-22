@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Add Calendar Event</name>
+  <version>1.9</version>
+  <bundle>tox.new_event</bundle>
+  <updated>1414446587</updated>
+  <file>add_calendar_event_v.1.9.alfredworkflow</file>
+</workflow>

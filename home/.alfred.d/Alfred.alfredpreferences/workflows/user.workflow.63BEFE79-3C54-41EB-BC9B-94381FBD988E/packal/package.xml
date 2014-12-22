@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>Call from iPhone</name>
+  <version>1.0.1</version>
+  <bundle>com.semicolons.alfred.calliphone</bundle>
+  <updated>1413851777</updated>
+  <file>call_from_iphone.alfredworkflow</file>
+</workflow>
