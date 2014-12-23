@@ -10,5 +10,7 @@
 		<string>features.websearch.wiki.fallback</string>
 		<string>features.websearch.amazon.fallback</string>
 	</array>
+	<key>showFolders</key>
+	<true/>
 </dict>
 </plist>
