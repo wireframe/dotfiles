@@ -12,6 +12,7 @@
 		<string>/System/Library/CoreServices/Applications</string>
 		<string>/System/Library/PreferencePanes</string>
 		<string>~/Applications</string>
+		<string>~/Applications/Chrome Apps.localized</string>
 		<string>~/Library/Caches/Metadata</string>
 		<string>~/Library/Mobile Documents</string>
 		<string>~/Library/PreferencePanes</string>
