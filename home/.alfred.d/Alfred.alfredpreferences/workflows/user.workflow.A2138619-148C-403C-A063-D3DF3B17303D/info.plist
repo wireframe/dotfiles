@@ -226,6 +226,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>4368ADBC-D1C4-47E0-B079-74290E4C483B</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9B822BF1-3B02-45BD-8030-51301B97E786</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>52C5B49B-F64C-4E27-97FE-D4B6C00325BC</key>
 		<array>
 			<dict>
@@ -270,6 +281,39 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>6DBEE8A0-34C8-4EB3-BCF5-5F68E669AAD8</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9B822BF1-3B02-45BD-8030-51301B97E786</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>7351489F-00D7-45D9-B537-DCCBC9FF6EE2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8DA23C15-0A2E-4B19-9867-A9D1E25FA25E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>79987E2F-376C-4AF2-BA6A-184497B34657</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>17E4C4E9-2838-4E82-A2D3-4C754333B9D2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>7C43E15F-8371-4EC8-B8C1-54E7AE9ACC2D</key>
 		<array>
 			<dict>
@@ -308,6 +352,28 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>1A119793-F983-41B9-BB97-3C69008AA63E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>8DA23C15-0A2E-4B19-9867-A9D1E25FA25E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3F171DE7-F38F-4370-9FD6-CD7B4FB5D32F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>8E060E7D-C707-4F0C-A9A3-C68158E9DC6C</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8BDABE79-2BF4-4CAC-83C5-D960633934DC</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -414,6 +480,17 @@
 				<string>Create Note and Open</string>
 			</dict>
 		</array>
+		<key>9B822BF1-3B02-45BD-8030-51301B97E786</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3F171DE7-F38F-4370-9FD6-CD7B4FB5D32F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>A6828845-E40B-4814-A899-C5718F63D3D3</key>
 		<array>
 			<dict>
@@ -500,6 +577,14 @@
 				<key>modifiersubtext</key>
 				<string></string>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E143EB2E-DCAF-451B-9364-F707FFB7337D</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string>Append with current date</string>
+			</dict>
 		</array>
 		<key>B25C029D-CE2E-462C-B3A5-7F20165805E7</key>
 		<array>
@@ -539,6 +624,17 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>0D49FCE7-B1F7-4C21-8C27-179EF2527CE0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>C08ACFE5-4079-4E6A-B1A3-681B737ADBFF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>17E4C4E9-2838-4E82-A2D3-4C754333B9D2</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -628,6 +724,17 @@
 				<string></string>
 			</dict>
 		</array>
+		<key>D797A08E-F9E4-4908-B95A-0E0877BC2857</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6DBEE8A0-34C8-4EB3-BCF5-5F68E669AAD8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>D7A16404-A29C-42FD-9664-9F6BC3F260DA</key>
 		<array/>
 		<key>E0EEE9EF-3E52-4077-9A51-56882FEC0BED</key>
@@ -635,6 +742,17 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>2B7138ED-D927-4D76-A708-9028C9AC18DB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>E143EB2E-DCAF-451B-9364-F707FFB7337D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CDA5D561-D54B-4CB6-B5A1-2117C658AC23</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -679,17 +797,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>CDA5D561-D54B-4CB6-B5A1-2117C658AC23</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>EC560143-66C2-4C19-AC8D-62296F503F29</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>2B7138ED-D927-4D76-A708-9028C9AC18DB</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -744,30 +851,13 @@
 	<key>createdby</key>
 	<string>Carlos Alberto Sztoltz</string>
 	<key>description</key>
-	<string>Use Evernote with Alfred (8.0)</string>
+	<string>Use Evernote with Alfred | 8.92</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
 	<string>Evernote</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>do shell script "open " &amp; (quoted form of (POSIX path of ((do shell script "pwd") &amp; "/help.pdf")))</string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>7188E433-28CE-4D39-847F-E4526D7FC97C</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -795,6 +885,25 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
+				<string>do shell script "Open help.html"
+
+--do shell script "open " &amp; (quoted form of (POSIX path of ((do shell script "pwd") &amp; "/help.html")))</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7188E433-28CE-4D39-847F-E4526D7FC97C</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
 				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_open.scpt")) with parameters {"{query}"}</string>
 				<key>type</key>
 				<integer>6</integer>
@@ -805,33 +914,6 @@
 			<string>3D0C64EE-F2CE-4A9A-91E6-3A11D95E993E</string>
 			<key>version</key>
 			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>hotkey</key>
-				<integer>14</integer>
-				<key>hotmod</key>
-				<integer>1179648</integer>
-				<key>hotstring</key>
-				<string>E</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>EC560143-66C2-4C19-AC8D-62296F503F29</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -873,9 +955,11 @@
 				<key>argument</key>
 				<integer>0</integer>
 				<key>hotkey</key>
-				<integer>0</integer>
+				<integer>14</integer>
 				<key>hotmod</key>
-				<integer>0</integer>
+				<integer>1179648</integer>
+				<key>hotstring</key>
+				<string>E</string>
 				<key>leftcursor</key>
 				<false/>
 				<key>modsmode</key>
@@ -889,6 +973,23 @@
 			<string>E0EEE9EF-3E52-4077-9A51-56882FEC0BED</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_open.scpt")) with parameters {"{query}-url"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>1B484655-159F-43B3-B8D4-26948DB5971B</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -916,23 +1017,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>2B7138ED-D927-4D76-A708-9028C9AC18DB</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_open.scpt")) with parameters {"{query}-url"}</string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>1B484655-159F-43B3-B8D4-26948DB5971B</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1196,6 +1280,31 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Evernote</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>837749EE-179F-4B00-BD6E-066478F83A38</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -1240,31 +1349,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Evernote</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>837749EE-179F-4B00-BD6E-066478F83A38</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
@@ -1299,6 +1383,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>613D53C2-4645-43F3-B147-22C42C1B392A</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
@@ -1310,21 +1409,6 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>051B1D7E-4660-4706-9B71-8C1F50BE9F93</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<true/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>613D53C2-4645-43F3-B147-22C42C1B392A</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1436,23 +1520,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_paste.scpt")) with parameters {"{query}"}</string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>912F5F2A-B7F4-4C8B-9490-3CACA97D63B7</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>autopaste</key>
 				<true/>
 				<key>clipboardtext</key>
@@ -1471,14 +1538,14 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addrm.scpt")) with parameters {"{query}||1"}</string>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_paste.scpt")) with parameters {"{query}"}</string>
 				<key>type</key>
 				<integer>6</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>98F88518-1696-4151-9151-E9BFE90FDFB2</string>
+			<string>912F5F2A-B7F4-4C8B-9490-3CACA97D63B7</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1508,6 +1575,23 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>292FA993-EA5B-47AE-9B49-F00D69ED3BE0</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addrm.scpt")) with parameters {"{query}||1"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>98F88518-1696-4151-9151-E9BFE90FDFB2</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1573,6 +1657,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_open.scpt")) with parameters {"{query}-url"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7061F9FC-37D0-40F2-AB40-7A2F9065BDF4</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -1605,23 +1706,6 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_open.scpt")) with parameters {"{query}-url"}</string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>7061F9FC-37D0-40F2-AB40-7A2F9065BDF4</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
 				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_append.scpt")) with parameters {"{query}||1"}</string>
 				<key>type</key>
 				<integer>6</integer>
@@ -1630,23 +1714,6 @@
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
 			<string>F0AB1D96-A5EB-4AD2-BE38-CB82F917A389</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addnote.scpt")) with parameters {"{query}"}</string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>388F687E-0773-45D9-8168-0A43874A46B1</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1710,6 +1777,23 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addnote.scpt")) with parameters {"{query}"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>388F687E-0773-45D9-8168-0A43874A46B1</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
 				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_append.scpt")) with parameters {"{query}||4"}</string>
 				<key>type</key>
 				<integer>6</integer>
@@ -1758,35 +1842,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>keyword</key>
-				<string>typenote</string>
-				<key>runningsubtext</key>
-				<string>Loading...</string>
-				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_filter.scpt")) with parameters {"typeennote:{query}"}</string>
-				<key>subtext</key>
-				<string>Notebook: (default) | Tags: (none) | Reminder: (none) | Note: (type it)</string>
-				<key>title</key>
-				<string>Type a New Note</string>
-				<key>type</key>
-				<integer>6</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>D4DCD4EA-CEE5-495D-BA5F-7C8F8259D4DB</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -1812,17 +1867,29 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>68</integer>
+				<key>keyword</key>
+				<string>typenote</string>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
 				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_append.scpt")) with parameters {"{query}||4"}</string>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_filter.scpt")) with parameters {"typeennote:{query}"}</string>
+				<key>subtext</key>
+				<string>Notebook: (default) | Tags: (none) | Reminder: (none) | Note: (type it)</string>
+				<key>title</key>
+				<string>Type a New Note</string>
 				<key>type</key>
 				<integer>6</integer>
+				<key>withspace</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>ADC3EF51-7B82-4B03-BA79-1D9FFA05E05E</string>
+			<string>D4DCD4EA-CEE5-495D-BA5F-7C8F8259D4DB</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1859,14 +1926,14 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addnote.scpt")) with parameters {"-o{query}"}</string>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_append.scpt")) with parameters {"{query}||4"}</string>
 				<key>type</key>
 				<integer>6</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>CBBD9277-6389-4BA9-B282-D0F51A323F04</string>
+			<string>ADC3EF51-7B82-4B03-BA79-1D9FFA05E05E</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1878,7 +1945,7 @@
 				<key>argument</key>
 				<integer>3</integer>
 				<key>argumenttext</key>
-				<string>New Note from Text Selection</string>
+				<string>New: Text Selection</string>
 				<key>hotkey</key>
 				<integer>0</integer>
 				<key>hotmod</key>
@@ -1896,6 +1963,23 @@
 			<string>8AC9DA30-2F9D-4E61-919C-DA5DC07BC4D5</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addnote.scpt")) with parameters {"-o{query}"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>CBBD9277-6389-4BA9-B282-D0F51A323F04</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1922,7 +2006,7 @@
 				<key>argument</key>
 				<integer>3</integer>
 				<key>argumenttext</key>
-				<string>New Note from Clipboard</string>
+				<string>New: Text Clipboard</string>
 				<key>hotkey</key>
 				<integer>0</integer>
 				<key>hotmod</key>
@@ -1944,6 +2028,33 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>New: Image Clipboard</string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>8E060E7D-C707-4F0C-A9A3-C68158E9DC6C</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>acceptsmulti</key>
 				<true/>
 				<key>filetypes</key>
@@ -1955,6 +2066,40 @@
 			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
 			<string>BA65BA92-2F93-468E-9C0C-6532A2AFB52B</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addnote.scpt")) with parameters {"-f{query}"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7C43E15F-8371-4EC8-B8C1-54E7AE9ACC2D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<true/>
+				<key>filetypes</key>
+				<array/>
+				<key>name</key>
+				<string>New Notes from each File</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>FD7E3A4B-6AB5-40B2-8285-D3004928CFDA</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -1980,40 +2125,6 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>A0760809-E929-4DFC-9C32-DEB39366F960</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsmulti</key>
-				<true/>
-				<key>filetypes</key>
-				<array/>
-				<key>name</key>
-				<string>New Notes from each File</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>FD7E3A4B-6AB5-40B2-8285-D3004928CFDA</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addnote.scpt")) with parameters {"-f{query}"}</string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>7C43E15F-8371-4EC8-B8C1-54E7AE9ACC2D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -2111,31 +2222,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Evernote</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>CDA5D561-D54B-4CB6-B5A1-2117C658AC23</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>1</integer>
 				<key>escaping</key>
@@ -2157,6 +2243,48 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>A70539A5-7E52-433F-8802-13E82CEC1673</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_act_append.scpt")) with parameters {"{query}|3|"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>82C32C6B-AE6D-47B4-9043-959DE534F191</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Evernote</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>CDA5D561-D54B-4CB6-B5A1-2117C658AC23</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -2191,14 +2319,14 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
-				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_act_append.scpt")) with parameters {"{query}|3|"}</string>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_act_append.scpt")) with parameters {"{query}|4|"}</string>
 				<key>type</key>
 				<integer>6</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>82C32C6B-AE6D-47B4-9043-959DE534F191</string>
+			<string>E143EB2E-DCAF-451B-9364-F707FFB7337D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -2249,6 +2377,69 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>enl</string>
+				<key>subtext</key>
+				<string>Keyword: enl</string>
+				<key>text</key>
+				<string>Run Last Search Query</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>C08ACFE5-4079-4E6A-B1A3-681B737ADBFF</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_search.scpt")) with parameters {"lastquery:"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>17E4C4E9-2838-4E82-A2D3-4C754333B9D2</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>79987E2F-376C-4AF2-BA6A-184497B34657</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>script</key>
@@ -2284,6 +2475,171 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>📐:</string>
+				<key>script</key>
+				<string>run script "en_template.scpt" with parameters {"{query}"}</string>
+				<key>title</key>
+				<string>Select a Tamplete Note</string>
+				<key>type</key>
+				<integer>6</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7351489F-00D7-45D9-B537-DCCBC9FF6EE2</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script "en_template.scpt" with parameters {"{query}|-t|"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8DA23C15-0A2E-4B19-9867-A9D1E25FA25E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Evernote</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>3F171DE7-F38F-4370-9FD6-CD7B4FB5D32F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>etem</string>
+				<key>runningsubtext</key>
+				<string>Loading options...</string>
+				<key>script</key>
+				<string>run script "en_template.scpt" with parameters {"{query}|-f|"}</string>
+				<key>subtext</key>
+				<string>Keyword: ennt</string>
+				<key>title</key>
+				<string>New Note From Template</string>
+				<key>type</key>
+				<integer>6</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>6DBEE8A0-34C8-4EB3-BCF5-5F68E669AAD8</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>run script (POSIX file ((do shell script "pwd") &amp; "/en_addnote.scpt")) with parameters {"{query}"}</string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9B822BF1-3B02-45BD-8030-51301B97E786</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>D797A08E-F9E4-4908-B95A-0E0877BC2857</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>3</integer>
+				<key>argumenttext</key>
+				<string>Last Template</string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>4368ADBC-D1C4-47E0-B079-74290E4C483B</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Code snippets from:
@@ -2316,17 +2672,17 @@ q_workflow library by Ursan Razvan</string>
 		<key>103A74CD-4EAC-4869-9522-30D821B3CE13</key>
 		<dict>
 			<key>ypos</key>
-			<real>3510</real>
+			<real>3630</real>
 		</dict>
 		<key>10460E83-82BA-491B-8D29-6FF26F0A4DA1</key>
 		<dict>
 			<key>ypos</key>
-			<real>3910</real>
+			<real>4270</real>
 		</dict>
 		<key>11F0317D-BA3E-4674-BDC0-EB5A21092114</key>
 		<dict>
 			<key>ypos</key>
-			<real>3410</real>
+			<real>3530</real>
 		</dict>
 		<key>1548A07D-6ED9-481D-B85F-92AFB92EFFE3</key>
 		<dict>
@@ -2337,6 +2693,11 @@ q_workflow library by Ursan Razvan</string>
 		<dict>
 			<key>ypos</key>
 			<real>210</real>
+		</dict>
+		<key>17E4C4E9-2838-4E82-A2D3-4C754333B9D2</key>
+		<dict>
+			<key>ypos</key>
+			<real>4160</real>
 		</dict>
 		<key>1A119793-F983-41B9-BB97-3C69008AA63E</key>
 		<dict>
@@ -2381,7 +2742,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>31A81D1C-D5E4-4FD9-8022-361C9E1DBD23</key>
 		<dict>
 			<key>ypos</key>
-			<real>3810</real>
+			<real>4030</real>
 		</dict>
 		<key>388F687E-0773-45D9-8168-0A43874A46B1</key>
 		<dict>
@@ -2393,10 +2754,20 @@ q_workflow library by Ursan Razvan</string>
 			<key>ypos</key>
 			<real>110</real>
 		</dict>
+		<key>3F171DE7-F38F-4370-9FD6-CD7B4FB5D32F</key>
+		<dict>
+			<key>ypos</key>
+			<real>4370</real>
+		</dict>
 		<key>401F2F70-C45D-41AC-A9E0-8058BAD83686</key>
 		<dict>
 			<key>ypos</key>
 			<real>1710</real>
+		</dict>
+		<key>4368ADBC-D1C4-47E0-B079-74290E4C483B</key>
+		<dict>
+			<key>ypos</key>
+			<real>4570</real>
 		</dict>
 		<key>515404C0-B52C-40D8-A533-8D5756F5B0C4</key>
 		<dict>
@@ -2411,7 +2782,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>5A88DD8F-6DDE-4187-B499-6D85F0BED29D</key>
 		<dict>
 			<key>ypos</key>
-			<real>3810</real>
+			<real>4030</real>
 		</dict>
 		<key>5D666118-248B-4651-B441-C0210B9D5B79</key>
 		<dict>
@@ -2427,6 +2798,11 @@ q_workflow library by Ursan Razvan</string>
 		<dict>
 			<key>ypos</key>
 			<real>1510</real>
+		</dict>
+		<key>6DBEE8A0-34C8-4EB3-BCF5-5F68E669AAD8</key>
+		<dict>
+			<key>ypos</key>
+			<real>4470</real>
 		</dict>
 		<key>7061F9FC-37D0-40F2-AB40-7A2F9065BDF4</key>
 		<dict>
@@ -2448,10 +2824,20 @@ q_workflow library by Ursan Razvan</string>
 			<key>ypos</key>
 			<real>10</real>
 		</dict>
+		<key>7351489F-00D7-45D9-B537-DCCBC9FF6EE2</key>
+		<dict>
+			<key>ypos</key>
+			<real>4370</real>
+		</dict>
+		<key>79987E2F-376C-4AF2-BA6A-184497B34657</key>
+		<dict>
+			<key>ypos</key>
+			<real>4210</real>
+		</dict>
 		<key>7C43E15F-8371-4EC8-B8C1-54E7AE9ACC2D</key>
 		<dict>
 			<key>ypos</key>
-			<real>3310</real>
+			<real>3430</real>
 		</dict>
 		<key>7DFFFEC9-E7AB-4B35-A317-F7983A7DE0DD</key>
 		<dict>
@@ -2461,7 +2847,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>82C32C6B-AE6D-47B4-9043-959DE534F191</key>
 		<dict>
 			<key>ypos</key>
-			<real>3710</real>
+			<real>3830</real>
 		</dict>
 		<key>837749EE-179F-4B00-BD6E-066478F83A38</key>
 		<dict>
@@ -2482,6 +2868,16 @@ q_workflow library by Ursan Razvan</string>
 		<dict>
 			<key>ypos</key>
 			<real>3110</real>
+		</dict>
+		<key>8DA23C15-0A2E-4B19-9867-A9D1E25FA25E</key>
+		<dict>
+			<key>ypos</key>
+			<real>4370</real>
+		</dict>
+		<key>8E060E7D-C707-4F0C-A9A3-C68158E9DC6C</key>
+		<dict>
+			<key>ypos</key>
+			<real>3210</real>
 		</dict>
 		<key>912F5F2A-B7F4-4C8B-9490-3CACA97D63B7</key>
 		<dict>
@@ -2508,10 +2904,15 @@ q_workflow library by Ursan Razvan</string>
 			<key>ypos</key>
 			<real>2510</real>
 		</dict>
+		<key>9B822BF1-3B02-45BD-8030-51301B97E786</key>
+		<dict>
+			<key>ypos</key>
+			<real>4470</real>
+		</dict>
 		<key>A0760809-E929-4DFC-9C32-DEB39366F960</key>
 		<dict>
 			<key>ypos</key>
-			<real>3310</real>
+			<real>3430</real>
 		</dict>
 		<key>A6828845-E40B-4814-A899-C5718F63D3D3</key>
 		<dict>
@@ -2521,7 +2922,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>A70539A5-7E52-433F-8802-13E82CEC1673</key>
 		<dict>
 			<key>ypos</key>
-			<real>3610</real>
+			<real>3730</real>
 		</dict>
 		<key>A91FD655-4D1B-49BC-9CB3-4E5CC6A95B0F</key>
 		<dict>
@@ -2536,7 +2937,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>B14E9201-66FE-4ABB-A3C6-E25477C27CA9</key>
 		<dict>
 			<key>ypos</key>
-			<real>3710</real>
+			<real>3880</real>
 		</dict>
 		<key>B25C029D-CE2E-462C-B3A5-7F20165805E7</key>
 		<dict>
@@ -2551,12 +2952,17 @@ q_workflow library by Ursan Razvan</string>
 		<key>BA65BA92-2F93-468E-9C0C-6532A2AFB52B</key>
 		<dict>
 			<key>ypos</key>
-			<real>3210</real>
+			<real>3310</real>
 		</dict>
 		<key>BB8DEF2C-ED9B-4A8A-85EB-E65AA7E6E702</key>
 		<dict>
 			<key>ypos</key>
 			<real>1610</real>
+		</dict>
+		<key>C08ACFE5-4079-4E6A-B1A3-681B737ADBFF</key>
+		<dict>
+			<key>ypos</key>
+			<real>4130</real>
 		</dict>
 		<key>C261E260-526B-4EF6-B6F1-6BF5F04A8626</key>
 		<dict>
@@ -2566,7 +2972,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>C95E4049-FEFD-4FD2-AEEF-8C949B676AF2</key>
 		<dict>
 			<key>ypos</key>
-			<real>3410</real>
+			<real>3530</real>
 		</dict>
 		<key>CA78A861-69B9-4416-99EA-8F6D8BBE8FE3</key>
 		<dict>
@@ -2581,7 +2987,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>CDA5D561-D54B-4CB6-B5A1-2117C658AC23</key>
 		<dict>
 			<key>ypos</key>
-			<real>3610</real>
+			<real>3830</real>
 		</dict>
 		<key>D3ABA52B-C329-43BB-9832-CA00CE09EA67</key>
 		<dict>
@@ -2593,10 +2999,15 @@ q_workflow library by Ursan Razvan</string>
 			<key>ypos</key>
 			<real>2910</real>
 		</dict>
+		<key>D797A08E-F9E4-4908-B95A-0E0877BC2857</key>
+		<dict>
+			<key>ypos</key>
+			<real>4470</real>
+		</dict>
 		<key>D7A16404-A29C-42FD-9664-9F6BC3F260DA</key>
 		<dict>
 			<key>ypos</key>
-			<real>3910</real>
+			<real>4270</real>
 		</dict>
 		<key>D939543B-25D2-4C34-BAF2-4CAA441B9FA2</key>
 		<dict>
@@ -2607,6 +3018,11 @@ q_workflow library by Ursan Razvan</string>
 		<dict>
 			<key>ypos</key>
 			<real>310</real>
+		</dict>
+		<key>E143EB2E-DCAF-451B-9364-F707FFB7337D</key>
+		<dict>
+			<key>ypos</key>
+			<real>3930</real>
 		</dict>
 		<key>E656975D-7167-4C75-9927-C9B188AF8C7D</key>
 		<dict>
@@ -2631,12 +3047,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>EB821439-3991-4885-92BF-1C349BC09348</key>
 		<dict>
 			<key>ypos</key>
-			<real>3610</real>
-		</dict>
-		<key>EC560143-66C2-4C19-AC8D-62296F503F29</key>
-		<dict>
-			<key>ypos</key>
-			<real>190</real>
+			<real>3730</real>
 		</dict>
 		<key>EF6EF80A-5097-46E2-9A3E-0AFBC69961E8</key>
 		<dict>
@@ -2656,7 +3067,7 @@ q_workflow library by Ursan Razvan</string>
 		<key>F1DB470C-0EA9-4055-B321-9696C108DEA9</key>
 		<dict>
 			<key>ypos</key>
-			<real>3510</real>
+			<real>3630</real>
 		</dict>
 		<key>F5012C9C-B1F1-4041-A6DC-9F09CC9DE60D</key>
 		<dict>
@@ -2666,10 +3077,10 @@ q_workflow library by Ursan Razvan</string>
 		<key>FD7E3A4B-6AB5-40B2-8285-D3004928CFDA</key>
 		<dict>
 			<key>ypos</key>
-			<real>3310</real>
+			<real>3430</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string></string>
+	<string>sztoltz.wordpress.com</string>
 </dict>
 </plist>
