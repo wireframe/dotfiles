@@ -5,21 +5,3 @@ window do
   tab 'vagrant-global-shutdown', 'vagrant up', "bundle exec guard --clear"
   tab "vim ."
 end
-
-# setup 'echo "setup"'
-
-# tab "echo 'default'", "echo 'default tab'"
-
-# window do
-
-#   tab "echo 'first tab'", "echo 'of window'"
-
-#   tab "named tab", :settings => "Ocean" do
-#     run "echo 'named tab'"
-#     run "ls"
-#   end
-# end
-
-# window "autotest" do
-#   tab "echo 'window and tab without options'"
-# end
