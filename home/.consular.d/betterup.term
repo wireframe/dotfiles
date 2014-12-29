@@ -1,0 +1,7 @@
+project_dir = '~/Projects/betterup-app'
+
+window do
+  before { run "cd #{project_dir}" }
+  tab 'vagrant-global-shutdown', 'vagrant up', "bundle exec guard --clear"
+  tab "vim ."
+end
