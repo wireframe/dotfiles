@@ -23,12 +23,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rails'
 Plugin 'unifieddialog/vim-rspec-focus'
-Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin '907th/vim-auto-save'
-Plugin 'jaxbot/github-issues.vim'
+
+" Completion Plugins
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'jaxbot/github-issues.vim'
+Plugin 'tpope/vim-endwise'
 
 " Syntax plugins
 Plugin 'scrooloose/syntastic'
