@@ -16,6 +16,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'pbrisbin/vim-mkdir'
+Plugin 'eiginn/netrw'
 Plugin 'tpope/vim-vinegar'
 
 " Editing Plugins
@@ -26,6 +27,9 @@ Plugin 'unifieddialog/vim-rspec-focus'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin '907th/vim-auto-save'
+
+" Integrations
+Plugin 'mattn/gist-vim'
 
 " Completion Plugins
 Plugin 'Shougo/neocomplete.vim'
