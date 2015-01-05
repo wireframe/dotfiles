@@ -737,17 +737,6 @@
 		</array>
 		<key>D7A16404-A29C-42FD-9664-9F6BC3F260DA</key>
 		<array/>
-		<key>E0EEE9EF-3E52-4077-9A51-56882FEC0BED</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>2B7138ED-D927-4D76-A708-9028C9AC18DB</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
 		<key>E143EB2E-DCAF-451B-9364-F707FFB7337D</key>
 		<array>
 			<dict>
@@ -946,33 +935,6 @@
 			<string>0CDB8453-7549-4C58-B0BA-F24E45B018C8</string>
 			<key>version</key>
 			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>hotkey</key>
-				<integer>14</integer>
-				<key>hotmod</key>
-				<integer>1179648</integer>
-				<key>hotstring</key>
-				<string>E</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>E0EEE9EF-3E52-4077-9A51-56882FEC0BED</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -3013,11 +2975,6 @@ q_workflow library by Ursan Razvan</string>
 		<dict>
 			<key>ypos</key>
 			<real>2510</real>
-		</dict>
-		<key>E0EEE9EF-3E52-4077-9A51-56882FEC0BED</key>
-		<dict>
-			<key>ypos</key>
-			<real>310</real>
 		</dict>
 		<key>E143EB2E-DCAF-451B-9364-F707FFB7337D</key>
 		<dict>
