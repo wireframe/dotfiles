@@ -40,3 +40,8 @@ for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
   exe 'source' fpath
 endfor
 
+
+" load files outside of versioned dotfiles
+if filereadable(expand("~/.secrets.vim"))
+  source ~/.secrets.vim
+endif

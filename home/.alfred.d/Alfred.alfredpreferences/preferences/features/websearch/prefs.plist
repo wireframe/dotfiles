@@ -19,6 +19,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>3BA46C61-6EF2-4EFE-883A-C1258F971B69</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>localhost</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>localhost</string>
+			<key>url</key>
+			<string>http://localhost:3000</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>50C67BAE-9B0E-40C3-A77F-AD35AF0FF535</key>
 		<dict>
 			<key>enabled</key>
