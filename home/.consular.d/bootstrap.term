@@ -1,0 +1,6 @@
+project_dir = '~/Projects/osx-bootstrap'
+
+window do
+  before { run "cd #{project_dir}" }
+  tab 'vim .'
+end
