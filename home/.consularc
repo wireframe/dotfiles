@@ -1,8 +1,0 @@
-# require your additional core gems here.
-require 'consular/osx'
-
-# set specific Consular configurations here.
-Consular.configure do |c|
-  c.global_path    = '~/.consular.d'
-  # c.default_editor = 'vim'
-end

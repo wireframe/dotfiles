@@ -1,0 +1,6 @@
+name: dotfiles
+root: ~/Projects/dotfiles
+
+windows:
+  - editor: vim .
+  - bash: ls

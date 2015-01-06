@@ -1,0 +1,10 @@
+name: bu
+root: ~/Projects/betterup-app
+
+pre: vagrant-global-shutdown && vagrant up
+
+windows:
+  - editor: vim .
+  - guard: bin/guard --clear
+  - logs: tail -f log/development.log
+  - bash: ls

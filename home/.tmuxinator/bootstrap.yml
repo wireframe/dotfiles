@@ -1,0 +1,6 @@
+name: bootstrap
+root: ~/Projects/osx-bootstrap
+
+windows:
+  - editor: vim .
+  - bash: ls

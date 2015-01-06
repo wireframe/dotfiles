@@ -1,7 +1,0 @@
-project_dir = '~/Projects/todoone-cli'
-
-window do
-  before { run "cd #{project_dir}" }
-  tab "bundle exec guard --clear"
-  tab "vim ."
-end

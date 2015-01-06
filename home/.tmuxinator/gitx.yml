@@ -1,0 +1,7 @@
+name: gitx
+root: ~/Projects/thegarage-gitx
+
+windows:
+  - editor: vim .
+  - guard: bundle exec guard --clear
+  - bash: ls

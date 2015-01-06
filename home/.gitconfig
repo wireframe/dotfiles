@@ -79,3 +79,7 @@
   email = ryan@codecrate.com
 [github]
   user = ryan.sonnek@gmail.com
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
