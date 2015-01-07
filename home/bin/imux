@@ -1,0 +1,4 @@
+#!/bin/bash
+# Attach to tmux session using iTerm2 tabs
+tmux -CC attach -t $1
+
