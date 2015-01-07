@@ -46,6 +46,7 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'slim-template/vim-slim'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " UI Plugins
 Plugin 'flazz/vim-colorschemes'
