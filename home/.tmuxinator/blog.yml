@@ -1,0 +1,7 @@
+name: gitx
+root: ~/Projects/wireframe.github.com
+
+windows:
+  - editor: vim .
+  - jekyll: bundle exec jekyll serve -w
+  - bash: ls
