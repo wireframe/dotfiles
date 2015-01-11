@@ -27,3 +27,6 @@ alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
+
+# shortcut for ISO-8601 date
+alias today="echo -n $(date "+%Y-%M-%d") | pbcopy"
