@@ -10,7 +10,6 @@
     remotes = remote -v
     credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
     undopush = push -f origin HEAD^:master
-    pom = push origin master
     put = push origin HEAD
     done = commit -a -m
     co = checkout
@@ -19,7 +18,7 @@
     who = shortlog -n -s --no-merges
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     cleanup = !~/bin/git-cleanup.sh
-
+    ignored = ls-files --others -i --exclude-standard
 [apply]
     # Detect whitespace errors when applying a patch
     whitespace = fix
@@ -80,6 +79,6 @@
 [github]
   user = ryan.sonnek@gmail.com
 [filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
