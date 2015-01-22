@@ -23,10 +23,11 @@ Plugin 'tpope/vim-vinegar'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rails'
-Plugin 'unifieddialog/vim-rspec-focus'
+Plugin 'mwise/vim-rspec-focus'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin '907th/vim-auto-save'
+Plugin 'editorconfig/editorconfig-vim'
 
 " Integrations
 Plugin 'mattn/gist-vim'

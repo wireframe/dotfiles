@@ -5,6 +5,7 @@
     p = !"git pull; git submodule foreach git pull origin master"
     c = clone --recursive
     ca = !git add -A && git commit -av
+    caa = !git add -A && git commit -av --amend
     go = checkout -B
     tags = tag -l
     remotes = remote -v

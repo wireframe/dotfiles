@@ -1,0 +1,20 @@
+# editorconfig project config
+# see http://editorconfig.org
+
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Javascript files
+[*.js]
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Ruby files
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
