@@ -12,9 +12,8 @@ nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files -start-insert file_r
 
 " find file content
 let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-              \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-              \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+let g:unite_source_grep_default_opts = '--line-numbers --nocolor --nogroup --hidden'
+call unite#custom#source('file_rec,file_rec/async', 'ignore_globs', split(&wildignore, ','))
 let g:unite_source_grep_recursive_opt = ''
 noremap <leader>c :<C-u>Unite -no-quit -winheight=10 -buffer-name=grep grep:.<cr>
 
