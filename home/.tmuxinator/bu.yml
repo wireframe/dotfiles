@@ -1,7 +1,7 @@
 name: bu
 root: ~/Projects/betterup-app
 
-pre: vagrant-global-shutdown && vagrant up
+pre: echo 'Starting vagrant machine' && vagrant-global-shutdown && bin/setup
 
 windows:
   - editor: vim .
