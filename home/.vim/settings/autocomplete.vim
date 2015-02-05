@@ -1,6 +1,7 @@
 " exclude files from autocomplete
 set wildignore+=*.rbc,*.scssc,*.sassc      " sass cache files
 set wildignore+=.sass-cache/**               " sass cache files
+set wildignore+=build/**               " build files
 set wildignore+=.git/**,.gitkeep,*.orig       " git files
 set wildignore+=.svn/**                       " svn files
 set wildignore+=coverage/**                   " test coverage generated files
