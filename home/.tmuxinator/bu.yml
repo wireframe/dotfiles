@@ -8,3 +8,4 @@ windows:
   - guard: bin/guard --clear
   - logs: tail -f log/development.log
   - bash: ls
+  - frontend: cd frontend
