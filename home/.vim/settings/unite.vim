@@ -9,11 +9,11 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 
 " find files
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
+let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --hidden -g ""'
 
 " find file content
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--line-numbers --nocolor --nogroup --hidden'
-call unite#custom#source('file_rec,file_rec/async', 'ignore_globs', split(&wildignore, ','))
 let g:unite_source_grep_recursive_opt = ''
 noremap <leader>c :<C-u>Unite -no-quit -winheight=10 -buffer-name=grep grep:.<cr>
 
