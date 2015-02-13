@@ -64,6 +64,21 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>BE74BF94-B500-4AF0-BD8C-1B035EA53DEA</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>weather</string>
+			<key>plusSpaces</key>
+			<false/>
+			<key>text</key>
+			<string>weather for home</string>
+			<key>url</key>
+			<string>http://www.wunderground.com/cgi-bin/findweather/getForecast?query=55427</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
 		<key>CC77F789-0089-4F0A-8447-9D2422A71D6D</key>
 		<dict>
 			<key>enabled</key>
