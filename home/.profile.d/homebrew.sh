@@ -5,6 +5,5 @@ export PATH=/usr/local/share/npm/bin:$PATH
 # brew info bash-completion
 HOMEBREW_PATH=$(brew --prefix)
 if [ -f ${HOMEBREW_PATH}/etc/bash_completion ]; then
-  echo -n '.'
   source ${HOMEBREW_PATH}/etc/bash_completion
 fi
