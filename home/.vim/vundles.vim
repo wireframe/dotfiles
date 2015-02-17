@@ -28,6 +28,7 @@ Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin '907th/vim-auto-save'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'Raimondi/vim_search_objects'
 
 " Integrations
 Plugin 'mattn/gist-vim'
