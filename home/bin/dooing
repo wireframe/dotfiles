@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# post message to slack
+echo "$@" | slackcat -p -c worklog
