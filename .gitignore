@@ -7,3 +7,6 @@
 # VIM files
 *~
 .*.swp
+
+# secrets not to be version controlled
+secrets.sh
