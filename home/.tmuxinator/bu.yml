@@ -4,8 +4,7 @@ root: ~/Projects/betterup-app
 pre: echo 'Starting vagrant machine' && vagrant-global-shutdown && bin/setup
 
 windows:
-  - editor: vim .
-  - guard: bin/guard --clear
   - logs: tail -f log/development.log
+  - guard: bin/guard --clear
+  - editor: vim .
   - bash: ls
-  - frontend: cd frontend
