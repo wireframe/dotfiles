@@ -7,7 +7,7 @@ alias oo="open ."
 # Command Shortcuts
 alias g="git"
 alias b="bundle"
-alias c="consular"
+alias dc="docker-compose"
 
 alias hist='history | grep $1' #Requires one input
 alias h="history"
