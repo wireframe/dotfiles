@@ -5,5 +5,6 @@ pre: echo 'Starting virtual machine' && bin/setup
 
 windows:
   - logs: docker-compose logs
+  - guard: bin/guard -c
   - editor: vim .
   - bash: ls
