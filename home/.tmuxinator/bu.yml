@@ -1,10 +1,9 @@
 name: bu
 root: ~/Projects/betterup-app
 
-pre: echo 'Starting vagrant machine' && vagrant-global-shutdown && bin/setup
+pre: echo 'Starting virtual machine' && bin/setup
 
 windows:
-  - logs: tail -f log/development.log
-  - guard: bin/guard --clear
+  - logs: docker-compose logs
   - editor: vim .
   - bash: ls
