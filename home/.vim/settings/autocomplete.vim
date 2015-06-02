@@ -3,7 +3,7 @@
 let g:neocomplete#enable_at_startup = 1
 
 " use tab to select completion
-inoremap <expr><TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " scroll popup with ctrl-j/k
 inoremap <expr><C-j> pumvisible()?  "\<C-n>" : "\<C-j>"
