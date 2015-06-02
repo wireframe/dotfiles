@@ -9,7 +9,6 @@ Plugin 'gmarik/vundle'
 
 " Core Plugins
 Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-eunuch'
 
 " Navigation Plugins
@@ -22,18 +21,23 @@ Plugin 'tpope/vim-vinegar'
 " Editing Plugins
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-bundler'
-Plugin 'wireframe/vim-rspec-focus'
 Plugin 'tpope/vim-dispatch'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin '907th/vim-auto-save'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Raimondi/vim_search_objects'
+Plugin 'terryma/vim-expand-region'
 
-" Integrations
+" Ruby development
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-bundler'
+Plugin 'wireframe/vim-rspec-focus'
+Plugin 'nelstrom/vim-textobj-rubyblock'
+
+" Git integrations
 Plugin 'mattn/gist-vim'
+Plugin 'tpope/vim-fugitive'
 
 " Completion Plugins
 Plugin 'Shougo/neocomplete.vim'
@@ -43,7 +47,6 @@ Plugin 'tpope/vim-endwise'
 " Syntax plugins
 Plugin 'scrooloose/syntastic'
 Plugin 'kana/vim-textobj-user'
-Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-ruby/vim-ruby'

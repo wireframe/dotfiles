@@ -9,8 +9,8 @@ if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
 
-" remap leader to comma
-let mapleader=","
+" configure leader
+let mapleader="\<Space>"
 
 set background=dark
 colorscheme gruvbox
