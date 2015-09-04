@@ -8,7 +8,7 @@ alias oo="open ."
 alias g="git"
 alias b="bundle"
 alias dc="docker-compose"
-alias bd="boot2docker"
+alias dm="docker-machine"
 
 alias hist='history | grep $1' #Requires one input
 alias h="history"
