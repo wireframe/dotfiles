@@ -9,7 +9,7 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 
 " find files
 nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-let g:unite_source_rec_async_command = [ 'ag', '--nocolor', '--nogroup', '--hidden', '-g' ]
+let g:unite_source_rec_async_command = [ 'ag', '--nocolor', '--nogroup', '--hidden', '-g', '' ]
 
 " find file content
 let g:unite_source_grep_command = 'ag'
