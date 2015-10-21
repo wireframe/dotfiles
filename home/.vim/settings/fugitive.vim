@@ -1,3 +1,6 @@
+" configuration for fugitive vim plugin
+" see https://github.com/tpope/vim-fugitive
+
 " shortcuts for common operations
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
