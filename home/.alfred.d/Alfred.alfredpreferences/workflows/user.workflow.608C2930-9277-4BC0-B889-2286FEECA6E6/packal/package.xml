@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>VPN Toggle</name>
-  <version>1.0</version>
-  <bundle>com.tedwise.vpn</bundle>
-  <updated>1409066830</updated>
-  <file>vpn_toggle.alfredworkflow</file>
-</workflow>
