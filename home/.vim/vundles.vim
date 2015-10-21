@@ -40,7 +40,12 @@ Plugin 'mattn/gist-vim'
 Plugin 'tpope/vim-fugitive'
 
 " Completion Plugins
-Plugin 'Shougo/neocomplete.vim'
+if !has('nvim')
+  Plugin 'Shougo/neocomplete.vim'
+endif
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim'
+end
 Plugin 'jaxbot/github-issues.vim'
 Plugin 'tpope/vim-endwise'
 

@@ -1,6 +1,6 @@
-export EDITOR="vim"
+export EDITOR="nvim"
 
-alias v="vim"
-alias s="subl"
+# launch editor
 alias e="${EDITOR}"
+# launch editor in PWD
 alias ee="${EDITOR} ."
