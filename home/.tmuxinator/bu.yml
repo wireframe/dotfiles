@@ -1,10 +1,10 @@
 name: bu
 root: ~/Projects/betterup-app
 
-pre: echo 'Starting virtual machine' && bin/setup
+pre: echo 'Starting virtual machine' && bin/setup && eval $(docker-machine env dev)
 
 windows:
-  - logs: docker-compose logs
+  - editor: ee
   - guard: bin/guard -c
-  - editor: vim .
   - bash: ls
+  - logs: docker-compose logs
