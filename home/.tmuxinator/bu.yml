@@ -4,7 +4,6 @@ root: ~/Projects/betterup-app
 pre: echo 'Starting virtual machine' && bin/setup && eval $(docker-machine env dev)
 
 windows:
-  - editor: ee
   - guard: bin/guard -c
+  - editor: ee
   - bash: ls
-  - logs: docker-compose logs
