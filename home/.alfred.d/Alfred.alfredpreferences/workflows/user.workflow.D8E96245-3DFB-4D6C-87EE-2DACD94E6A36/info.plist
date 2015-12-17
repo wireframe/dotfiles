@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.packal</string>
-	<key>category</key>
-	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>1F4D4C11-58BD-413E-9E17-D93F880D403C</key>
@@ -98,7 +96,7 @@
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>BD4CD001-D2F2-4403-ADAE-991B88EF9C43</string>
+			<string>75EA4D1A-6D61-4028-8023-81F9AFFEA680</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -145,25 +143,17 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>2</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Packal</string>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>php packal-controller-script.php "{query}"</string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>F3825148-0DEF-4920-8AA9-2675D7B90496</string>
+			<string>BD4CD001-D2F2-4403-ADAE-991B88EF9C43</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -193,23 +183,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>escaping</key>
-				<integer>127</integer>
-				<key>script</key>
-				<string>php packal-controller-script.php "{query}"</string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>75EA4D1A-6D61-4028-8023-81F9AFFEA680</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>triggerid</key>
 				<string>set-option</string>
 			</dict>
@@ -217,6 +190,31 @@
 			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
 			<string>7955C2E8-A67A-423F-AF99-078BB269996F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>2</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Packal</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>F3825148-0DEF-4920-8AA9-2675D7B90496</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -240,7 +238,7 @@ Or http://www.packal.org/workflow/packal-updater</string>
 		<key>75EA4D1A-6D61-4028-8023-81F9AFFEA680</key>
 		<dict>
 			<key>ypos</key>
-			<real>310</real>
+			<real>10</real>
 		</dict>
 		<key>7955C2E8-A67A-423F-AF99-078BB269996F</key>
 		<dict>
@@ -250,7 +248,7 @@ Or http://www.packal.org/workflow/packal-updater</string>
 		<key>BD4CD001-D2F2-4403-ADAE-991B88EF9C43</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>250</real>
 		</dict>
 		<key>C1FFB920-0CA6-4611-ACCE-9D08E0295195</key>
 		<dict>
@@ -260,7 +258,7 @@ Or http://www.packal.org/workflow/packal-updater</string>
 		<key>F3825148-0DEF-4920-8AA9-2675D7B90496</key>
 		<dict>
 			<key>ypos</key>
-			<real>220</real>
+			<real>330</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

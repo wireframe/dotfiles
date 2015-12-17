@@ -12,3 +12,7 @@ inoremap <expr><C-k> pumvisible()?  "\<C-p>" : "\<C-k>"
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+
+" NVim Deoplete Settings
+" see https://github.com/Shougo/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
