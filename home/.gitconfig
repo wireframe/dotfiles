@@ -1,15 +1,16 @@
 [alias]
   s = status -s
   d = diff --patch-with-stat
-  ca = !git add -A && git commit -av
-  caa = !git add -A && git commit -av --amend
+  ca = !git add --all && git commit --all --verbose
+  caa = !git add --all && git commit --all --verbose --amend
+  caaa = !git add --all && git commit --all --verbose --amend --no-edit
   co = checkout
   go = checkout -B
   tags = tag -l
   remotes = remote -v
-  undopush = push -f origin HEAD^:master
+  undopush = push --force origin HEAD^:master
   put = push origin HEAD
-  done = commit -a -m
+  done = commit --all --message
   undo = reset --hard
   ll = log --summary --stat --pretty=oneline --relative-date
   l = log --pretty=oneline -n 20 --graph

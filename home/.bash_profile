@@ -16,3 +16,4 @@ if [ -f ~/.bash_prompt ]; then
 fi
 
 echo 'SONNEK BOOM 🔥🔥🔥'
+source /Users/ryansonnek/.betterup_profile/init.sh
