@@ -47,6 +47,7 @@ if has('nvim')
   Plugin 'Shougo/deoplete.nvim'
 end
 Plugin 'jaxbot/github-issues.vim'
+Plugin 'solars/github-vim'
 Plugin 'tpope/vim-endwise'
 
 " Syntax plugins
