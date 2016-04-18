@@ -1,272 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>bundleid</key>
-	<string>com.brianandjenny.hermescontroller</string>
-	<key>category</key>
-	<string>Productivity</string>
-	<key>connections</key>
-	<dict>
-		<key>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</key>
-		<array/>
-		<key>560FC3CF-A03B-4E2F-AB01-282DA39998A2</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>60A31307-BD6B-4D0E-9A1F-12B8B3D1D8A3</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>840DF427-D6BB-42AD-A07C-409EC41B5D62</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-		<key>E3D3D980-A00C-4039-9535-9C460BE45EFE</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
-	</dict>
-	<key>createdby</key>
-	<string>Brian Hartvigsen</string>
-	<key>description</key>
-	<string></string>
-	<key>disabled</key>
-	<false/>
-	<key>name</key>
-	<string>Hermes Controller</string>
-	<key>objects</key>
-	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>1</integer>
-				<key>argument</key>
-				<integer>3</integer>
-				<key>argumenttext</key>
-				<string>hermes station </string>
-				<key>hotkey</key>
-				<integer>0</integer>
-				<key>hotmod</key>
-				<integer>0</integer>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>840DF427-D6BB-42AD-A07C-409EC41B5D62</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>keyword</key>
-				<string>hermes</string>
-				<key>runningsubtext</key>
-				<string>...</string>
-				<key>script</key>
-				<string># get the workflow's source folderset workflowFolder to do shell script "pwd"# load the Workflow libraryset wlib to load script POSIX file (workflowFolder &amp; "/q_workflow.scpt")# create a new Workflow Classset wf to wlib's new_workflow()set q to wf's q_split(wf's q_trim("{query}"), " ")if (count of q) &gt; 0 then	set ctrl to first item of wf's q_split(q, " ")	set option to wf's q_join(rest of q, " ")else	set ctrl to ""	set option to ""end ifset simple_commands to {"play", "pause", "like", "dislike", "skip", "tired", "playpause", "mute", "unmute", "loud", "louder", "softer", "show"}set complex_commands to {"volume", "station"}if ctrl is not in complex_commands or application "Hermes" is not running then	repeat with cmd in simple_commands		if ctrl is "" or ctrl is missing value or ctrl is in cmd then			add_result of wf with isValid given theUid:cmd, theArg:cmd, theTitle:cmd, theSubtitle:"", theAutocomplete:missing value, theIcon:missing value, theType:missing value		end if	end repeat		repeat with cmd in complex_commands		if ctrl is "" or ctrl is missing value or ctrl is in cmd then			add_result of wf without isValid given theUid:cmd, theArg:missing value, theTitle:cmd, theSubtitle:"", theAutocomplete:cmd &amp; " ", theIcon:missing value, theType:missing value		end if	end repeat		return wf's to_xml("")else if ctrl is "station" then	tell application "Hermes"		set allStations to stations		repeat with thisStation in allStations			if option is "" or name of thisStation contains option then				add_result of wf with isValid given theUid:station ID of thisStation, theArg:"station " &amp; name of thisStation, theTitle:name of thisStation, theSubtitle:"", theAutocomplete:missing value, theIcon:missing value, theType:missing value			end if		end repeat	end tellelse if ctrl is "volume" then	set option_commands to {"up", "down"}		repeat with sub in option_commands		if option is "" or option is in sub then			add_result of wf with isValid given theUid:"volume " &amp; sub, theArg:"volume " &amp; sub, theTitle:"volume " &amp; sub, theSubtitle:"", theAutocomplete:missing value, theIcon:missing value, theType:missing value		end if	end repeat		if option is "" or option is not in option_commands then		add_result of wf with isValid given theUid:"volume", theArg:"{query}", theTitle:"Set volume to " &amp; option, theSubtitle:"", theAutocomplete:missing value, theIcon:missing value, theType:missing value	end ifend ifwf's to_xml("")</string>
-				<key>subtext</key>
-				<string>Music with Wings!</string>
-				<key>title</key>
-				<string>Hermes Controller</string>
-				<key>type</key>
-				<integer>6</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>3</integer>
-				<key>argumenttext</key>
-				<string>like</string>
-				<key>hotkey</key>
-				<integer>0</integer>
-				<key>hotmod</key>
-				<integer>0</integer>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>560FC3CF-A03B-4E2F-AB01-282DA39998A2</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>68</integer>
-				<key>script</key>
-				<string>set q to "{query}"try	set ctrl to word 1 of (q as string)on error	set ctrl to (q as string)end trytry	set option to text ((length of ctrl) + 2) thru end of (q as string)on error	set option to ""end trytell application "Hermes"	if ctrl = "like" or ctrl = "good" or ctrl is equal to "+" then		thumbs up	else if ctrl = "dislike" or ctrl = "bad" or ctrl = "-" then		thumbs down	else if ctrl = "skip" or ctrl = "next" or ctrl = "~" then		next song	else if ctrl = "tired" or ctrl = "!" then		tired of song	else if ctrl = "play" or ctrl = "&gt;" then		play	else if ctrl = "pause" or ctrl = "#" then		pause	else if ctrl = "playpause" or ctrl = "pp" then		playpause	else if ctrl = "mute" or ctrl = "silence" or ctrl = "m" then		mute	else if ctrl = "unmute" or ctrl = "u" then		unmute	else if ctrl = "loud" or ctrl = "f" then		maximize volume	else if ctrl = "louder" or ctrl = "l" then		increase volume	else if ctrl = "softer" or ctrl = "quieter" or ctrl = "q" then		decrease volume	else if ctrl = "volume" or ctrl = "v" then		if option is "up" then			increase volume		else if option is "down" then			decrease volume		else			set playback volume to option		end if	else if ctrl = "show" or ctrl = "activate" or ctrl = "a" or ctrl = "" then		activate	else if ctrl = "station" or ctrl = "switch" or ctrl = "s" then		set current station to station option	end ifend tell</string>
-				<key>type</key>
-				<integer>6</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>3</integer>
-				<key>argumenttext</key>
-				<string>dislike</string>
-				<key>hotkey</key>
-				<integer>0</integer>
-				<key>hotmod</key>
-				<integer>0</integer>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>E3D3D980-A00C-4039-9535-9C460BE45EFE</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>3</integer>
-				<key>argumenttext</key>
-				<string>tired</string>
-				<key>hotkey</key>
-				<integer>0</integer>
-				<key>hotmod</key>
-				<integer>0</integer>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>60A31307-BD6B-4D0E-9A1F-12B8B3D1D8A3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-	</array>
-	<key>readme</key>
-	<string></string>
-	<key>uidata</key>
-	<dict>
-		<key>06C9C4A9-38CE-441A-8D06-E2F2D8B39B60</key>
-		<dict>
-			<key>ypos</key>
-			<real>180</real>
-		</dict>
-		<key>560FC3CF-A03B-4E2F-AB01-282DA39998A2</key>
-		<dict>
-			<key>ypos</key>
-			<real>120</real>
-		</dict>
-		<key>60A31307-BD6B-4D0E-9A1F-12B8B3D1D8A3</key>
-		<dict>
-			<key>ypos</key>
-			<real>340</real>
-		</dict>
-		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
-		<dict>
-			<key>ypos</key>
-			<real>10</real>
-		</dict>
-		<key>840DF427-D6BB-42AD-A07C-409EC41B5D62</key>
-		<dict>
-			<key>ypos</key>
-			<real>10</real>
-		</dict>
-		<key>E3D3D980-A00C-4039-9535-9C460BE45EFE</key>
-		<dict>
-			<key>ypos</key>
-			<real>230</real>
-		</dict>
-	</dict>
-	<key>webaddress</key>
-	<string></string>
-</dict>
-</plist>
