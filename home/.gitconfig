@@ -18,6 +18,9 @@
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   cleanup = !~/bin/git-cleanup.sh
   ignored = ls-files --others -i --exclude-standard
+  # list branches ordered by recent commits
+  # see http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
+  recent = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'
 [apply]
   # Detect whitespace errors when applying a patch
   # see http://stackoverflow.com/questions/14779866/git-pull-rebase-converting-spaces-to-tabs
