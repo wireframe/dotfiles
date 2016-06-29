@@ -79,7 +79,7 @@
 [user]
   name = Ryan Sonnek
   email = ryan@codecrate.com
-	signingkey = CB032341
+  signingkey = CB032341
 [github]
   user = ryan.sonnek@gmail.com
 [filter "media"]
@@ -92,7 +92,7 @@
   required = true
 [commit]
   template = ~/.gitmessage
-	gpgsign = true
+# gpgsign = true
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f

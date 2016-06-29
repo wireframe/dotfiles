@@ -15,7 +15,9 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'pbrisbin/vim-mkdir'
-Plugin 'eiginn/netrw'
+if !has('nvim')
+  Plugin 'eiginn/netrw'
+endif
 Plugin 'tpope/vim-vinegar'
 
 " Editing Plugins
@@ -46,8 +48,7 @@ endif
 if has('nvim')
   Plugin 'Shougo/deoplete.nvim'
 end
-Plugin 'jaxbot/github-issues.vim'
-Plugin 'solars/github-vim'
+Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-endwise'
 
 " Syntax plugins
@@ -60,7 +61,7 @@ Plugin 'elzr/vim-json'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'slim-template/vim-slim'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'tpope/cucumber'
+Plugin 'tpope/vim-cucumber'
 
 " UI Plugins
 Plugin 'flazz/vim-colorschemes'

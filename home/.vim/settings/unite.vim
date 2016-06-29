@@ -18,7 +18,6 @@ let g:unite_source_grep_default_opts =
   \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
   \ '--ignore ''**/*.pyc'''
 let g:unite_source_grep_recursive_opt=''
-let g:unite_source_grep_search_word_highlight = 1
 noremap <leader>c :<C-u>Unite -no-quit -winheight=10 -buffer-name=grep grep:.<cr>
 
 " find yank history
