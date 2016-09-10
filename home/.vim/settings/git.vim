@@ -11,3 +11,7 @@ nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gp :Gpush origin HEAD<CR>
 nnoremap <Leader>gu :Git update<CR>
+
+" configuration for git gutter plugin
+" see https://github.com/airblade/vim-gitgutter
+set updatetime=250
