@@ -2,8 +2,6 @@
 " see https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/vundle'
-
 " Core Plugins
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
@@ -21,7 +19,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-dispatch'
-Plug 'christoomey/vim-tmux-navigator'
 Plug '907th/vim-auto-save'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Raimondi/vim_search_objects'
@@ -55,7 +52,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'elzr/vim-json'
-Plug 'kchmck/vim-coffee-script'
 Plug 'slim-template/vim-slim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-cucumber'
