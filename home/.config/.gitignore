@@ -10,3 +10,4 @@
 # Whitelisted directories
 !nvim/
 !nvim/*
+!nvim/**/*
