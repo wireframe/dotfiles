@@ -1,4 +1,1 @@
 # Post installation steps after castle installed
-puts "Installing vim plugins..."
-system 'vim +PluginInstall +qall'
-system 'cd ~/.vim/bundle/vimproc/ && make'
