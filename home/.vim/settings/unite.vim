@@ -12,6 +12,8 @@ nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files -start-insert file_r
 let g:unite_source_rec_async_command = [ 'ag', '--nocolor', '--nogroup', '--hidden', '-g', '' ]
 
 " find file content
+" let g:unite_source_grep_command = 'rg'
+" let g:unite_source_grep_default_opts = '--hidden --no-heading --vimgrep --smart-case'
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts =
   \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
