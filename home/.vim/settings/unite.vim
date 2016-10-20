@@ -7,28 +7,6 @@
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-" find files
-nnoremap <leader>f :<C-u>Unite -no-split -buffer-name=files -start-insert file_rec/async:!<cr>
-let g:unite_source_rec_async_command = [ 'ag', '--nocolor', '--nogroup', '--hidden', '-g', '' ]
-
-" find file content
-" let g:unite_source_grep_command = 'rg'
-" let g:unite_source_grep_default_opts = '--hidden --no-heading --vimgrep --smart-case'
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts =
-  \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-  \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
-  \ '--ignore ''**/*.pyc'''
-let g:unite_source_grep_recursive_opt=''
-noremap <leader>c :<C-u>Unite -no-quit -winheight=10 -buffer-name=grep grep:.<cr>
-
-" find yank history
-let g:unite_source_history_yank_enable = 1
-nnoremap <leader>y :<C-u>Unite -no-split -buffer-name=yank history/yank<cr>
-
-" find buffers
-nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer buffer<cr>
-
 " Custom mappings for the unite buffer
 " Play nice with supertab
 " Enable navigation with control-j and control-k in insert mode
