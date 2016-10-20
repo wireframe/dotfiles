@@ -34,6 +34,7 @@ Plug 'nelstrom/vim-textobj-rubyblock'
 " Git integrations
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " Completion Plugins
 if !has('nvim')
@@ -42,7 +43,6 @@ endif
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
 end
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-endwise'
 
 " Syntax plugins
