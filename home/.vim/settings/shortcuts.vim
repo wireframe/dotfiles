@@ -19,3 +19,6 @@ nnoremap <leader>ve :edit $MYVIMRC<CR>
 
 " open alternate file in split
 nnoremap <leader>a :AV<cr>
+
+" open a new buffer (in a vertical split)
+nnoremap <leader>n :vnew<CR>

@@ -32,7 +32,7 @@ Plug 'wireframe/vim-rspec-focus'
 Plug 'nelstrom/vim-textobj-rubyblock'
 
 " Git integrations
-Plug 'mattn/gist-vim'
+Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
