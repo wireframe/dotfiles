@@ -5,3 +5,6 @@ nnoremap <leader><leader> <c-^>
 " see http://superuser.com/questions/247083/reload-file-in-vim
 " consider setting autoread flag instead
 nnoremap <leader>r :bufdo e<CR>
+
+" open a new buffer (in a vertical split)
+nnoremap <leader>n :vnew<CR>
