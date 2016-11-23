@@ -1,6 +1,0 @@
-name: bubot
-root: ~/Projects/hubot-bubot
-
-windows:
-  - editor: vim .
-  - bash: ls

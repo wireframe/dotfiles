@@ -1,7 +1,0 @@
-name: todoone
-root: ~/Projects/todoone-cli
-
-windows:
-  - editor: vim .
-  - guard: bundle exec guard --clear
-  - bash: ls

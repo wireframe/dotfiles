@@ -1,6 +1,0 @@
-name: buios
-root: ~/Projects/betterup-ios
-
-windows:
-  - editor: vim .
-  - bash: ls

@@ -1,9 +1,0 @@
-name: bu
-root: ~/Projects/betterup-app
-
-pre: echo 'Starting virtual machine' && bin/setup && eval $(docker-machine env dev)
-
-windows:
-  - guard: bin/guard -c
-  - editor: ee
-  - bash: ls

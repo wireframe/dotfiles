@@ -1,7 +1,0 @@
-name: bustudio
-root: ~/Projects/betterup-studio
-
-windows:
-  - editor: vim .
-  - server: bin/server
-  - bash: ls

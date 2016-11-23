@@ -1,7 +1,0 @@
-name: blog
-root: ~/Projects/wireframe.github.com
-
-windows:
-  - editor: vim .
-  - jekyll: bin/server
-  - bash: ls
