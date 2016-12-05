@@ -7,13 +7,15 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-eunuch'
 
 " Navigation Plugins
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc', {'do' : 'make'}
 Plug 'pbrisbin/vim-mkdir'
 if !has('nvim')
   Plug 'eiginn/netrw'
 endif
 Plug 'tpope/vim-vinegar'
+
+" fuzzy file finder (and other sources)
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Editing Plugins
 Plug 'tpope/vim-surround'

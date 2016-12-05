@@ -1,4 +1,4 @@
-" search open buffers using Unite.vim plugin
-" https://github.com/Shougo/unite.vim
-nnoremap <leader>b :<C-u>Unite -no-split -buffer-name=buffer buffer<cr>
+" search open buffers using fzf.vim plugin
+" see https://github.com/junegunn/fzf.vim
+nnoremap <leader>b :Buffers<cr>
 
