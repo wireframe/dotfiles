@@ -7,6 +7,7 @@ alias oo="open ."
 # Command Shortcuts
 alias g="git"
 alias b="bundle"
+alias d="docker"
 alias dc="docker-compose"
 alias dm="docker-machine"
 
