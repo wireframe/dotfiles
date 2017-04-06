@@ -1,26 +1,51 @@
+[user]
+  name = Ryan Sonnek
+  email = ryan@codecrate.com
+  signingkey = CB032341
+[github]
+  user = ryan.sonnek@gmail.com
+[credential]
+  helper = osxkeychain
+
 [alias]
+  ll = log --summary --stat --pretty=oneline --relative-date
+  who = shortlog -n -s --no-merges
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
   s = status -s
+
+  # diff
   d = diff --patch-with-stat
+
+  # commit
   ca = !git add --all && git commit --all --verbose
   caa = !git add --all && git commit --all --verbose --amend
   caaa = !git add --all && git commit --all --verbose --amend --no-edit
+  done = commit --all --message
+
+  # reset
+  undo = reset --soft HEAD^
+
+  # checkout
   co = checkout
   go = checkout -B
+
+  # tags
   tags = tag -l
+
+  # branches
   remotes = remote -v
-  undopush = push --force origin HEAD^:master
-  put = push origin HEAD
-  done = commit --all --message
-  undo = reset --hard
-  ll = log --summary --stat --pretty=oneline --relative-date
-  l = log --pretty=oneline -n 20 --graph
-  who = shortlog -n -s --no-merges
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  cleanup = !~/bin/git-cleanup.sh
-  ignored = ls-files --others -i --exclude-standard
   # list branches ordered by recent commits
   # see http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
   recent = for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(authorname) %(refname:short)'
+
+  # push
+  put = push origin HEAD
+
+  # other
+  cleanup = !~/bin/git-cleanup.sh
+  ignored = ls-files --others -i --exclude-standard
+
 [apply]
   # Detect whitespace errors when applying a patch
   # see http://stackoverflow.com/questions/14779866/git-pull-rebase-converting-spaces-to-tabs
@@ -29,6 +54,19 @@
 [core]
   # Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
   whitespace = space-before-tab,indent-with-non-tab,trailing-space
+
+[merge]
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
+  tool = opendiff
+
+[status]
+  # Sometimes a newly-added folder, since it's only one line in git status, can slip under the radar.
+  # https://git-scm.com/docs/git-config#git-config-statusshowUntrackedFiles
+  showUntrackedFiles = all
+
+[push]
+  default = simple
 
 [color]
   # Use colors in Git commands that are capable of colored output when outputting to the terminal
@@ -46,10 +84,6 @@
   added = yellow
   changed = green
   untracked = cyan
-[merge]
-  # Include summaries of merged commits in newly created merge commit messages
-  log = true
-  tool = opendiff
 
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
@@ -69,16 +103,8 @@
   pushInsteadOf = "git://gist.github.com/"
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
-[push]
-  default = matching
-[credential]
-  helper = osxkeychain
-[user]
-  name = Ryan Sonnek
-  email = ryan@codecrate.com
-  signingkey = CB032341
-[github]
-  user = ryan.sonnek@gmail.com
+
+
 [filter "media"]
   required = true
   clean = git media clean %f
