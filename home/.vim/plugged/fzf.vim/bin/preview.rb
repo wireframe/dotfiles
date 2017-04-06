@@ -11,16 +11,25 @@ RESET   = "\x1b[m"
 
 split = ARGV.delete('-v')
 
-if ARGV.empty?
+def usage
   puts "usage: #$0 [-v] FILENAME[:LINENO][:IGNORED]"
   exit 1
 end
 
-file, center = ARGV.first.split(':')
+usage if ARGV.empty?
 
-unless File.readable? file
+file, center = ARGV.first.split(':')
+usage unless file
+
+path = File.expand_path(file)
+unless File.readable? path
   puts "File not found: #{file}"
   exit 1
+end
+
+if `file --mime "#{file}"` =~ /binary/
+  puts "#{file} is a binary file"
+  exit 0
 end
 
 center = (center || 0).to_i
@@ -29,7 +38,7 @@ height /= 2 if split
 height -= 2 # preview border
 offset = [1, center - height / 3].max
 
-IO.popen(['sh', '-c', COMMAND.gsub('{}', Shellwords.shellescape(file))]) do |io|
+IO.popen(['sh', '-c', COMMAND.gsub('{}', Shellwords.shellescape(path))]) do |io|
   io.each_line.drop(offset - 1).take(height).each_with_index do |line, lno|
     if lno + offset == center
       puts REVERSE + line.chomp.gsub(ANSI) { |m| m + REVERSE } + RESET
