@@ -1,7 +1,11 @@
-# ignore vundle bundles
-bundle/*
-!bundle/.gitkeep
-!bundle/vundle
+# ignore plugged installed bundles
+plugged
+
+# ignore neovim files
+shada
+
+# ignore dictionarys
+spell
 
 # NetRC files
 .netrwhist
