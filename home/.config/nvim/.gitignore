@@ -5,4 +5,4 @@
 plugged
 
 # secrets
-secrets.vim
+config.d/secrets.vim

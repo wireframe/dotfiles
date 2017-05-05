@@ -31,8 +31,3 @@ set list                          " Show invisible characters
 for fpath in split(globpath('~/.config/nvim/config.d', '*.vim'), '\n')
   exe 'source' fpath
 endfor
-
-" load unversioned config
-if filereadable(expand("~/.config/nvim/secrets.vim"))
-  source ~/.config/nvim/secrets.vim
-endif
