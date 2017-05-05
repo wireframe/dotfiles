@@ -22,6 +22,7 @@
   caa = !git add --all && git commit --all --verbose --amend
   caaa = !git add --all && git commit --all --verbose --amend --no-edit
   done = commit --all --message
+  wip = !git add --all && git commit --all --message "WIP"
 
   # reset
   undo = reset --soft HEAD^
