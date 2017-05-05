@@ -34,7 +34,7 @@ set list                          " Show invisible characters
 
 " load individual settings configuration files
 " see https://github.com/skwp/dotfiles/blob/master/vimrc
-for fpath in split(globpath('~/.vim/settings', '*.vim'), '\n')
+for fpath in split(globpath('~/.vim/config.d', '*.vim'), '\n')
   exe 'source' fpath
 endfor
 
