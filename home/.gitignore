@@ -1,9 +1,0 @@
-# OSX files
-.DS_Store
-
-# Subversion files
-.svn
-
-# VIM files
-*~
-.*.swp
