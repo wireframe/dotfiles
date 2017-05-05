@@ -4,7 +4,7 @@ set nocompatible
 
 " Plugin Initialization w/ vim-plug
 if filereadable(expand("./plugins.vim"))
-  source ~/.vim/plugins.vim
+  source ./plugins.vim
 endif
 
 " configure leader
