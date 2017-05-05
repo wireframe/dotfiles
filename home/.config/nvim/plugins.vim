@@ -1,6 +1,6 @@
 " Vim-plug plugin manager
 " see https://github.com/junegunn/vim-plug
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 " Core Plugins
 Plug 'tpope/vim-sensible'
