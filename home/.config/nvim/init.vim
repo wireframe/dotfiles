@@ -1,9 +1,5 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " Plugin Initialization w/ vim-plug
-source plugins.vim
+source ~/.config/nvim/plugins.vim
 
 " configure leader
 let mapleader="\<Space>"
@@ -32,11 +28,11 @@ set list                          " Show invisible characters
 
 " load individual configuration files
 " see https://github.com/skwp/dotfiles/blob/master/vimrc
-for fpath in split(globpath('./config.d', '*.vim'), '\n')
+for fpath in split(globpath('~/.config/nvim/config.d', '*.vim'), '\n')
   exe 'source' fpath
 endfor
 
 " load unversioned config
-if filereadable(expand("secrets.vim"))
-  source secrets.vim
+if filereadable(expand("~/.config/nvim/secrets.vim"))
+  source ~/.config/nvim/secrets.vim
 endif
