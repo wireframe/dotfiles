@@ -1,2 +1,8 @@
 # netrw
 .netrwhist
+
+# plugged installations
+plugged
+
+# secrets
+secrets.vim

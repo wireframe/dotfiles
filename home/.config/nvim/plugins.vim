@@ -1,6 +1,6 @@
 " Vim-plug plugin manager
 " see https://github.com/junegunn/vim-plug
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Core Plugins
 Plug 'tpope/vim-sensible'
@@ -8,9 +8,6 @@ Plug 'tpope/vim-eunuch'
 
 " Navigation Plugins
 Plug 'pbrisbin/vim-mkdir'
-if !has('nvim')
-  Plug 'eiginn/netrw'
-endif
 Plug 'tpope/vim-vinegar'
 
 " fuzzy file finder (and other sources)
@@ -39,12 +36,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Completion Plugins
-if !has('nvim')
-  Plug 'Shougo/neocomplete.vim'
-endif
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim'
-end
+Plug 'Shougo/deoplete.nvim'
 Plug 'tpope/vim-endwise'
 
 " Syntax plugins

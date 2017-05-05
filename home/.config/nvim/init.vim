@@ -3,9 +3,7 @@
 set nocompatible
 
 " Plugin Initialization w/ vim-plug
-if filereadable(expand("./plugins.vim"))
-  source ./plugins.vim
-endif
+source plugins.vim
 
 " configure leader
 let mapleader="\<Space>"
@@ -32,14 +30,13 @@ set shiftwidth=2                  " an autoindent (with <<) is two spaces
 set expandtab                     " use spaces, not tabs
 set list                          " Show invisible characters
 
-" load individual settings configuration files
+" load individual configuration files
 " see https://github.com/skwp/dotfiles/blob/master/vimrc
 for fpath in split(globpath('./config.d', '*.vim'), '\n')
   exe 'source' fpath
 endfor
 
-
-" load files outside of versioned dotfiles
-if filereadable(expand("~/.secrets.vim"))
-  source ~/.secrets.vim
+" load unversioned config
+if filereadable(expand("secrets.vim"))
+  source secrets.vim
 endif
