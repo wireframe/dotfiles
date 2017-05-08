@@ -303,7 +303,31 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  )
+
+  ;; TODO: consider moving this config into a separate file or layer?
+  ;; configure org-mode tags
+  ;; see http://stackoverflow.com/questions/24966333/emacs-org-mode-tags-not-found
+  (setq org-agenda-files (quote ("~/Documents/org")))
+
+  ;; configure refile workflow
+  ;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
+  ;; support more than just top level targets (depth of 3)
+  (setq org-refile-targets
+    '((nil :maxlevel . 9)
+      (org-agenda-files :maxlevel . 9)))
+
+  ;; Refile in a single go with helm support
+  (setq org-outline-path-complete-in-steps nil)
+
+  ;; add file to the refile menu
+  ;; Show full paths for refiling
+  ;; see https://www.reddit.com/r/emacs/comments/4366f9/how_do_orgrefiletargets_work/
+  ;;(setq org-refile-use-outline-path t)
+  (setq org-refile-use-outline-path 'file)
+
+  ;; allow for creating new parent nodes
+  (setq org-refile-allow-creating-parent-nodes 'confirm)
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -321,26 +345,3 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-
-;; configure org-mode tags
-;; see http://stackoverflow.com/questions/24966333/emacs-org-mode-tags-not-found
-(setq org-agenda-files (quote ("~/Documents/org")))
-
-;; configure refile workflow
-;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
-;; support more than just top level targets (depth of 3)
-(setq org-refile-targets
-  '((nil :maxlevel . 9)
-    (org-agenda-files :maxlevel . 9)))
-
-;; Refile in a single go with helm support
-(setq org-outline-path-complete-in-steps nil)
-
-;; add file to the refile menu
-;; Show full paths for refiling
-;; see https://www.reddit.com/r/emacs/comments/4366f9/how_do_orgrefiletargets_work/
-;;(setq org-refile-use-outline-path t)
-(setq org-refile-use-outline-path 'file)
-
-;; allow for creating new parent nodes
-(setq org-refile-allow-creating-parent-nodes 'confirm)
