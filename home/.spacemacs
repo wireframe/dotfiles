@@ -334,6 +334,8 @@ you should place your code here."
                  "* MEETING with %? :MEETING:\n%U")
                 ("i" "Idea" entry (file org-default-notes-file)
                  "* %? :IDEA:\n%U\n%a\n")
+                ("j" "Journal" entry (file+datetree (concat org-directory "/journal.org"))
+                 "* %?\n%U\n")
                 ("n" "Note" entry (file org-default-notes-file)
                  "* %? :NOTE:\n%U\n%a\n"))))
 
