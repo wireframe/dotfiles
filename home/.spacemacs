@@ -306,13 +306,14 @@ you should place your code here."
 
   ;; TODO: consider moving this config into a separate file or layer?
   ;; org-mode config
-  (setq org-directory (quote ("~/Documents/org")))
+  (setq org-directory "~/Documents/org")
 
   ;; agenda config
-  (setq org-agenda-files org-directory)
+  (setq org-agenda-files (list org-directory))
 
   ;; tags
   ;; Tags with fast selection keys
+  ;; startgroup is used to set "exclusive" tags
   (setq org-tag-alist (quote ((:startgroup)
                               ("@errand" . ?e)
                               ("@office" . ?o)
@@ -325,15 +326,15 @@ you should place your code here."
                               ("FLAGGED" . ??))))
 
   ;; capture workflow
-  (setq org-default-notes-file (concat org-directory "refile.org"))
+  (setq org-default-notes-file (concat org-directory "/refile.org"))
   (setq org-capture-templates
-        (quote (("t" "todo" entry (file org-default-notes-file)
+        (quote (("t" "Todo" entry (file org-default-notes-file)
                  "* TODO %?\n%U\n%a\n")
-                ("m" "meeting" entry (file org-default-notes-file)
+                ("m" "Meeting" entry (file org-default-notes-file)
                  "* MEETING with %? :MEETING:\n%U")
-                ("i" "idea" entry (file org-default-notes-file)
+                ("i" "Idea" entry (file org-default-notes-file)
                  "* %? :IDEA:\n%U\n%a\n")
-                ("n" "note" entry (file org-default-notes-file)
+                ("n" "Note" entry (file org-default-notes-file)
                  "* %? :NOTE:\n%U\n%a\n"))))
 
   ;; refile workflow
