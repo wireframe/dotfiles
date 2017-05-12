@@ -388,10 +388,10 @@ you should place your code here."
 
   ;; refile workflow
   ;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
-  ;; support more than just top level targets (depth of 3)
+  ;; support more than just top level targets (depth of 4)
   (setq org-refile-targets
-    '((nil :maxlevel . 9)
-      (org-agenda-files :maxlevel . 9)))
+    '((nil :maxlevel . 4)
+      (org-agenda-files :maxlevel . 4)))
 
   ;; Refile in a single go with helm support
   (setq org-outline-path-complete-in-steps nil)
