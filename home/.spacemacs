@@ -310,6 +310,7 @@ you should place your code here."
 
   ;; agenda config
   (setq org-agenda-files (list org-directory))
+  (setq org-agenda-start-with-follow-mode t)
 
   ;; custom daily agenda view
   ;; see https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
