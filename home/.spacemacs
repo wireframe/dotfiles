@@ -362,6 +362,37 @@ you should place your code here."
      (when (derived-mode-p 'org-agenda-mode)
       (org-agenda-redo t)))))
 
+  "Call org-agenda-redo function even in the non-agenda buffer."
+  "see http://orgmode.org/worg/org-hacks.html"
+  (defun kiwon/org-agenda-redo-in-other-window ()
+    (interactive)
+    (let ((agenda-window (get-buffer-window org-agenda-buffer-name t)))
+      (when agenda-window
+        (with-selected-window agenda-window (org-agenda-redo)))))
+  (run-at-time nil 300 'kiwon/org-agenda-redo-in-other-window)
+
+  "Jump to agenda view after idle"
+  "see http://article.gmane.org/gmane.emacs.orgmode/23047"
+  (defun jump-to-org-agenda ()
+    (interactive)
+    (let ((buf (get-buffer "*Org Agenda*"))
+          wind)
+      (if buf
+          (if (setq wind (get-buffer-window buf))
+              (select-window wind)
+            (if (called-interactively-p)
+                (progn
+                  (select-window (display-buffer buf t t))
+                  (org-fit-window-to-buffer)
+                  ;; (org-agenda-redo)
+                  )
+              (with-selected-window (display-buffer buf)
+                (org-fit-window-to-buffer)
+                )))
+        (call-interactively 'org-agenda-list)))
+    )
+  (run-with-idle-timer 300 t 'jump-to-org-agenda)
+
   ;; tags
   ;; Tags with fast selection keys
   ;; startgroup is used to set "exclusive" tags
