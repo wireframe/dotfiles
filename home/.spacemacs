@@ -371,28 +371,7 @@ you should place your code here."
         (with-selected-window agenda-window (org-agenda-redo)))))
   (run-at-time nil 300 'kiwon/org-agenda-redo-in-other-window)
 
-  "Jump to agenda view after idle"
-  "see http://article.gmane.org/gmane.emacs.orgmode/23047"
-  (defun jump-to-org-agenda ()
-    (interactive)
-    (let ((buf (get-buffer "*Org Agenda*"))
-          wind)
-      (if buf
-          (if (setq wind (get-buffer-window buf))
-              (select-window wind)
-            (if (called-interactively-p)
-                (progn
-                  (select-window (display-buffer buf t t))
-                  (org-fit-window-to-buffer)
-                  ;; (org-agenda-redo)
-                  )
-              (with-selected-window (display-buffer buf)
-                (org-fit-window-to-buffer)
-                )))
-        (call-interactively 'org-agenda-list)))
-    )
-  (run-with-idle-timer 300 t 'jump-to-org-agenda)
-
+  
   ;; tags
   ;; Tags with fast selection keys
   ;; startgroup is used to set "exclusive" tags
@@ -420,10 +399,10 @@ you should place your code here."
 
   ;; refile workflow
   ;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
-  ;; support more than just top level targets (depth of 4)
+  ;; support more than just top level targets (depth of 3)
   (setq org-refile-targets
-    '((nil :maxlevel . 4)
-      (org-agenda-files :maxlevel . 4)))
+    '((nil :maxlevel . 3)
+      (org-agenda-files :maxlevel . 3)))
 
   ;; Refile in a single go with helm support
   (setq org-outline-path-complete-in-steps nil)
@@ -436,6 +415,15 @@ you should place your code here."
 
   ;; allow for creating new parent nodes
   (setq org-refile-allow-creating-parent-nodes 'confirm)
+
+
+  ;; org-babel config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (ruby . t)
+    ))
+  (setq org-confirm-babel-evaluate nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
