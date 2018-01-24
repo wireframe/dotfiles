@@ -324,24 +324,16 @@ you should place your code here."
     (if (= pri-value pri-current)
      subtree-end
      nil)))
-  (setq org-agenda-custom-commands
-   '(("c" "Simple agenda view"
-       ((tags "PRIORITY=\"A\""
-         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-          (org-agenda-overriding-header "High-priority unfinished tasks:")))
-        (agenda "")
-        (alltodo ""
-         ((org-agenda-skip-function
-           '(or (air-org-skip-subtree-if-priority ?A)
-             (org-agenda-skip-if nil '(scheduled deadline))))))))))
   (defun air-org-skip-subtree-if-habit ()
    "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
    (let ((subtree-end (save-excursion (org-end-of-subtree t))))
     (if (string= (org-entry-get nil "STYLE") "habit")
      subtree-end
      nil)))
+
+  ;; configure custom agenda views
   (setq org-agenda-custom-commands
-   '(("d" "Daily agenda and all TODOs"
+   '(("d" "Daily agenda"
        ((tags "PRIORITY=\"A\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
           (org-agenda-overriding-header "High-priority unfinished tasks:")))
@@ -351,7 +343,13 @@ you should place your code here."
                                       (air-org-skip-subtree-if-priority ?A)
                                       (org-agenda-skip-if nil '(scheduled deadline))))
           (org-agenda-overriding-header "ALL normal priority tasks:"))))
-       ((org-agenda-compact-blocks t)))))
+       ((org-agenda-compact-blocks t)))
+
+    ("r" "Daily retrospective"
+     ((agenda "" ((org-agenda-ndays 1)))
+      ((org-agenda-compact-blocks t))
+      ((org-agenda-log-mode "L")))
+    )))
 
   ;; rebuild agenda view when files are saved
   ;; see https://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
