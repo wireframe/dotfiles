@@ -369,7 +369,7 @@ you should place your code here."
         (with-selected-window agenda-window (org-agenda-redo)))))
   (run-at-time nil 300 'kiwon/org-agenda-redo-in-other-window)
 
-  
+
   ;; tags
   ;; Tags with fast selection keys
   ;; startgroup is used to set "exclusive" tags
@@ -422,6 +422,12 @@ you should place your code here."
      (ruby . t)
     ))
   (setq org-confirm-babel-evaluate nil)
+
+  ;; shortcuts
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
