@@ -1,7 +1,6 @@
 [user]
   name = Ryan Sonnek
   email = ryan@codecrate.com
-  signingkey = CB032341
 [github]
   user = ryan.sonnek@gmail.com
 [credential]
@@ -116,7 +115,6 @@
   required = true
 [commit]
   template = ~/.config/git/message
-# gpgsign = true
 [filter "lfs"]
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
