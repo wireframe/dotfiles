@@ -354,14 +354,14 @@ you should place your code here."
                                       (org-agenda-skip-if nil '(scheduled deadline))))
           (org-agenda-overriding-header "ALL normal priority tasks:"))))
        ((org-agenda-compact-blocks t)))
-
     ("r" "Daily standup retrospective"
-     ((agenda "" ((org-agenda-ndays 1)))
-      ((org-agenda-start-day "-1d"))
-      ((org-agenda-span 1))
-      ((org-agenda-log-mode "L"))
-      ((org-agenda-compact-blocks t))
-      ((org-agenda-start-on-weekday nil)))
+     ((agenda "" ((org-agenda-span 'day)
+      (org-agenda-overriding-header "Daily Review")
+      (org-agenda-start-day "-1d")
+      (org-agenda-log-mode-items '(closed clock state))
+      (org-agenda-archives-mode t)
+      (org-agenda-compact-blocks t)
+      (org-agenda-show-log t))))
     )))
 
   ;; rebuild agenda view when files are saved
