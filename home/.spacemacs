@@ -347,7 +347,9 @@ you should place your code here."
        ((tags "PRIORITY=\"A\""
          ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
           (org-agenda-overriding-header "High-priority unfinished tasks:")))
-        (agenda "" ((org-agenda-ndays 1)))
+        (agenda "" ((org-agenda-span 'day)
+                    (org-agenda-start-day "0d")
+                    (org-agenda-skip-scheduled-if-done t)))
         (alltodo ""
          ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
                                       (air-org-skip-subtree-if-priority ?A)
