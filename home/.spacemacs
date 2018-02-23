@@ -316,7 +316,7 @@ you should place your code here."
 
   ;; TODO: consider moving this config into a separate file or layer?
   ;; org-mode config
-  (setq org-directory "~/Google Drive File Stream/My Drive/org")
+  (setq org-directory "~/Documents/org")
 
   ;; agenda config
   (setq org-agenda-files (list org-directory))
