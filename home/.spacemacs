@@ -38,19 +38,26 @@ values."
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
+     dash
      emacs-lisp
      git
      github
      helm
      html
+     javascript
      markdown
-     org
+     (org :variables
+          org-enable-github-support t
+          org-projectile-file "~/Documents/org/notes.org")
      osx
      ruby
+     ruby-on-rails
+     (shell :variables
+            shell-default-height 30
+            shell-default-position 'bottom)
+     shell-scripts
      yaml
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     ;; calendar ;; local layer
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -315,8 +322,8 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  ;; TODO: consider moving this config into a separate file or layer?
   ;; org-mode config
+  ;; TODO: consider moving this config into a separate file or layer?
   (setq org-directory "~/Documents/org")
   (setq org-default-notes-file (concat org-directory "/notes.org"))
 
@@ -324,49 +331,41 @@ you should place your code here."
   (setq org-agenda-files (list org-directory))
   (setq org-agenda-start-with-follow-mode t)
 
-  ;; custom daily agenda view
+  ;; daily agenda view
   ;; see https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
-  (defun air-org-skip-subtree-if-priority (priority)
-   "Skip an agenda subtree if it has a priority of PRIORITY.
+  (add-to-list 'org-agenda-custom-commands
+               '("d" "Daily agenda (grouped by Priority)"
+                 (
+                  ;; top priority items first
+                  (tags-todo "+PRIORITY=\"A\""
+                             ((org-agenda-overriding-header "High-priority unfinished tasks:")))
 
-   PRIORITY may be one of the characters ?A, ?B, or ?C."
-   (let ((subtree-end (save-excursion (org-end-of-subtree t)))
-         (pri-value (* 1000 (- org-lowest-priority priority)))
-         (pri-current (org-get-priority (thing-at-point 'line t))))
-    (if (= pri-value pri-current)
-     subtree-end
-     nil)))
-  (defun air-org-skip-subtree-if-habit ()
-   "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
-   (let ((subtree-end (save-excursion (org-end-of-subtree t))))
-    (if (string= (org-entry-get nil "STYLE") "habit")
-     subtree-end
-     nil)))
+                  ;; daily agenda view second
+                  (agenda "" ((org-agenda-span 'day)
+                              (org-agenda-start-day "0d")
+                              (org-agenda-skip-scheduled-if-done t)))
 
-  ;; configure custom agenda views
-  (setq org-agenda-custom-commands
-   '(("d" "Daily agenda"
-       ((tags "PRIORITY=\"A\""
-         ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-          (org-agenda-overriding-header "High-priority unfinished tasks:")))
-        (agenda "" ((org-agenda-span 'day)
-                    (org-agenda-start-day "0d")
-                    (org-agenda-skip-scheduled-if-done t)))
-        (alltodo ""
-         ((org-agenda-skip-function '(or (air-org-skip-subtree-if-habit)
-                                      (air-org-skip-subtree-if-priority ?A)
-                                      (org-agenda-skip-if nil '(scheduled deadline))))
-          (org-agenda-overriding-header "ALL normal priority tasks:"))))
-       ((org-agenda-compact-blocks t)))
-    ("r" "Daily standup retrospective"
-     ((agenda "" ((org-agenda-span 'day)
-      (org-agenda-overriding-header "Daily Review")
-      (org-agenda-start-day "-1d")
-      (org-agenda-log-mode-items '(closed clock state))
-      (org-agenda-archives-mode t)
-      (org-agenda-compact-blocks t)
-      (org-agenda-show-log t))))
-    )))
+                  ;; all other items come last
+                  (tags-todo "-PRIORITY=\"A\""
+                             ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))
+                              (org-agenda-overriding-header "All other unfinished tasks:")))
+                 )))
+
+  ;; daily retrospective
+  (add-to-list 'org-agenda-custom-commands
+               '("r" "Daily standup retrospective"
+                (
+                 (agenda "" ((org-agenda-span 'day)
+                            (org-agenda-overriding-header "Daily Review")
+                            (org-agenda-start-day "-1d")
+                            (org-agenda-log-mode-items '(closed clock state))
+                            (org-agenda-archives-mode t)
+                            (org-agenda-compact-blocks t)
+                            (org-agenda-show-log t)))
+                 )))
+
+  ;; configure org-reveal to show context when finding/selecting items
+  (setq org-show-context-detail t)
 
   ;; rebuild agenda view when files are saved
   ;; see https://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
@@ -456,7 +455,8 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+ '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
