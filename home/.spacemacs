@@ -326,11 +326,12 @@ you should place your code here."
   ;; org-mode config
   ;; TODO: consider moving this config into a separate file or layer?
   (setq org-directory "~/Documents/org")
-  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-default-notes-file (concat "~/Documents/notes.org"))
 
   ;; agenda config
   (setq org-agenda-files (list org-directory))
   (setq org-agenda-start-with-follow-mode t)
+  (setq org-agenda-custom-commands '())
 
   ;; daily agenda view
   ;; see https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
@@ -384,7 +385,7 @@ you should place your code here."
     (let ((agenda-window (get-buffer-window org-agenda-buffer-name t)))
       (when agenda-window
         (with-selected-window agenda-window (org-agenda-redo)))))
-  (run-at-time nil 300 'kiwon/org-agenda-redo-in-other-window)
+  ;; (run-at-time nil 300 'kiwon/org-agenda-redo-in-other-window)
 
 
   ;; tags
