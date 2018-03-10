@@ -403,7 +403,6 @@ you should place your code here."
                               ("FLAGGED" . ??))))
 
   ;; capture workflow
-  entry (file (concat org-directory "/gtd.org"))
   (setq org-capture-templates
         (quote (("t" "Todo" entry (file (concat org-directory "/notes.org"))
                  "* TODO %?\n%U\n%a\n")
