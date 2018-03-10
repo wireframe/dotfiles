@@ -326,7 +326,7 @@ you should place your code here."
   ;; org-mode config
   ;; TODO: consider moving this config into a separate file or layer?
   (setq org-directory "~/Documents/org")
-  (setq org-default-notes-file (concat "~/Documents/notes.org"))
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
 
   ;; agenda config
   (setq org-agenda-files (list org-directory))
@@ -403,14 +403,15 @@ you should place your code here."
                               ("FLAGGED" . ??))))
 
   ;; capture workflow
+  entry (file (concat org-directory "/gtd.org"))
   (setq org-capture-templates
-        (quote (("t" "Todo" entry (file org-default-notes-file)
+        (quote (("t" "Todo" entry (file (concat org-directory "/notes.org"))
                  "* TODO %?\n%U\n%a\n")
-                ("m" "Meeting" entry (file org-default-notes-file)
+                ("m" "Meeting" entry (file (concat org-directory "/notes.org"))
                  "* MEETING with %? :MEETING:\n%U")
                 ("j" "Journal" entry (file+datetree (concat org-directory "/journal.org"))
                  "* %?\n%U\n")
-                ("n" "Note" entry (file org-default-notes-file)
+                ("n" "Note" entry (file (concat org-directory "/notes.org"))
                  "* %? :NOTE:\n%U\n%a\n"))))
 
   ;; refile workflow
