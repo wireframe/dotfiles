@@ -30,15 +30,20 @@ values."
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(python
      csv
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; auto-completion
      ;; better-defaults
+     (auto-completion :variables
+                      auto-completion-return-key-behavior nil
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil)
      dash
      emacs-lisp
      git
@@ -47,9 +52,7 @@ values."
      html
      javascript
      markdown
-     (org :variables
-          org-enable-github-support t
-          org-projectile-file "~/Documents/org/notes.org")
+     org
      osx
      ruby
      ruby-on-rails
@@ -58,8 +61,7 @@ values."
             shell-default-position 'bottom)
      shell-scripts
      yaml
-     ;; calendar ;; local layer
-     ;; spell-checking
+     spell-checking
      ;; syntax-checking
      ;; version-control
      )
@@ -303,7 +305,9 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
+   ;; Supported options are  'spacemacs, 'all-the-icons, 'custom, 'vim-powerline or 'vanilla or a list with `car' one of the previous values and properties one of the following: `:separator' or `:separator-scale'
+   dotspacemacs-mode-line-theme 'spacemacs
    ))
 
 (defun dotspacemacs/user-init ()
@@ -323,10 +327,26 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; disable creation of emacs lock files which causes all sorts of issues with ember livereload
+  ;; https://github.com/broccolijs/broccoli/issues/154
+  ;; https://stackoverflow.com/questions/5738170/why-does-emacs-create-temporary-symbolic-links-for-modified-files
+  (setq create-lockfiles nil)
+
+  ;; ruby config
+  ;; disable auto adding magic comments
+  ;; see https://stackoverflow.com/questions/6453955/how-do-i-prevent-emacs-from-adding-coding-information-in-the-first-line
+  (setq ruby-insert-encoding-magic-comment nil)
+  (setq enh-ruby-add-encoding-comment-on-save nil)
+
   ;; org-mode config
   ;; TODO: consider moving this config into a separate file or layer?
   (setq org-directory "~/Documents/org")
   (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-agenda-text-search-extra-files
+        '(agenda-archives
+          "~/Documents/org/betterup.org_archive"
+          "~/Documents/org/personal.org_archive"
+          "~/Documents/org/notes.org_archive"))
 
   ;; agenda config
   (setq org-agenda-files (list org-directory))
@@ -362,12 +382,23 @@ you should place your code here."
                             (org-agenda-start-day "-1d")
                             (org-agenda-log-mode-items '(closed clock state))
                             (org-agenda-archives-mode t)
+                            (org-agenda-skip-archived-trees nil)
                             (org-agenda-compact-blocks t)
+                            (org-agenda-start-with-log-mode t)
                             (org-agenda-show-log t)))
                  )))
 
-  ;; configure org-reveal to show context when finding/selecting items
+  ;; configure org-reveal to show parent context when finding/selecting items
   (setq org-show-context-detail t)
+
+  ;; shortcut to open Daily agenda and close other windows
+  ;; see https://blog.aaronbieber.com/2016/09/25/agenda-interactions-primer.html
+  (defun air-pop-to-org-agenda (&optional split)
+    "Visit the org agenda, in the current window or a SPLIT."
+    (interactive "P")
+    (org-agenda nil "d")
+    (when (not split)
+      (delete-other-windows)))
 
   ;; rebuild agenda view when files are saved
   ;; see https://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
@@ -377,16 +408,9 @@ you should place your code here."
     (with-current-buffer buffer
      (when (derived-mode-p 'org-agenda-mode)
       (org-agenda-redo t)))))
-
-  "Call org-agenda-redo function even in the non-agenda buffer."
-  "see http://orgmode.org/worg/org-hacks.html"
-  (defun kiwon/org-agenda-redo-in-other-window ()
-    (interactive)
-    (let ((agenda-window (get-buffer-window org-agenda-buffer-name t)))
-      (when agenda-window
-        (with-selected-window agenda-window (org-agenda-redo)))))
-  ;; (run-at-time nil 300 'kiwon/org-agenda-redo-in-other-window)
-
+  (add-hook 'org-mode-hook
+            (lambda()
+              (add-hook 'after-save-hook 'my-redo-all-agenda-buffers nil nil)))
 
   ;; tags
   ;; Tags with fast selection keys
@@ -404,14 +428,15 @@ you should place your code here."
 
   ;; capture workflow
   (setq org-capture-templates
-        (quote (("t" "Todo" entry (file (concat org-directory "/notes.org"))
+        (quote (("t" "Todo" entry (file "~/Documents/org/notes.org")
                  "* TODO %?\n%U\n%a\n")
-                ("m" "Meeting" entry (file (concat org-directory "/notes.org"))
+                ("m" "Meeting" entry (file "~/Documents/org/notes.org")
                  "* MEETING with %? :MEETING:\n%U")
-                ("j" "Journal" entry (file+datetree (concat org-directory "/journal.org"))
+                ("j" "Journal" entry (file+datetree "~/Documents/org/journal.org")
                  "* %?\n%U\n")
-                ("n" "Note" entry (file (concat org-directory "/notes.org"))
+                ("n" "Note" entry (file "~/Documents/org/notes.org")
                  "* %? :NOTE:\n%U\n%a\n"))))
+
 
   ;; refile workflow
   ;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
@@ -439,13 +464,15 @@ you should place your code here."
    '(
      (ruby . t)
     ))
-  (setq org-confirm-babel-evaluate nil)
+  (setq org-confirm-babel-evaluate t)
 
   ;; shortcuts
   (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
   (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
   (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+  (define-key evil-normal-state-map (kbd "C-SPC") 'air-pop-to-org-agenda)
+  (define-key evil-normal-state-map (kbd "C-t") 'helm-org-agenda-files-headings)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -457,7 +484,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (csv-mode org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (pcre2el spinner org-category-capture alert log4e gntp markdown-mode parent-mode pkg-info epl request haml-mode flx let-alist anzu goto-chg undo-tree highlight f bind-map bind-key avy async popup editorconfig powerline packed gitignore-mode git-commit helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company auto-yasnippet ac-ispell auto-complete csv-mode org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -465,3 +492,24 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun dotspacemacs/emacs-custom-settings ()
+  "Emacs custom settings.
+This is an auto-generated function, do not modify its content directly, use
+Emacs customize menu instead.
+This function is called at the very end of Spacemacs initialization."
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (flyspell-correct-helm flyspell-correct auto-dictionary pcre2el spinner org-category-capture alert log4e gntp markdown-mode parent-mode pkg-info epl request haml-mode flx let-alist anzu goto-chg undo-tree highlight f bind-map bind-key avy async popup editorconfig powerline packed gitignore-mode git-commit helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company auto-yasnippet ac-ispell auto-complete csv-mode org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+ '(paradox-github-token t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+)
