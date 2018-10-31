@@ -1,4 +1,4 @@
-export EDITOR="nvim"
+export EDITOR="emacs -nw"
 
 # launch editor
 alias e="${EDITOR}"
