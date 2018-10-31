@@ -29,24 +29,26 @@ This function should only modify configuration layer settings."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
 
    ;; List of configuration layers to load.
+   ;; ----------------------------------------------------------------
+   ;; Example of useful layers you may want to use right away.
+   ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
+   ;; `M-m f e R' (Emacs style) to install them.
+   ;; ----------------------------------------------------------------
+   ;; dash
    dotspacemacs-configuration-layers
-   '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     ;; better-defaults
-     ;; (auto-completion :variables
-     ;;                  auto-completion-return-key-behavior nil
-     ;;                  auto-completion-tab-key-behavior 'complete
-     ;;                  auto-completion-complete-with-key-sequence nil
-     ;;                  auto-completion-complete-with-key-sequence-delay 0.1
-     ;;                  auto-completion-private-snippets-directory nil)
-     ;; dash
+   '(sql
+     python
+     (auto-completion :variables
+                      auto-completion-return-key-behavior nil
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-complete-with-key-sequence nil
+                      auto-completion-complete-with-key-sequence-delay 0.1
+                      auto-completion-private-snippets-directory nil)
+     better-defaults
+     csv
      emacs-lisp
      git
      github
@@ -54,20 +56,20 @@ This function should only modify configuration layer settings."
      html
      javascript
      markdown
-     org
      osx
-     perl
      neotree
+     react
+     rjs-core
      ruby
      ruby-on-rails
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
      shell-scripts
+     syntax-checking
      yaml
      spell-checking
-     ;; syntax-checking
-     ;; version-control
+     version-control
      )
 
    ;; List of additional packages that will be installed without being
@@ -475,7 +477,6 @@ you should place your code here."
   (setq enh-ruby-add-encoding-comment-on-save nil)
 
   ;; org-mode config
-  ;; TODO: consider moving this config into a separate file or layer?
   (setq org-directory "~/Documents/org")
   (setq org-default-notes-file (concat org-directory "/notes.org"))
   (setq org-agenda-text-search-extra-files
@@ -541,9 +542,9 @@ you should place your code here."
   (defun my-redo-all-agenda-buffers ()
    (interactive)
    (dolist (buffer (buffer-list))
-    (with-current-buffer buffer
-     (when (derived-mode-p 'org-agenda-mode)
-      (org-agenda-redo t)))))
+     (with-current-buffer buffer
+       (when (derived-mode-p 'org-agenda-mode)
+         (org-agenda-maybe-redo)))))
   (add-hook 'org-mode-hook
             (lambda()
               (add-hook 'after-save-hook 'my-redo-all-agenda-buffers nil nil)))
@@ -566,7 +567,7 @@ you should place your code here."
   (setq org-capture-templates
         (quote (("t" "Todo" entry (file "~/Documents/org/notes.org")
                  "* TODO %?\n%U\n%a\n")
-                ("m" "Meeting" entry (file "~/Documents/org/notes.org")
+                ("m" "Meeting" entry (file "~/Documents/org/calendar.org")
                  "* MEETING with %? :MEETING:\n%U")
                 ("j" "Journal" entry (file+datetree "~/Documents/org/journal.org")
                  "* %?\n%U\n")
@@ -595,20 +596,21 @@ you should place your code here."
 
 
   ;; org-babel config
+  (require 'ob)
+  (require 'ob-shell)
+  (require 'ob-ruby)
+  (require 'ob-python)
+  (require 'ob-tangle)
+  (setq org-confirm-babel-evaluate nil)
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '(
+   '((python . t)
+     (emacs-lisp . t)
+     (shell . t)
      (ruby . t)
-    ))
-  (setq org-confirm-babel-evaluate t)
-
-  ;; shortcuts
-  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-  (define-key evil-normal-state-map (kbd "C-SPC") 'air-pop-to-org-agenda)
-  (define-key evil-normal-state-map (kbd "C-t") 'helm-org-agenda-files-headings)
+     (sass . t)
+     (dot . t)
+     ))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -640,7 +642,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit-svn evil-goggles dotenv-mode pcre2el spinner org-category-capture alert log4e gntp markdown-mode parent-mode pkg-info epl request haml-mode flx let-alist anzu goto-chg undo-tree highlight f bind-map bind-key avy async popup editorconfig powerline packed gitignore-mode git-commit helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company auto-yasnippet ac-ispell auto-complete csv-mode org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (sqlup-mode sql-indent pcre2el spinner org-category-capture alert log4e gntp markdown-mode parent-mode pkg-info epl request haml-mode flx let-alist anzu goto-chg undo-tree highlight f bind-map bind-key avy async popup editorconfig powerline packed gitignore-mode git-commit helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company auto-yasnippet ac-ispell auto-complete csv-mode org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
