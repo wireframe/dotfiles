@@ -60,7 +60,6 @@ This function should only modify configuration layer settings."
      osx
      neotree
      react
-     rjs-core
      ruby
      ruby-on-rails
      (shell :variables
@@ -478,152 +477,160 @@ you should place your code here."
   (setq enh-ruby-add-encoding-comment-on-save nil)
 
   ;; org-mode config
-  (setq org-directory "~/Documents/org")
-  (setq org-default-notes-file (concat org-directory "/notes.org"))
-  (setq org-agenda-text-search-extra-files
-        '(agenda-archives
-          "~/Documents/org/betterup.org_archive"
-          "~/Documents/org/personal.org_archive"
-          "~/Documents/org/notes.org_archive"))
+  (with-eval-after-load 'org
+    (setq org-directory "~/Documents/org")
+    (setq org-default-notes-file (concat org-directory "/notes.org"))
+    (setq org-agenda-text-search-extra-files
+          '(agenda-archives
+            "~/Documents/org/betterup.org_archive"
+            "~/Documents/org/personal.org_archive"
+            "~/Documents/org/notes.org_archive"))
 
-  ;; default orgmode files to wrap lines instead of truncation
-  ;; see https://emacs.stackexchange.com/questions/35473/how-to-set-truncate-lines-in-org-mode-in-spacemacs-by-default
-  (defun org-line-wrap ()
-    (spacemacs/toggle-visual-line-navigation-on)
-    (setq-local word-wrap t))
-  (add-hook 'org-mode-hook #'org-line-wrap)
+    ;; default orgmode files to wrap lines instead of truncation
+    ;; see https://emacs.stackexchange.com/questions/35473/how-to-set-truncate-lines-in-org-mode-in-spacemacs-by-default
+    (defun org-line-wrap ()
+      (spacemacs/toggle-visual-line-navigation-on)
+      (setq-local word-wrap t))
+    (add-hook 'org-mode-hook #'org-line-wrap)
 
-  ;; agenda config
-  (setq org-agenda-files (list org-directory))
-  (setq org-agenda-start-with-follow-mode t)
-  (setq org-agenda-custom-commands '())
+    ;; agenda config
+    (setq org-agenda-files (list org-directory))
+    (setq org-agenda-start-with-follow-mode t)
+    (setq org-agenda-custom-commands '())
 
-  ;; daily agenda view
-  ;; see https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
-  (add-to-list 'org-agenda-custom-commands
-               '("d" "Daily agenda (grouped by Priority)"
-                 (
-                  ;; top priority items first
-                  (tags-todo "+PRIORITY=\"A\""
-                             ((org-agenda-overriding-header "High-priority unfinished tasks:")))
+    ;; daily agenda view
+    ;; see https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
+    (add-to-list 'org-agenda-custom-commands
+                 '("d" "Daily agenda (grouped by Priority)"
+                   (
+                    ;; top priority items first
+                    (tags-todo "+PRIORITY=\"A\""
+                               ((org-agenda-overriding-header "High-priority unfinished tasks:")))
 
-                  ;; daily agenda view second
-                  (agenda "" ((org-agenda-span 'day)
-                              (org-agenda-start-day "0d")
-                              (org-agenda-skip-scheduled-if-done t)))
+                    ;; daily agenda view second
+                    (agenda "" ((org-agenda-span 'day)
+                                (org-agenda-start-day "0d")
+                                (org-agenda-skip-scheduled-if-done t)))
 
-                  ;; all other items come last
-                  (tags-todo "-PRIORITY=\"A\""
-                             ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))
-                              (org-agenda-overriding-header "All other unfinished tasks:")))
-                 )))
+                    ;; all other items come last
+                    (tags-todo "-PRIORITY=\"A\""
+                               ((org-agenda-skip-function '(org-agenda-skip-entry-if 'scheduled 'deadline))
+                                (org-agenda-overriding-header "All other unfinished tasks:")))
+                    )))
 
-  ;; daily retrospective
-  (add-to-list 'org-agenda-custom-commands
-               '("r" "Daily standup retrospective"
-                (
-                 (agenda "" ((org-agenda-span 'day)
-                            (org-agenda-overriding-header "Daily Review")
-                            (org-agenda-start-day "-1d")
-                            (org-agenda-log-mode-items '(closed clock state))
-                            (org-agenda-archives-mode t)
-                            (org-agenda-skip-archived-trees nil)
-                            (org-agenda-compact-blocks t)
-                            (org-agenda-start-with-log-mode t)
-                            (org-agenda-show-log t)))
-                 )))
+    ;; daily retrospective
+    (add-to-list 'org-agenda-custom-commands
+                 '("r" "Daily standup retrospective"
+                   (
+                    (agenda "" ((org-agenda-span 'day)
+                                (org-agenda-overriding-header "Daily Review")
+                                (org-agenda-start-day "-1d")
+                                (org-agenda-log-mode-items '(closed clock state))
+                                (org-agenda-archives-mode t)
+                                (org-agenda-skip-archived-trees nil)
+                                (org-agenda-compact-blocks t)
+                                (org-agenda-start-with-log-mode t)
+                                (org-agenda-show-log t)))
+                    )))
 
-  ;; configure org-reveal to show parent context when finding/selecting items
-  (setq org-show-context-detail t)
+    ;; configure org-reveal to show parent context when finding/selecting items
+    (setq org-show-context-detail t)
 
-  ;; shortcut to open Daily agenda and close other windows
-  ;; see https://blog.aaronbieber.com/2016/09/25/agenda-interactions-primer.html
-  (defun air-pop-to-org-agenda (&optional split)
-    "Visit the org agenda, in the current window or a SPLIT."
-    (interactive "P")
-    (org-agenda nil "d")
-    (when (not split)
-      (delete-other-windows)))
+    ;; shortcut to open Daily agenda and close other windows
+    ;; see https://blog.aaronbieber.com/2016/09/25/agenda-interactions-primer.html
+    (defun air-pop-to-org-agenda (&optional split)
+      "Visit the org agenda, in the current window or a SPLIT."
+      (interactive "P")
+      (org-agenda nil "d")
+      (when (not split)
+        (delete-other-windows)))
 
-  ;; rebuild agenda view when files are saved
-  ;; see https://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
-  (defun my-redo-all-agenda-buffers ()
-   (interactive)
-   (dolist (buffer (buffer-list))
-     (with-current-buffer buffer
-       (when (derived-mode-p 'org-agenda-mode)
-         (org-agenda-maybe-redo)))))
-  (add-hook 'org-mode-hook
-            (lambda()
-              (add-hook 'after-save-hook 'my-redo-all-agenda-buffers nil nil)))
+    ;; rebuild agenda view when files are saved
+    ;; see https://emacs.stackexchange.com/questions/16326/how-to-rebuild-agenda-buffers-when-saving-an-org-mode-buffer
+    (defun my-redo-all-agenda-buffers ()
+      (interactive)
+      (dolist (buffer (buffer-list))
+        (with-current-buffer buffer
+          (when (derived-mode-p 'org-agenda-mode)
+            (org-agenda-maybe-redo)))))
+    (add-hook 'org-mode-hook
+              (lambda()
+                (add-hook 'after-save-hook 'my-redo-all-agenda-buffers nil nil)))
 
-  ;; tags
-  ;; Tags with fast selection keys
-  ;; startgroup is used to set "exclusive" tags
-  (setq org-tag-alist (quote ((:startgroup)
-                              ("@errand" . ?e)
-                              ("@office" . ?o)
-                              ("@home" . ?h)
-                              (:endgroup)
-                              ("BLOCKED" . ?b)
-                              ("PERSONAL" . ?P)
-                              ("WORK" . ?W)
-                              ("NOTE" . ?n)
-                              ("FLAGGED" . ??))))
+    ;; tags
+    ;; Tags with fast selection keys
+    ;; startgroup is used to set "exclusive" tags
+    (setq org-tag-alist (quote ((:startgroup)
+                                ("@errand" . ?e)
+                                ("@office" . ?o)
+                                ("@home" . ?h)
+                                (:endgroup)
+                                ("BLOCKED" . ?b)
+                                ("PERSONAL" . ?P)
+                                ("WORK" . ?W)
+                                ("NOTE" . ?n)
+                                ("FLAGGED" . ??))))
 
-  ;; capture workflow
-  (setq org-capture-templates
-        (quote (("t" "Todo" entry (file "~/Documents/org/notes.org")
-                 "* TODO %?\n%U\n%a\n")
-                ("m" "Meeting" entry (file "~/Documents/org/calendar.org")
-                 "* MEETING with %? :MEETING:\n%U")
-                ("j" "Journal" entry (file+datetree "~/Documents/org/journal.org")
-                 "* %?\n%U\n")
-                ("n" "Note" entry (file "~/Documents/org/notes.org")
-                 "* %? :NOTE:\n%U\n%a\n"))))
+    ;; capture workflow
+    (setq org-capture-templates
+          (quote (("t" "Todo" entry (file "~/Documents/org/notes.org")
+                   "* TODO %?\n%U\n%a\n")
+                  ("m" "Meeting" entry (file "~/Documents/org/calendar.org")
+                   "* MEETING with %? :MEETING:\n%U")
+                  ("j" "Journal" entry (file+datetree "~/Documents/org/journal.org")
+                   "* %?\n%U\n")
+                  ("n" "Note" entry (file "~/Documents/org/notes.org")
+                   "* %? :NOTE:\n%U\n%a\n"))))
 
-  ;; maximize capture frame
-  ;; see https://stackoverflow.com/questions/15253005/in-emacs-org-mode-how-do-i-get-org-capture-to-open-in-a-full-sized-window
-  ;; (add-hook 'org-capture-mode-hook 'sticky-window-delete-other-windows)
-  (add-hook 'org-capture-mode-hook 'delete-other-windows)
-
-
-  ;; refile workflow
-  ;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
-  ;; support more than just top level targets (depth of 3)
-  (setq org-refile-targets
-    '((nil :maxlevel . 3)
-      (org-agenda-files :maxlevel . 3)))
-
-  ;; Refile in a single go with helm support
-  (setq org-outline-path-complete-in-steps nil)
-
-  ;; add file to the refile menu
-  ;; Show full paths for refiling
-  ;; see https://www.reddit.com/r/emacs/comments/4366f9/how_do_orgrefiletargets_work/
-  ;;(setq org-refile-use-outline-path t)
-  (setq org-refile-use-outline-path 'file)
-
-  ;; allow for creating new parent nodes
-  (setq org-refile-allow-creating-parent-nodes 'confirm)
+    ;; shortcut for capture
+    ;; NOTE: leader "o" is reserved for user space
+    ;; see https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#reserved-prefix-command-for-user
+    (spacemacs/set-leader-keys "oc" 'org-capture)
 
 
-  ;; org-babel config
-  (require 'ob)
-  (require 'ob-shell)
-  (require 'ob-ruby)
-  (require 'ob-python)
-  (require 'ob-tangle)
-  (setq org-confirm-babel-evaluate nil)
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((python . t)
-     (emacs-lisp . t)
-     (shell . t)
-     (ruby . t)
-     (sass . t)
-     (dot . t)
-     ))
+    ;; maximize capture frame
+    ;; see https://stackoverflow.com/questions/15253005/in-emacs-org-mode-how-do-i-get-org-capture-to-open-in-a-full-sized-window
+    ;; (add-hook 'org-capture-mode-hook 'sticky-window-delete-other-windows)
+    (add-hook 'org-capture-mode-hook 'delete-other-windows)
+
+
+    ;; refile workflow
+    ;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
+    ;; support more than just top level targets (depth of 3)
+    (setq org-refile-targets
+          '((nil :maxlevel . 3)
+            (org-agenda-files :maxlevel . 3)))
+
+    ;; Refile in a single go with helm support
+    (setq org-outline-path-complete-in-steps nil)
+
+    ;; add file to the refile menu
+    ;; Show full paths for refiling
+    ;; see https://www.reddit.com/r/emacs/comments/4366f9/how_do_orgrefiletargets_work/
+    ;;(setq org-refile-use-outline-path t)
+    (setq org-refile-use-outline-path 'file)
+
+    ;; allow for creating new parent nodes
+    (setq org-refile-allow-creating-parent-nodes 'confirm)
+
+
+    ;; org-babel config
+    (require 'ob)
+    (require 'ob-shell)
+    (require 'ob-ruby)
+    (require 'ob-python)
+    (require 'ob-tangle)
+    (setq org-confirm-babel-evaluate nil)
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((python . t)
+       (emacs-lisp . t)
+       (shell . t)
+       (ruby . t)
+       (sass . t)
+       (dot . t)
+       ))
+    )
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
