@@ -1,5 +1,0 @@
-#!/bin/bash
-# shutdown all running vagrant instances
-# see https://coderwall.com/p/rlsjva/shutdown-all-running-vagrant-boxes
-vagrant global-status | ruby -ane '`cd #{$F[4]} && vagrant halt` if $F[3] == "running"'
-
