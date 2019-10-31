@@ -12,5 +12,4 @@ if [ -d ~/.profile.d ]; then
 fi
 
 echo 'SONNEK BOOM 🔥🔥🔥'
-# FIXME: this doesn't work in zsh for some reason
-# emulate sh -c 'source /Users/ryansonnek/.betterup_profile/init.sh'
+emulate sh -c 'source /Users/ryansonnek/.betterup_profile/init.sh'
