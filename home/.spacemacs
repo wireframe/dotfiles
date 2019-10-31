@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
                       auto-completion-private-snippets-directory nil)
      better-defaults
      csv
+     docker
      emacs-lisp
      git
      github
@@ -221,7 +222,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 15
                                :weight normal
                                :width normal)
 
@@ -485,6 +486,13 @@ you should place your code here."
           "~/Documents/org/personal.org_archive"
           "~/Documents/org/notes.org_archive"))
 
+  ;; default orgmode files to wrap lines instead of truncation
+  ;; see https://emacs.stackexchange.com/questions/35473/how-to-set-truncate-lines-in-org-mode-in-spacemacs-by-default
+  (defun org-line-wrap ()
+    (spacemacs/toggle-visual-line-navigation-on)
+    (setq-local word-wrap t))
+  (add-hook 'org-mode-hook #'org-line-wrap)
+
   ;; agenda config
   (setq org-agenda-files (list org-directory))
   (setq org-agenda-start-with-follow-mode t)
@@ -574,6 +582,11 @@ you should place your code here."
                 ("n" "Note" entry (file "~/Documents/org/notes.org")
                  "* %? :NOTE:\n%U\n%a\n"))))
 
+  ;; maximize capture frame
+  ;; see https://stackoverflow.com/questions/15253005/in-emacs-org-mode-how-do-i-get-org-capture-to-open-in-a-full-sized-window
+  ;; (add-hook 'org-capture-mode-hook 'sticky-window-delete-other-windows)
+  (add-hook 'org-capture-mode-hook 'delete-other-windows)
+
 
   ;; refile workflow
   ;; see https://blog.aaronbieber.com/2017/03/19/organizing-notes-with-refile.html
@@ -642,7 +655,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (sqlup-mode sql-indent pcre2el spinner org-category-capture alert log4e gntp markdown-mode parent-mode pkg-info epl request haml-mode flx let-alist anzu goto-chg undo-tree highlight f bind-map bind-key avy async popup editorconfig powerline packed gitignore-mode git-commit helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company auto-yasnippet ac-ispell auto-complete csv-mode org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (dockerfile-mode docker tablist docker-tramp pcre2el spinner org-category-capture alert log4e gntp markdown-mode parent-mode pkg-info epl request haml-mode flx let-alist anzu goto-chg undo-tree highlight f bind-map bind-key avy async popup editorconfig powerline packed gitignore-mode git-commit helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company auto-yasnippet ac-ispell auto-complete csv-mode org-gcal request-deferred deferred calfw-org calfw insert-shebang helm-dash fish-mode dash-at-point projectile-rails inflections ox-gfm feature-mode projectile hydra inf-ruby s web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode iedit smartparens evil helm helm-core magit magit-popup ghub with-editor org-plus-contrib dash xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht yaml-mode ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit spaceline smeargle slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reveal-in-osx-finder restart-emacs rbenv rake rainbow-delimiters pug-mode popwin persp-mode pbcopy paradox osx-trash osx-dictionary orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree move-text mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum linum-relative link-hint less-css-mode launchctl indent-guide hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-ag google-translate golden-ratio gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu emmet-mode elisp-slime-nav dumb-jump diminish column-enforce-mode clean-aindent-mode chruby bundler auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

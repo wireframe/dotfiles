@@ -6,23 +6,16 @@ dotfiles managed by [Homesick](https://github.com/technicalpickles/homesick)
 * environment initialization (ex: path, aliases)
 * bash configuration (ex: prompt, autocompletion, etc)
 * helpful scripts and commands (ex: git-cleanup.sh)
-* VIM configuration
+
+## Configuration
+* Emacs configuration
 * Git configuration (aliases, merge settings, etc)
 * Ruby configuration (IRB, Rubygems, Rspec, etc)
 
-## Setup
-Provision machine with OSX-Bootstrap project
-
-## Alfred configuration
-1. Turn off OSX spotlight
-2. Map Alfred to CMD+SPACE
-3. Setup Alfred sync directory to `~/.alfred.d`
-
-## Manual installation
+## Installation
 
 ```bash
 $ gem install homesick
 $ homesick clone wireframe/dotfiles
 $ homesick symlink dotfiles
-$ homesick rc dotfiles
 ```

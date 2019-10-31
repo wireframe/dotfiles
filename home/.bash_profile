@@ -11,9 +11,5 @@ if [ -d ~/.profile.d ]; then
   unset i
 fi
 
-if [ -f ~/.bash_prompt ]; then
-  source ~/.bash_prompt
-fi
-
 echo 'SONNEK BOOM 🔥🔥🔥'
 source /Users/ryansonnek/.betterup_profile/init.sh

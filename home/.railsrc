@@ -1,8 +1,4 @@
 # default configuration for generating new Rails projects
 # see http://samuelmullen.com/articles/configuring_new_rails_projects_with_railsrc_and_templates/
---skip-test-unit
---skip-coffee
 --skip-turbolinks
 --database=postgresql
---webpack
---template=~/.rails_template.rb
