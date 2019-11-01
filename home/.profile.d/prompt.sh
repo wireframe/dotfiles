@@ -3,9 +3,6 @@
 # enable vim keybindings in prompt
 bindkey -v
 
-setopt prompt_subst
-autoload +X colors
-
 # current git branch and status
 git_info() {
     BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
@@ -29,6 +26,9 @@ input_prompt() {
     echo '%(?.%F{blue}.%F{red})%(!.#.>)%f '
 }
 
-PROMPT='
+setopt prompt_subst
+autoload +X colors
+
+PS1='
 $(path_info) $(git_info)
 $(input_prompt) '
