@@ -29,7 +29,7 @@ This function should only modify configuration layer settings."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/layers/")
+   dotspacemacs-configuration-layer-path nil
 
    ;; List of configuration layers to load.
    ;; ----------------------------------------------------------------
@@ -464,6 +464,18 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; quickly move between windows
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
+  ;; quick launch the agenda
+  (define-key evil-normal-state-map (kbd "C-SPC") 'air-pop-to-org-agenda)
+
+  ;; quick launch search for agenda header
+  (define-key evil-normal-state-map (kbd "C-t") 'helm-org-agenda-files-headings)
 
   ;; disable creation of emacs lock files which causes all sorts of issues with ember livereload
   ;; https://github.com/broccolijs/broccoli/issues/154
