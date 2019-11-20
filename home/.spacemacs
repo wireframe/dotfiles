@@ -471,12 +471,6 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
-  ;; quick launch the agenda
-  (define-key evil-normal-state-map (kbd "C-SPC") 'air-pop-to-org-agenda)
-
-  ;; quick launch search for agenda header
-  (define-key evil-normal-state-map (kbd "C-t") 'helm-org-agenda-files-headings)
-
   ;; disable creation of emacs lock files which causes all sorts of issues with ember livereload
   ;; https://github.com/broccolijs/broccoli/issues/154
   ;; https://stackoverflow.com/questions/5738170/why-does-emacs-create-temporary-symbolic-links-for-modified-files
@@ -509,6 +503,10 @@ you should place your code here."
     (setq org-agenda-files (list org-directory))
     (setq org-agenda-start-with-follow-mode t)
     (setq org-agenda-custom-commands '())
+
+    ;; org shortcuts
+    (spacemacs/set-leader-keys "on" 'org-narrow-to-subtree)
+    (spacemacs/set-leader-keys "ow" 'widen)
 
     ;; daily agenda view
     ;; see https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
@@ -568,6 +566,17 @@ you should place your code here."
     (add-hook 'org-mode-hook
               (lambda()
                 (add-hook 'after-save-hook 'my-redo-all-agenda-buffers nil nil)))
+
+    ;; quick launch the agenda
+    (spacemacs/set-leader-keys "oa" 'air-pop-to-org-agenda)
+
+    ;; quick launch search through agenda headers
+    (spacemacs/set-leader-keys "oh" 'helm-org-agenda-files-headings)
+
+    ;; shortcut for capture
+    ;; NOTE: leader "o" is reserved for user space
+    ;; see https://github.com/syl20bnr/spacemacs/blob/develop/doc/DOCUMENTATION.org#reserved-prefix-command-for-user
+    (spacemacs/set-leader-keys "oc" 'org-capture)
 
     ;; tags
     ;; Tags with fast selection keys
