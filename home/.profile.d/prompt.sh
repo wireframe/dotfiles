@@ -1,8 +1,5 @@
 # see https://joshdick.net/2017/06/08/my_git_prompt_for_zsh_revisited.html
 
-# enable vim keybindings in prompt
-bindkey -v
-
 # current git branch and status
 git_info() {
     BRANCH=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/*\(.*\)/\1/')
