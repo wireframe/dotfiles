@@ -1,6 +1,7 @@
-export EDITOR="emacs -nw"
+# configure default editor for command line integrations
+export EDITOR="emacs --no-window-system"
 
 # launch editor
-alias e="${EDITOR}"
+alias e="emacs"
 # launch editor in PWD
-alias ee="${EDITOR} ."
+alias ee="emacs ."
