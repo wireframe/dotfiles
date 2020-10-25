@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Launch firefox with personal profile without about:profiles
+set -e
+/Applications/Firefox.app/Contents/MacOS/firefox-bin -P personal --no-remote
