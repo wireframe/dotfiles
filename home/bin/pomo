@@ -11,7 +11,7 @@ calm-notifications on
 
 SCRIPT_DIR=`dirname ${BASH_SOURCE[0]-$0}`
 SCRIPT_DIR=`cd $SCRIPT_DIR && pwd`
-${SCRIPT_DIR}/pomo-cli start '"$@"'
+${SCRIPT_DIR}/pomo-cli start "$@"
 
 # cleanup
 calm-notifications off
