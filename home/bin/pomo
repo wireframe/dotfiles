@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# start pomodoro focus time
+# disable system notifications during the pomo for true deep work
+
+# dependencies:
+# see https://github.com/vitorgalvao/tiny-scripts/blob/master/calm-notifications
+# see https://github.com/kevinschoon/pomo
+
+# set -e
+
+calm-notifications on
+./pomo-cli start ""${@}""
+
+# cleanup
+calm-notifications off
