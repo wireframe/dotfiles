@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+# Usage: $ kindle-highlights [book name]
+require 'kindle_highlights'
+
+kindle = KindleHighlights::Client.new(
+  email_address: ENV['AMAZON_USERNAME'],
+  password: ENV['AMAZON_PASSWORD']
+)
+
+book = kindle.books.find do |book|
+  puts book.title
+  puts book.title =~ Regexp.new(ARGV[0], Regexp::IGNORECASE)
+  book.title =~ Regexp.new(ARGV[0], Regexp::IGNORECASE)
+end
+
+raise "No book found with title: #{ARGV[0]}" unless book
+
+highlights = kindle.highlights_for(book.asin)
+highlights.each do |highlight|
+  puts "[[>]] #{highlight.text}"
+end
