@@ -7,8 +7,12 @@ kindle = KindleHighlights::Client.new(
   email_address: ENV['AMAZON_USERNAME'],
   password: ENV['AMAZON_PASSWORD']
 )
+raise 'Invalid configuration' unless ENV['AMAZON_USERNAME'] && ENV['AMAZON_PASSWORD']
 
-book = kindle.books.find do |book|
+books = kindle.books
+raise 'No books found.  Login to https://read.amazon.com/notebook to clear captcha' unless books.any?
+
+book = books.find do |book|
   puts book.title
   puts book.title =~ Regexp.new(ARGV[0], Regexp::IGNORECASE)
   book.title =~ Regexp.new(ARGV[0], Regexp::IGNORECASE)
