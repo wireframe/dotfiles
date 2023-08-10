@@ -1,4 +1,6 @@
-HOMEBREW_PATH=$(brew --prefix)
+HOMEBREW_PATH="/opt/homebrew"
+export PATH=${HOMEBREW_PATH}/bin:$PATH
+
 # add homebrew npm installed binaries to system path
 export PATH=${HOMEBREW_PATH}/share/npm/bin:$PATH
 
