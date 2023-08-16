@@ -5,3 +5,7 @@
 	path = home/.spacemacs.d
 	url = https://github.com/syl20bnr/spacemacs
 	branch = develop
+[submodule "home/.emacs.d"]
+	path = home/.emacs.d
+	url = https://github.com/hlissner/doom-emacs
+	branch = master
