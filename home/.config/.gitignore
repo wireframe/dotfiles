@@ -1,16 +1,2 @@
 # Whitelist specific configuration for dotfiles
 # see http://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files
-
-# Ignore everything by default
-*
-
-# Whitelisted files
-!.gitignore
-
-# Whitelisted directories
-!nvim/
-!nvim/*
-!nvim/**/*
-!git/
-!git/*
-!git/**/*
