@@ -1,8 +1,0 @@
-# netrw
-.netrwhist
-
-# plugged installations
-plugged
-
-# secrets
-config.d/secrets.vim
