@@ -49,6 +49,6 @@
 
     # Expose the package set, including overlays, for convenience.
     # self.darwinConfigurations."simple".pkgs
-    darwinPackages = "ryansonnekComputer.local";
+    darwinPackages = "J694J6DJ56";
   };
 }
