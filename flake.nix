@@ -43,12 +43,11 @@
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."J694J6DJ56" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
 
     # Expose the package set, including overlays, for convenience.
-    # self.darwinConfigurations."simple".pkgs
-    darwinPackages = "J694J6DJ56";
+    darwinPackages = self.darwinConfigurations."J694J6DJ56".pkgs;
   };
 }
