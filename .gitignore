@@ -13,3 +13,9 @@ pomo-cli
 
 # secrets not to be version controlled
 secrets.sh
+
+# Fabric files
+home/.config/fabric/
+
+# Grammarly files
+home/.config/grammarly-languageserver/
