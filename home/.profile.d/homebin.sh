@@ -1,2 +1,2 @@
 # add scripts in ~/bin directory to path
-export PATH="~/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
