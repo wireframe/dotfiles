@@ -125,3 +125,16 @@
 	includeStatusHeader = false
 	includePullRequestsSection = false
 	includeIssuesSection = false
+
+# Configure Git commit signitures
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF+Iq37U/fydEmtU+4MKaaD2HEmXAcYown8ct8FKKmEv
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true

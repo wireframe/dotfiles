@@ -13,3 +13,4 @@ fi
 
 echo 'SONNEK BOOM'
 emulate sh -c 'source /Users/ryansonnek/.betterup_profile/init.sh'
+if [ -f "/Users/ryansonnek/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/ryansonnek/.config/fabric/fabric-bootstrap.inc"; fi
