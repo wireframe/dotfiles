@@ -19,4 +19,6 @@ home/.config/fabric/
 
 # Grammarly files
 home/.config/grammarly-languageserver/
-home/.config/raycast/extensions/node_modules
+
+# Raycast files
+home/.config/raycast/
