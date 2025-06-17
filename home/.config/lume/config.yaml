@@ -1,0 +1,10 @@
+# Lume Configuration
+
+defaultLocationName: "default"
+cacheDirectory: "~/.lume/cache"
+cachingEnabled: true
+
+# VM Locations
+vmLocations:
+  - name: "default"
+    path: "~/.lume"
