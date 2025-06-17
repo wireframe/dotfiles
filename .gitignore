@@ -14,11 +14,7 @@ pomo-cli
 # secrets not to be version controlled
 secrets.sh
 
-# Fabric files
-home/.config/fabric/
-
-# Grammarly files
-home/.config/grammarly-languageserver/
-
-# Raycast files
-home/.config/raycast/
+# X-Config files
+home/.config/fabric
+home/.config/grammarly-languageserver
+home/.config/raycast
