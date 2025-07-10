@@ -12,4 +12,3 @@ if [ -d ~/.profile.d ]; then
 fi
 
 echo 'SONNEK BOOM'
-# emulate sh -c 'source /Users/ryansonnek/.betterup_profile/init.sh'

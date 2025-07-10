@@ -12,5 +12,3 @@ if [ -d ~/.profile.d ]; then
 fi
 
 echo 'SONNEK BOOM 🔥🔥🔥'
-source /Users/ryansonnek/.betterup_profile/init.sh
-if [ -f "/Users/ryansonnek/.config/fabric/fabric-bootstrap.inc" ]; then . "/Users/ryansonnek/.config/fabric/fabric-bootstrap.inc"; fi
