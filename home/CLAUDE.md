@@ -19,4 +19,4 @@
 
 ## Workflow
 - moving and renaming files should preserve the git history.
-- Prefer building and using scripts for execution.  if there is an operation that you run frequently, create a reusable tool/script for future reuse.  It helps both humans and Agents to have scripts for common workflow operations.
+- Prefer using scripts for tool execution.  If there is an operation that you run frequently, create a reusable tool/script for future reuse.  It helps both humans and Agents to have scripts for common workflow operations.  Follow the Unix philosophy of creating these tools.  Each one should be small, specific, and do one thing really well.
