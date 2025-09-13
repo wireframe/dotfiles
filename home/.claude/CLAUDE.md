@@ -42,6 +42,7 @@ Before starting any task, I must assess my understanding level (1-5 scale):
 - **Don't repeat yourself**: Abstract and encapsulate duplicate code to keep the codebase DRY.  
 - Follow the Single Responsibility Principle for objects.  
 - **Only create what is needed right now**:  Do not write code for future use.  Only write code that is actually used by a call path, right now.  Remove code that does not have a current use.
+- **Write Shy Code**: modules shouldn't reveal anything unnecessary to other modules.  And don’t rely on other modules’ implementation details.
 
 ## Error handling
 - **Avoid defensive programming**:  Raising errors to callers when possible.
