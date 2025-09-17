@@ -1,9 +1,5 @@
 ## Task Management
-Before starting any task, I must assess my understanding level (1-5 scale):
-- If understanding is less than 5/5, I will:
-  1. State my current understanding level
-  2. Ask 5 clarifying questions to reach full comprehension
-
+- Before starting any task, I must assess my understanding level (1-5 scale).  If understanding is less than 5/5, I will State my current understanding level, and Ask 3 clarifying questions to reach full comprehension
 - Use TodoWrite tool for complex multi-step tasks
 - Mark tasks as in_progress before starting
 - Complete tasks only when fully finished and tested
