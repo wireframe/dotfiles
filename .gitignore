@@ -22,6 +22,7 @@ home/.config/song-of-the-day/config.env
 home/.config/gitx/github.yml
 
 # Claude files
+*.jsonl
 home/.claude/settings.json
 home/.claude/ide
 home/.claude/plugins
@@ -29,3 +30,5 @@ home/.claude/projects
 home/.claude/shell-snapshots
 home/.claude/todos
 home/.claude/statsig
+home/.claude/debug
+home/.claude/file-history
