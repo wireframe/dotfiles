@@ -48,12 +48,3 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-
-;; Claude Code integration
-(package! inheritenv
-  :recipe (:host github :repo "purcell/inheritenv"))
-
-(package! eat)
-
-(package! claude-code
-  :recipe (:host github :repo "stevemolitor/claude-code.el"))

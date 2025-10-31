@@ -76,10 +76,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-
-;; Claude Code integration
-(use-package! claude-code
-  :bind-keymap ("C-c c" . claude-code-command-map)
-  :config
-  (setq claude-code-terminal-backend 'eat)
-  (claude-code-mode))
