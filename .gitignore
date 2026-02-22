@@ -32,3 +32,13 @@ home/.claude/todos
 home/.claude/statsig
 home/.claude/debug
 home/.claude/file-history
+home/.claude/backups
+home/.claude/cache
+home/.claude/hooks
+home/.claude/mcp-needs-auth-cache.json
+home/.claude/paste-cache
+home/.claude/plans
+home/.claude/skills
+home/.claude/stats-cache.json
+home/.claude/tasks
+home/.config/cagent
