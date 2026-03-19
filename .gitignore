@@ -38,7 +38,6 @@ home/.claude/hooks
 home/.claude/mcp-needs-auth-cache.json
 home/.claude/paste-cache
 home/.claude/plans
-home/.claude/skills
 home/.claude/stats-cache.json
 home/.claude/tasks
 home/.config/cagent
