@@ -45,7 +45,8 @@
 - **Crash Early**: It is better to crash the application than to leave it in an invalid state.
 
 ## Workflow
-- moving and renaming files should preserve the git history.
+- moving and renaming files should use the `git mv` command to preserve the git history.
+- when merging feature branches, and pull requests, do *not* squash the commit history.
 
 ## Resources and Tool usage
 ### MCP Context7 Integration
