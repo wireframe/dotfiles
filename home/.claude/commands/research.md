@@ -1,0 +1,53 @@
+---
+description: "QRSPI Phase 2: Research the codebase based on scoped questions from /question decisions"
+argument-hint: "<path to decisions folder, e.g. docs/plans/2026-03-31-my-feature>"
+---
+
+# /research — QRSPI Phase 2: Research
+
+## Hard Gate
+
+Before doing anything else, check that the decisions artifact exists:
+- Use the Glob tool to find `$ARGUMENTS/decisions.md`
+- If it does NOT exist, STOP and tell the user: "No decisions.md found in `$ARGUMENTS/`. Run `/question` first."
+- If it DOES exist, read it and proceed.
+
+## Your Role
+
+Map the relevant codebase based on the "Research Focus Areas" from the decisions artifact. You are a documentary researcher — record what exists, not what should exist.
+
+## Rules
+
+- Read the decisions artifact, focusing on the "Research Focus Areas" section.
+- For EACH focus area, dispatch a parallel Explore agent with a focused prompt.
+- Be strictly documentary: no opinions, no suggestions, no "you should."
+- Capture findings with `file:line` references.
+- Compress findings — distill truth, don't dump raw file contents.
+
+## Output
+
+Write `$ARGUMENTS/research.md` with this format:
+
+```
+# Research: <topic>
+Date: YYYY-MM-DD
+Decisions: [decisions.md](decisions.md)
+
+## <Focus Area 1 title>
+**Findings:**
+- <what exists, where, how it works>
+- Reference: `src/path/file.ts:42`
+
+## <Focus Area 2 title>
+**Findings:**
+- ...
+
+## Patterns Observed
+- <naming conventions, error handling patterns, architectural patterns found>
+
+## Constraints Discovered
+- <things the decisions phase didn't anticipate>
+- <technical limitations found>
+```
+
+Tell the user: "Research complete. Run `/structure $ARGUMENTS` to start the next phase."
