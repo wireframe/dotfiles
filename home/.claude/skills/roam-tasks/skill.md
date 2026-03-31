@@ -95,6 +95,34 @@ MyProject
     {{[[TODO]]}} Second task
 ```
 
+## Querying "Tasks for Today"
+
+Roam queries (`{and: ...}`) match page references but **cannot do date comparisons** (≤, ≥). A `{between:}` clause matches blocks referencing a specific date range, but hits the **attribute child block** (e.g., the `Scheduled::` line), not the parent TODO block — you must trace the `path` in results to find the actual task.
+
+### Recommended approach
+
+Use the Tao API endpoint which implements the correct visibility logic server-side:
+
+```
+GET /api/roam/query?name=todo-now
+```
+
+This returns tasks that match the TODO Now visibility rules (Scheduled ≤ today with no future Deferred, or Deferred ≤ today).
+
+### If querying Roam directly
+
+When building a "tasks for today" view from raw Roam queries, apply these rules **client-side** after fetching results:
+
+1. **Deferred always overrides Scheduled.** If a task has both `Scheduled:: [[March 7th]]` and `Deferred:: [[April 1st]]`, the task is invisible until April 1st — the March 7th Scheduled date is irrelevant.
+2. **Effective date** = `Deferred` date if present, otherwise `Scheduled` date.
+3. A task is visible in TODO Now when its **effective date ≤ today**.
+4. A task with no Scheduled and no Deferred is in the **Inbox**, not TODO Now.
+5. Roam date page references use the format `MM-DD-YYYY` as UIDs (e.g., `03-26-2026`), which can be parsed for comparison.
+
+### Common mistake
+
+Do NOT present tasks with future Scheduled dates as "overdue." `Scheduled:: [[September 1st, 2026]]` means the user plans to work on it in September — it should not appear in today's task list.
+
 ## Creating Tasks
 
 - **Always create tasks on today's daily note page**, referencing the project inline
