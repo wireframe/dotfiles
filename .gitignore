@@ -36,6 +36,7 @@ home/.claude/backups
 home/.claude/cache
 home/.claude/hooks
 home/.claude/mcp-needs-auth-cache.json
+home/.claude/image-cache
 home/.claude/paste-cache
 home/.claude/plans
 home/.claude/sessions

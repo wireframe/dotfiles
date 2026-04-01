@@ -1,6 +1,6 @@
 ---
-name: deslop
-description: Use when writing or editing any user-facing copy, marketing content, blog posts, landing pages, newsletters, or documentation prose. Use when text sounds generic, inflated, or machine-generated. Use when asked to make text sound more human or natural.
+name: writing-style
+description: "MANDATORY quality gate — apply AFTER writing ANY prose output: blog posts, newsletters, landing pages, documentation, descriptions, emails, meeting notes, or any multi-sentence text delivered to the user. Run automatically as a post-processing pass on all prose output. Do NOT skip or wait for the user to request it. TRIGGER when: writing, drafting, composing, editing, creating content, generating copy, producing text, authoring prose, summarizing for humans, crafting messages. DO NOT TRIGGER when: writing code, commit messages, or single-sentence responses."
 ---
 
 # Deslop
