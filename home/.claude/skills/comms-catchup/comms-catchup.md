@@ -36,24 +36,25 @@ For each email, categorize using judgment:
 
 **Find or create the `## Agenda::` heading** on today's daily page:
 - Today's daily page UID format: `MM-DD-YYYY` (e.g., `04-02-2026`)
-- Search for existing block with `Agenda::` prefix
-- If not found, create as an h2 block
+- Use `get_page` with `maxDepth: 1` to retrieve the page and inspect its top-level children
+- Look for a block whose text starts with `## Agenda::` and extract its UID from the `<roam uid="..."/>` tag
+- If found, use that UID as `parentUid` when creating the comms catchup block
+- If not found, create the `## Agenda::` block first using `dailyNotePage`, then use its returned UID as `parentUid`
+- **CRITICAL: Never use `nestUnder` with `## Agenda::` — the string matching is unreliable and creates duplicate Agenda blocks. Always resolve the UID first and use `parentUid`.**
 
 **Create the comms catchup block:**
 - Format: `{current time} [[Comms catchup]]`
 - Use 12-hour time without leading zero: `9:00 AM`, `1:30 PM`
-- Insert in chronological order among existing agenda items
+- Insert using `parentUid` (the Agenda block UID found above), with `order: 'last'`
 
 **For each non-noise email, create child blocks:**
 
-```
-[[Sender Name]] - {subject line}
-  {1-2 sentence context summary — key decisions, dates, information, waiting-on items}
-  {{[[TODO]]}} {task description} #RelevantProject
-    Priority:: #P1
-    Scheduled:: [[April 2nd, 2026]]
-    Due:: [[April 5th, 2026]]
-```
+    [[Sender Name]] - {subject line}
+      {1-2 sentence context summary — key decisions, dates, information, waiting-on items}
+      {{[[TODO]]}} {task description} #RelevantProject
+        Priority:: #P1
+        Scheduled:: [[April 2nd, 2026]]
+        Due:: [[April 5th, 2026]]
 
 ### Block Formatting Rules
 
