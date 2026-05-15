@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+(setq user-full-name "Ryan Sonnek"
+      user-mail-address "ryan@betterup.co")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -38,7 +38,8 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;; Relative line numbers play nicely with evil motions (10j, 5k, etc.)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -46,6 +47,17 @@
 
 ;; disable confirmation prompt when quitting emacs
 (setq confirm-kill-emacs nil)
+
+;; Remember cursor position across sessions.
+(save-place-mode 1)
+
+;; Keep a few lines of context above/below the cursor when scrolling.
+(setq scroll-margin 3)
+
+;; Evil tweaks: finer-grained undo + predictable split direction.
+(setq evil-want-fine-undo t
+      evil-split-window-below t
+      evil-vsplit-window-right t)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.

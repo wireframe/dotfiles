@@ -23,6 +23,7 @@ home/.config/gitx/github.yml
 
 # Claude files
 *.jsonl
+home/.claude/.last-cleanup
 home/.claude/settings.json
 home/.claude/ide
 home/.claude/plugins
