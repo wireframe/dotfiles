@@ -38,12 +38,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-;; Relative line numbers play nicely with evil motions (10j, 5k, etc.)
-(setq display-line-numbers-type 'relative)
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq display-line-numbers-type t)
 
 ;; disable confirmation prompt when quitting emacs
 (setq confirm-kill-emacs nil)
