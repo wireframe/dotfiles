@@ -78,3 +78,24 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Window navigation in evil normal state.
+;; Note: this shadows C-h (help prefix) while in normal mode — use SPC h instead.
+(map! :n "C-h" #'evil-window-left
+      :n "C-j" #'evil-window-down
+      :n "C-k" #'evil-window-up
+      :n "C-l" #'evil-window-right)
+
+;; Disable lock files — they break tools that watch the filesystem (Next.js HMR,
+;; webpack/broccoli livereload, etc.) by creating phantom symlinks.
+(setq create-lockfiles nil)
+
+;; macOS: restore Cmd-H / Cmd-Opt-H to hide-others / hide-emacs.
+;; Emacs captures these by default; rebind via the Hyper key.
+(when IS-MAC
+  (map! "H-M-h" #'ns-do-hide-others
+        "H-h"   #'ns-do-hide-emacs))
+
+;; Ruby: don't auto-insert magic encoding comments at the top of files.
+(after! ruby-mode
+  (setq ruby-insert-encoding-magic-comment nil))
