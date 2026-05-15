@@ -106,3 +106,10 @@
 ;; Ruby: don't auto-insert magic encoding comments at the top of files.
 (after! ruby-mode
   (setq ruby-insert-encoding-magic-comment nil))
+
+;; Projectile: disable file-list caching. The `alien` indexing method shells out
+;; to `git ls-files` (already fast and always current), so the cache only adds
+;; staleness — new/renamed/deleted files would otherwise require manual
+;; `projectile-invalidate-cache` (SPC p i).
+(after! projectile
+  (setq projectile-enable-caching nil))
