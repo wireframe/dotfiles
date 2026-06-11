@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+# Fix the recurring Firefox/IRU update conflict on macOS.
+#
+# Symptom: Firefox launch hangs or the updater sits in "Install Pending" forever.
+# Root cause: IRU re-asserts root:admin ownership on /Applications/Firefox.app,
+# so Mozilla's updater can apply the MAR but can't swap the new app into place.
+# This script kills stuck updaters, restores user ownership, clears the staged
+# update, and relaunches.
+
+set -euo pipefail
+
+APP=/Applications/Firefox.app
+UPDATES_DIR="$HOME/Library/Caches/Mozilla/updates/Applications/Firefox"
+USER_NAME=$(id -un)
+GROUP_NAME=staff
+
+echo "== Firefox update repair =="
+echo "App:     $APP"
+echo "Updates: $UPDATES_DIR"
+echo
+
+PIDS=$(pgrep -f 'org\.mozilla\.updater|PrivilegedHelperTools/org\.mozilla\.updater' || true)
+if [[ -n "$PIDS" ]]; then
+  echo "Killing stuck updaters: $PIDS"
+  # shellcheck disable=SC2086
+  sudo kill -9 $PIDS
+else
+  echo "No stuck updater processes."
+fi
+
+if [[ -d "$APP" ]]; then
+  OWNER=$(stat -f '%Su:%Sg' "$APP")
+  if [[ "$OWNER" != "$USER_NAME:$GROUP_NAME" ]]; then
+    echo "Restoring ownership ($OWNER -> $USER_NAME:$GROUP_NAME)"
+    sudo chown -R "$USER_NAME:$GROUP_NAME" "$APP"
+  else
+    echo "Ownership already $OWNER — skipping chown."
+  fi
+fi
+
+if [[ -d "$UPDATES_DIR/updates/0" ]]; then
+  echo "Removing staged update at $UPDATES_DIR/updates/0"
+  rm -rf "$UPDATES_DIR/updates/0"
+fi
+if [[ -f "$UPDATES_DIR/active-update.xml" ]]; then
+  echo "Removing active-update.xml"
+  rm -f "$UPDATES_DIR/active-update.xml"
+fi
+
+echo
+echo "Relaunching Firefox..."
+open "$APP"
+echo "Done."

@@ -35,11 +35,15 @@ Check the text against the word lists below. Every match is a candidate for remo
 
 Look for the formulaic structures AI defaults to (listed in Structural Patterns below). These are harder to catch than individual words because each sentence looks reasonable in isolation — the pattern only shows when you look at the whole piece.
 
-### Pass 3: Restore specificity
+### Pass 3: Verify cited facts
+
+For every name-drop, study, or number: confirm the citation matches what the study actually found. AI conflates similar-sounding metrics from the same researcher (Bloom's "8% salary equivalent" vs. "13% productivity gain" are different things). If you can't verify, drop the number.
+
+### Pass 4: Restore specificity
 
 For every sentence you changed, ask: is the rewrite more specific than the original? If you just removed words without adding substance, the text got shorter but not better. Brevity without specificity is still slop.
 
-### Pass 4: Self-check your edits
+### Pass 5: Self-check your edits
 
 Read your rewrite out loud. If it sounds like something a person would say at a whiteboard, it's good. If it sounds like a press release, keep editing.
 
@@ -86,6 +90,10 @@ Read your rewrite out loud. If it sounds like something a person would say at a 
 | best-in-class | Says nothing. Prove it or cut it. |
 | world-class | Same. |
 | commitment to | Usually hollow. Show the commitment through actions, don't declare it. |
+| directly influence(s) | Corporate. Use "shapes" or "drives". |
+| investments into X | Wrong preposition. Use "investments in X". |
+| the same data shows | Academic recitation. Use prose: "The same study found...". |
+| at all (as a closer) | Hedge-dramatic. "How the team thinks together at all" is rhythm without content. |
 
 ### Tier 3 — Overused AI verbs (replace with plain equivalents)
 
@@ -122,6 +130,8 @@ Attaching a present participle phrase that adds no information.
 > **AI:** "It's not just about communication — it's about building meaningful connections."
 > **Fix:** Cut it. Or just say the one thing you mean.
 
+Stacked instances are the worst — if a single piece has more than 2-3 "Not X, but Y" structures, the writing is rhetorically posturing instead of making positive claims.
+
 ### The "despite challenges" formula
 "Despite X, [subject] continues to Y" — adds nothing, just sounds like an essay.
 
@@ -146,11 +156,104 @@ Formulaic use of em dashes to sound energetic or sales-like.
 > **AI:** "Our platform — built for modern teams — delivers results."
 > **Fix:** "Our platform delivers results." (or better: say what results)
 
+For prose where the author has flagged em-dash overuse, count occurrences and replace with periods, commas, semicolons, or colons. The em dash is the AI's default "energetic" connector and accumulates quickly.
+
 ### Elegant variation
 Using a different synonym every time you refer to the same thing to avoid repetition. Humans repeat words naturally.
 
 > **AI:** "The platform... the solution... the tool... the system..."
 > **Fix:** Pick one name and use it. Repetition is fine.
+
+### Empty "X is the [Y]" closers
+Confident-sounding rhythm closers that rename the topic without adding info.
+
+> **AI:** "Intentional team topology is the work. Team Topologies is the playbook."
+> **Fix:** Cut both. End the paragraph on the last sentence that delivered a fact.
+
+The pattern: declaring something to BE "the work / the playbook / the answer / the move / the only way." If you removed the sentence, would the reader lose any information? If no, it's just a drum hit at the end of a paragraph.
+
+### Self-replicating insight
+Restating the same idea in different words across nearby sentences, usually because the writer wanted to "land" the point a second time.
+
+> **AI:** "Remote-first inverts the default. ... The defaults flip in your favor."
+> **Fix:** Pick the strongest phrasing and cut the others. Saying it twice doesn't strengthen it.
+
+Check adjacent paragraphs for the same idea wearing different words.
+
+### Structure announcers
+Telling the reader what's coming instead of just delivering it. "X is the floor / table stakes / the real work is above" signals "you're about to get something better" without arriving.
+
+> **AI:** "Knowledge management is the floor. That's table stakes. The work that matters is the layer above."
+> **Fix:** Cut all of it. Lead with the work that matters.
+
+### Stacked colons (glossary entries)
+Two colons in close succession turn a paragraph into a series of term-definition pairs, killing prose flow.
+
+> **AI:** "Choice architecture (Thaler and Sunstein): design defaults so the right behavior is the cheap one. Platform engineering is the canonical example: pave the roads, and the right thing becomes the easy thing."
+> **Fix:** Use a colon for the term-definition, then prose for the application. "Thaler and Sunstein call this choice architecture (*Nudge*). Platform engineering is how this ships."
+
+### Citation-first openings
+Leading a sentence with the academic anchor when the claim should lead.
+
+> **AI:** "Thaler and Sunstein call this choice architecture in *Nudge*: design defaults so the right behavior is the cheap one."
+> **Fix:** Lead with the claim, let the citation support. "Design defaults so the right behavior is the cheap one. Thaler and Sunstein call this choice architecture (*Nudge*)."
+
+The reader cares about the claim first. The citation earns its place by anchoring it.
+
+### Stat dump phrasing
+"X found... The same data shows..." reads as academic recitation, not prose.
+
+> **AI:** "DORA 2024 found internal developer platforms drive ~5% productivity gains. The same data shows platforms can slow throughput at the system level."
+> **Fix:** Connect with natural prose: "DORA 2024 found platforms drive ~5% productivity gains, but the same study flagged a 'platform paradox' where system-level throughput can slow."
+
+### Defensive scare quotes
+Scare quotes on neutral words read defensive — the reader wonders what's being qualified.
+
+> **AI:** "Self-service tooling removes friction from doing it the 'right way'."
+> **Fix:** Either commit to the phrase without quotes, or name the actual concept. "Self-service tooling removes friction from doing it correctly."
+
+### Trailing audience addresses
+Tagging "For X teams, this is Y" at the end of a paragraph to remind the reader who the paragraph applies to, restating what's already obvious.
+
+> **AI:** "Bezos and Jobs both knew the medium shapes the quality of the decision. For remote teams, this is how the team thinks together at all."
+> **Fix:** If the section is about remote teams, the reader already knows. Cut the trailer.
+
+### Run-on conjunctions
+Joining two unrelated ideas with "and" because both need to fit into the paragraph.
+
+> **AI:** "Open floor plans reduce face-to-face interaction (Bernstein & Turban, 2018) and claustrophobic phone booths are a draining employee experience."
+> **Fix:** Split. Each idea gets its own sentence: "Open floor plans actually reduce face-to-face interaction (Bernstein & Turban, 2018). Claustrophobic phone booths are draining."
+
+## Bolded Takeaway Anti-Patterns
+
+When a paragraph leads with a bolded claim, the bold has to do real work. Common failures:
+
+### Topic-rename, not a claim
+A bolded sentence that names what the paragraph is about, instead of making a claim a reader could disagree with.
+
+> **AI:** "**Knowledge management matters.**"
+> **Fix:** Make a specific, falsifiable claim. "**The handbook outranks Slack.**"
+
+**Test:** if you remove the bold and the paragraph still works, the bold was empty.
+
+### Restating the section header
+The bolded takeaway repeats the same thought as the section title, so the reader hits the same idea twice in adjacent lines.
+
+> **Section header:** "Systems — Make the Right Thing the Easy Thing"
+> **AI bolded takeaway:** "**Make the right thing the cheapest thing.**"
+> **Fix:** Make the bolded takeaway distinct — a specific application or surprising consequence. "**Paved roads pay dividends.**"
+
+### Overclaiming what the section covers
+A bolded takeaway that frames the section as covering ONE thing when the larger piece covers more.
+
+> **AI:** "**Remote-first is a hiring play.**" (when the rest of the essay also covers process and systems)
+> **Fix:** Make the takeaway scoped to the paragraph's actual subject. The whole-essay thesis goes elsewhere.
+
+### Universal claim no one would disagree with
+"**Quality matters.**" or "**Hire well.**" land flat because nobody's arguing the opposite.
+
+> **AI:** "**Hire the right people.**"
+> **Fix:** State the contested version. "**Self-selection is the cheapest filter, and most companies don't use it.**"
 
 ## Self-Editing Checklist
 
@@ -164,6 +267,14 @@ When writing (not just editing), check your output for:
 - [ ] Did I include collaborative communication? ("I hope this helps", "Let me know if you'd like me to...")
 - [ ] Is every claim backed by a specific fact? If not, cut it or add one.
 - [ ] Would I say this out loud to a coworker? If not, rewrite it.
+- [ ] If I used a bolded takeaway, does it make a falsifiable claim distinct from the section header?
+- [ ] Did I restate the same idea in different words in adjacent sentences?
+- [ ] Does my closing sentence land a fact, observation, or action — or just rename the topic?
+- [ ] If I cited a study, does the number actually match what that study found?
+- [ ] Are my examples actually instances of the specific claim, or just generic on-topic name-drops?
+- [ ] Did I lead with the claim or with the citation? Lead with the claim.
+- [ ] How many em dashes did I use? Replace most with periods, commas, semicolons, or colons.
+- [ ] Did I stack two colons close together? One per paragraph at most.
 
 ## Common Mistakes When De-Slopping
 
@@ -174,3 +285,9 @@ When writing (not just editing), check your output for:
 **Losing the point:** Some AI paragraphs are pure filler with no real content. Don't try to rewrite these — delete them. Not every paragraph deserves to survive.
 
 **Making it too casual:** De-slopping doesn't mean making everything sound like a text message. Match the appropriate register for the context. A company newsletter can be warm without being slangy.
+
+**Examples that don't exemplify:** Generic on-topic name-drops (e.g., "GitLab's handbook" in a paragraph about *written narrative as decision-making*) that look on-topic but don't actually demonstrate the specific claim. GitLab's handbook is documented company state, not narrative for decisions — related but different. Pick examples that *directly* instantiate the principle. If you can't, the example is decoration, not evidence.
+
+**Unverified cited numbers:** When citing research, verify the cited number matches the actual finding. Bloom's "8% salary equivalent" is a workers'-valuation metric; Bloom's "13% productivity gain" is from the 2013 Ctrip study. Different metrics from the same researcher. Conflating them invalidates the citation. Before publishing: name the study, name the metric, confirm the number.
+
+**Restoring cut content cosmetically:** When the user says "this is slop, cut it," resist the urge to replace it with similar-shaped rhetoric. If the cut leaves the paragraph short, the paragraph might just be done. Trust short paragraphs.
