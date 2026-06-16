@@ -21,12 +21,12 @@ Break the work into 3-5 independently testable, revertable phases. This is "how 
 - Each phase must be independently shippable and testable.
 - Phases should have clear dependencies (Phase 2 depends on Phase 1, etc.).
 - Keep it to MAX 2 pages. If it's longer, phases are too granular.
-- Propose the structure and ASK FOR CONFIRMATION before writing the artifact.
+- Write the artifact automatically — do NOT ask for permission to write.
 - Include an "Out of Scope" section for things explicitly deferred.
 
 ## Output
 
-After confirmation, write `$ARGUMENTS/structure.md` with this format:
+Write `$ARGUMENTS/structure.md` automatically (no confirmation step) with this format:
 
 ```
 # Structure: <topic>
@@ -52,4 +52,10 @@ Research: [research.md](research.md)
 - <things explicitly deferred>
 ```
 
-Tell the user: "Structure defined. Run `/plan $ARGUMENTS` to create the detailed implementation plan."
+Then print the full contents of the written `structure.md` to the output so the user can review it inline.
+
+Tell the user: "Structure defined and written to `$ARGUMENTS/structure.md`. Reply with any revisions and I'll update the file in place, or run `/plan $ARGUMENTS` to create the detailed implementation plan."
+
+## Revisions
+
+If the user replies with changes after the artifact is written, apply them by editing the existing `structure.md` file (do not ask before saving), then re-print the updated contents.

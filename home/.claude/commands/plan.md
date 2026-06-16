@@ -28,7 +28,7 @@ Create a detailed implementation plan with bite-sized tasks (2-5 minutes each) g
 
 ## Output
 
-Write `$ARGUMENTS/plan.md` with this format:
+Write the artifact automatically — do NOT ask for permission to write. Write `$ARGUMENTS/plan.md` with this format:
 
 ```
 # Plan: <topic>
@@ -63,4 +63,10 @@ Structure: [structure.md](structure.md)
 ...
 ```
 
-Tell the user: "Plan complete. Run `/implement $ARGUMENTS` to begin execution, or review the plan first."
+Then print the full contents of the written `plan.md` to the output so the user can review it inline.
+
+Tell the user: "Plan complete and written to `$ARGUMENTS/plan.md`. Reply with any revisions and I'll update the file in place, or run `/implement $ARGUMENTS` to begin execution."
+
+## Revisions
+
+If the user replies with changes after the artifact is written, apply them by editing the existing `plan.md` file (do not ask before saving), then re-print the updated contents.

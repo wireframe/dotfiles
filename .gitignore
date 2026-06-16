@@ -48,3 +48,6 @@ home/.claude/tasks
 home/.claude/telemetry
 home/.claude/policy-limits.json
 home/.config/cagent
+
+# Secrets
+home/.config/poe2/tokens.json

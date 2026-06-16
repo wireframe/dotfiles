@@ -26,7 +26,7 @@ Map the relevant codebase based on the "Research Focus Areas" from the decisions
 
 ## Output
 
-Write `$ARGUMENTS/research.md` with this format:
+Write the artifact automatically — do NOT ask for permission to write. Write `$ARGUMENTS/research.md` with this format:
 
 ```
 # Research: <topic>
@@ -50,4 +50,10 @@ Decisions: [decisions.md](decisions.md)
 - <technical limitations found>
 ```
 
-Tell the user: "Research complete. Run `/structure $ARGUMENTS` to start the next phase."
+Then print the full contents of the written `research.md` to the output so the user can review it inline.
+
+Tell the user: "Research complete and written to `$ARGUMENTS/research.md`. Reply with any revisions and I'll update the file in place, or run `/structure $ARGUMENTS` to start the next phase."
+
+## Revisions
+
+If the user replies with changes after the artifact is written, apply them by editing the existing `research.md` file (do not ask before saving), then re-print the updated contents.
