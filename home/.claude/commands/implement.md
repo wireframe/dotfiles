@@ -33,6 +33,10 @@ Execute the implementation plan. You are a bridge to the superpowers execution w
 4. Execute the chosen approach. **Run the Quality Gate (below) at every phase boundary**, regardless of which option is chosen.
 5. As tasks complete, update the checkboxes in `$ARGUMENTS/plan.md` from `- [ ]` to `- [x]`.
 
+## Scope Changes Mid-Execution
+
+If the user drops, defers, or trims a phase or task during execution, before continuing check `decisions.md` for which decisions that work served. If it carried a `Firm` decision, state how dropping it changes that decision (e.g. "dropping the approval phase turns Firm decision D1 'confirm before create' into 'refuse'") and confirm that's intended — do NOT let a Firm decision silently degrade into its opposite.
+
 ## Quality Gate (per phase)
 
 After the last task of each plan phase is implemented and its tests pass — and **before** that phase is considered done — run this gate on the phase's accumulated diff. It is non-negotiable and applies to both Option A and Option B.

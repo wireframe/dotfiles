@@ -25,6 +25,9 @@ Create a detailed implementation plan with bite-sized tasks (2-5 minutes each) g
 - Include commit steps at natural boundaries.
 - Plan must be compatible with superpowers `executing-plans` format.
 - No open questions allowed — if something is unclear, resolve it now by reading code.
+- **Weight effort by firmness.** Don't spend heavy task breakdown on a phase driven by a `Preference` or `Open` decision — keep it minimal and flag it for confirmation before expanding. Reserve full detail for `Firm` decisions.
+- **A still-`Open` decision is a blocker, not something to default.** If any decision that this plan depends on is still unresolved, STOP and get it decided before writing tasks that assume an answer.
+- **Decision continuity when a phase is dropped.** If a structure phase is dropped or deferred during planning, check which decisions it served. If it carried a `Firm` decision, state the consequence explicitly (e.g. "dropping Phase 3 turns Firm decision D1 'confirm before create' into 'refuse' — confirm that's intended") rather than silently narrowing the decision.
 
 ## Output
 

@@ -23,6 +23,7 @@ Map the relevant codebase based on the "Research Focus Areas" from the decisions
 - Be strictly documentary: no opinions, no suggestions, no "you should."
 - Capture findings with `file:line` references.
 - Compress findings — distill truth, don't dump raw file contents.
+- **Own the Open decisions.** For every decision marked `Firmness: Open` in decisions.md, gather the codebase evidence needed to resolve it and lay out the viable options with grounded tradeoffs. Do NOT silently pick one, and do NOT let it pass through unaddressed — an unowned Open decision is what later gets resolved arbitrarily. Surface each in the "Open Decisions" output section below so the user (not `/structure`) resolves it deliberately.
 
 ## Output
 
@@ -48,9 +49,15 @@ Decisions: [decisions.md](decisions.md)
 ## Constraints Discovered
 - <things the decisions phase didn't anticipate>
 - <technical limitations found>
+
+## Open Decisions (must be resolved before /structure)
+- **D<n> <title>:** <the viable options, with tradeoffs grounded in the findings above>. Still unresolved — recommend the user pick before structuring.
+- (one entry per `Firmness: Open` decision; omit this section only if there were none)
 ```
 
 Then print the full contents of the written `research.md` to the output so the user can review it inline.
+
+If there are Open Decisions, tell the user which ones still need a call before `/structure`, and offer to record their answers back into `decisions.md` (flipping those entries from `Open` to `Firm`/`Preference`).
 
 Tell the user: "Research complete and written to `$ARGUMENTS/research.md`. Reply with any revisions and I'll update the file in place, or run `/structure $ARGUMENTS` to start the next phase."
 
