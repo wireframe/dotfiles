@@ -113,3 +113,13 @@
 ;; `projectile-invalidate-cache` (SPC p i).
 (after! projectile
   (setq projectile-enable-caching nil))
+
+;; Markdown preview (SPC m p): render with pandoc's GFM reader so pipe tables,
+;; task lists, and fenced code preview correctly. The default `markdown`
+;; executable is the original Markdown.pl, which has no table support and emits
+;; them as literal text. Requires `brew install pandoc`.
+(after! markdown-mode
+  (setq markdown-command
+        (concat "pandoc --from=gfm --to=html5 --standalone"
+                " --metadata title=Preview"
+                " --include-in-header=" (expand-file-name "markdown-preview.css.html" doom-user-dir))))

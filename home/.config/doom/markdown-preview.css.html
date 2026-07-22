@@ -1,0 +1,82 @@
+<style>
+  :root {
+    --md-fg: #1a1a1a;
+    --md-bg: #fdfdfc;
+    --md-muted: #6a6a68;
+    --md-border: #e2e2dd;
+    --md-code-bg: #f4f4f1;
+    --md-accent: #2a78d6;
+    --md-quote: #57564f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --md-fg: #e8e8e3;
+      --md-bg: #1a1a19;
+      --md-muted: #9a9a92;
+      --md-border: #333330;
+      --md-code-bg: #262623;
+      --md-accent: #6da7ec;
+      --md-quote: #b6b5ab;
+    }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    color: var(--md-fg);
+    background: var(--md-bg);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 6rem;
+    word-wrap: break-word;
+  }
+  h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 2rem 0 1rem; font-weight: 650; }
+  h1 { font-size: 2rem; padding-bottom: .3em; border-bottom: 1px solid var(--md-border); }
+  h2 { font-size: 1.5rem; padding-bottom: .3em; border-bottom: 1px solid var(--md-border); }
+  h3 { font-size: 1.2rem; }
+  h4 { font-size: 1rem; color: var(--md-muted); }
+  p, ul, ol, blockquote, table, pre { margin: 0 0 1rem; }
+  a { color: var(--md-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { font-weight: 680; }
+
+  code {
+    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
+    font-size: .88em;
+    background: var(--md-code-bg);
+    padding: .15em .4em;
+    border-radius: 5px;
+  }
+  pre {
+    background: var(--md-code-bg);
+    padding: 1rem 1.15rem;
+    border-radius: 9px;
+    overflow-x: auto;
+    line-height: 1.5;
+  }
+  pre code { background: none; padding: 0; font-size: .84em; }
+
+  blockquote {
+    margin-left: 0;
+    padding: .2rem 0 .2rem 1.1rem;
+    border-left: 4px solid var(--md-border);
+    color: var(--md-quote);
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    font-size: .95em;
+  }
+  th, td { padding: .5rem .8rem; border: 1px solid var(--md-border); text-align: left; }
+  th { background: var(--md-code-bg); font-weight: 650; }
+  tr:nth-child(even) td { background: color-mix(in srgb, var(--md-code-bg) 45%, transparent); }
+
+  hr { border: none; border-top: 1px solid var(--md-border); margin: 2rem 0; }
+  img { max-width: 100%; height: auto; }
+  ul, ol { padding-left: 1.5rem; }
+  li { margin: .25rem 0; }
+</style>
