@@ -47,7 +47,14 @@ home/.claude/stats-cache.json
 home/.claude/tasks
 home/.claude/telemetry
 home/.claude/policy-limits.json
+home/.claude/remote-settings-consent.json
 home/.config/cagent
+
+# herdr runtime state (config.toml stays tracked)
+home/.config/herdr/*.log
+home/.config/herdr/*.sock
+home/.config/herdr/session.json
+home/.config/herdr/.plugins.lock
 
 # Secrets
 home/.config/poe2/tokens.json

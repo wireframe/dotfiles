@@ -224,6 +224,34 @@ Joining two unrelated ideas with "and" because both need to fit into the paragra
 > **AI:** "Open floor plans reduce face-to-face interaction (Bernstein & Turban, 2018) and claustrophobic phone booths are a draining employee experience."
 > **Fix:** Split. Each idea gets its own sentence: "Open floor plans actually reduce face-to-face interaction (Bernstein & Turban, 2018). Claustrophobic phone booths are draining."
 
+### Abstraction creep (reverse slop)
+A concrete scene replaced by a description of the category it belongs to. This is the slop pattern running backwards, and it appears during **tightening**, not first drafts — which is why de-slopping passes miss it.
+
+> **Draft:** "When nominations opened, the prompt we sent out was: go review the high fives you've handed out this quarter."
+> **"Tightened":** "A low-friction system for peer high-fives funneling into a quarterly culture award taps into real-time signal within your company."
+
+The second is shorter and says less. It describes the shape of a mechanism instead of showing one.
+
+**Test:** count the specific things named before and after. Fewer specifics after a rewrite means the edit cost more than it saved, no matter how many words it dropped.
+
+### Self-contradiction in adjacent sentences
+A sentence that concedes exactly what a neighboring sentence denies. Each reads fine alone, so this survives sentence-level editing.
+
+> **AI:** "I'd rather have run it than spent another quarter designing the version that would have lasted. You don't get this right on paper."
+> **Problem:** "the version that would have lasted" grants that a better design was available on paper — which the next sentence denies.
+> **Fix:** "Running it is how I know any of that. You don't get this right on paper."
+
+**Test:** for each claim, ask what it concedes as possible. Then check whether the paragraph argues that thing is impossible.
+
+### Uncounted tics
+The em dash rule generalizes. Any device used for emphasis becomes invisible at volume and then becomes a habit the reader notices instead of the point.
+
+Before delivering, count: repeated intensifiers (**actually**, **really**, **truly**, **simply**, **just**), italic emphasis, bolded phrases, rhetorical questions, and sentences opening with "So" or "But." Keep the instances that carry a genuine contrast; cut the rest.
+
+> **Example:** one 1,100-word post used "actually" seven times and italic emphasis six times. Three of each earned it.
+
+**Test:** for each instance, name the contrast it's drawing. If you can't, it's a verbal habit.
+
 ## Bolded Takeaway Anti-Patterns
 
 When a paragraph leads with a bolded claim, the bold has to do real work. Common failures:
@@ -275,6 +303,9 @@ When writing (not just editing), check your output for:
 - [ ] Did I lead with the claim or with the citation? Lead with the claim.
 - [ ] How many em dashes did I use? Replace most with periods, commas, semicolons, or colons.
 - [ ] Did I stack two colons close together? One per paragraph at most.
+- [ ] Did I count my other tics — "actually," italics, bold, rhetorical questions? Can I name the contrast each one draws?
+- [ ] Did any edit I made replace a specific scene with a description of the category it belongs to?
+- [ ] Does any sentence concede something a neighboring sentence denies?
 
 ## Common Mistakes When De-Slopping
 
@@ -288,6 +319,8 @@ When writing (not just editing), check your output for:
 
 **Examples that don't exemplify:** Generic on-topic name-drops (e.g., "GitLab's handbook" in a paragraph about *written narrative as decision-making*) that look on-topic but don't actually demonstrate the specific claim. GitLab's handbook is documented company state, not narrative for decisions — related but different. Pick examples that *directly* instantiate the principle. If you can't, the example is decoration, not evidence.
 
-**Unverified cited numbers:** When citing research, verify the cited number matches the actual finding. Bloom's "8% salary equivalent" is a workers'-valuation metric; Bloom's "13% productivity gain" is from the 2013 Ctrip study. Different metrics from the same researcher. Conflating them invalidates the citation. Before publishing: name the study, name the metric, confirm the number.
+**Unverified cited numbers:** When citing research, verify the cited number matches the actual finding. Bloom's "8% salary equivalent" is a workers'-valuation metric; Bloom's "13% productivity gain" is from the 2013 Ctrip study. Different metrics from the same researcher. Conflating them invalidates the citation. Before publishing: name the study, name the metric, confirm the number. For anything beyond a spot check, use the `verifying-claims` skill — the common failures are real links that don't support the sentence, not invented numbers.
+
+**Tightening into vagueness:** The instinct to compress and the instinct to be specific pull against each other, and compression usually wins because it feels like progress. Watch the specific-noun count across an edit, not just the word count.
 
 **Restoring cut content cosmetically:** When the user says "this is slop, cut it," resist the urge to replace it with similar-shaped rhetoric. If the cut leaves the paragraph short, the paragraph might just be done. Trust short paragraphs.
