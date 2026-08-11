@@ -1,15 +1,142 @@
 <style>
-  pre.mermaid { background: none; padding: 0; text-align: center; overflow-x: auto; }
+  .mermaid-viewport {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--md-border, #ddd);
+    border-radius: 9px;
+    margin: 0 0 1rem;
+    touch-action: none;
+  }
+  .mermaid-viewport pre.mermaid {
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: grab;
+    overflow: visible;
+  }
+  .mermaid-viewport.is-grabbing pre.mermaid { cursor: grabbing; }
+  .mermaid-viewport pre.mermaid svg { display: block; transform-origin: 0 0; }
+
+  .mermaid-tools {
+    position: absolute;
+    top: .5rem;
+    right: .5rem;
+    display: flex;
+    gap: .25rem;
+    opacity: 0;
+    transition: opacity .15s;
+  }
+  .mermaid-viewport:hover .mermaid-tools,
+  .mermaid-viewport:focus-within .mermaid-tools { opacity: 1; }
+  .mermaid-tools button {
+    font: 500 14px/1 system-ui, sans-serif;
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--md-border, #ddd);
+    border-radius: 6px;
+    background: var(--md-bg, #fff);
+    color: var(--md-fg, #222);
+    cursor: pointer;
+  }
+  .mermaid-tools button:hover { background: var(--md-code-bg, #eee); }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <script>
   // Pandoc renders a fenced block as `<pre class="mermaid"><code>...</code></pre>`, but
   // mermaid parses the element's innerHTML — the `<code>` tags would become part of the
   // diagram definition. Unwrap them, then render.
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("pre.mermaid > code").forEach(
-      (code) => (code.parentElement.textContent = code.textContent));
-    mermaid.run();
+  const unwrapFences = () => {
+    document.querySelectorAll("pre.mermaid").forEach((pre) => {
+      const code = pre.querySelector("code");
+      if (code) pre.textContent = code.textContent;
+    });
+  };
+
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const wrapInViewport = (pre) => {
+    const viewport = document.createElement("div");
+    viewport.className = "mermaid-viewport";
+    pre.parentNode.insertBefore(viewport, pre);
+    viewport.appendChild(pre);
+    // Cap tall diagrams so one figure can't own the whole page; panning reaches the rest.
+    viewport.style.height = Math.min(pre.getBoundingClientRect().height, innerHeight * 0.8) + "px";
+    return viewport;
+  };
+
+  // Mermaid has no native pan/zoom (GitHub's viewer is GitHub's own UI), so drive a
+  // CSS transform directly. Wheel-zoom requires a modifier so the page still scrolls.
+  const attachPanZoom = (viewport, svg) => {
+    let scale = 1, x = 0, y = 0;
+
+    const apply = () => (svg.style.transform = `translate(${x}px, ${y}px) scale(${scale})`);
+
+    const zoomAt = (factor, originX, originY) => {
+      const next = clamp(scale * factor, 0.2, 8);
+      x = originX - ((originX - x) * next) / scale;
+      y = originY - ((originY - y) * next) / scale;
+      scale = next;
+      apply();
+    };
+
+    const reset = () => ((scale = 1), (x = 0), (y = 0), apply());
+
+    viewport.addEventListener("wheel", (event) => {
+      if (!event.ctrlKey && !event.metaKey) return; // let the page scroll
+      event.preventDefault();
+      const box = viewport.getBoundingClientRect();
+      zoomAt(event.deltaY < 0 ? 1.15 : 1 / 1.15, event.clientX - box.left, event.clientY - box.top);
+    }, { passive: false });
+
+    // Listen on window, not the viewport, so a drag that leaves the box keeps working.
+    viewport.addEventListener("pointerdown", (event) => {
+      event.preventDefault();
+      viewport.classList.add("is-grabbing");
+      const startX = event.clientX - x, startY = event.clientY - y;
+      const drag = (move) => ((x = move.clientX - startX), (y = move.clientY - startY), apply());
+      const stop = () => {
+        window.removeEventListener("pointermove", drag);
+        window.removeEventListener("pointerup", stop);
+        window.removeEventListener("pointercancel", stop);
+        viewport.classList.remove("is-grabbing");
+      };
+      window.addEventListener("pointermove", drag);
+      window.addEventListener("pointerup", stop);
+      window.addEventListener("pointercancel", stop);
+    });
+
+    viewport.addEventListener("dblclick", reset);
+    return { zoomIn: () => zoomAt(1.3, 0, 0), zoomOut: () => zoomAt(1 / 1.3, 0, 0), reset };
+  };
+
+  const addToolbar = (viewport, controls) => {
+    const tools = document.createElement("div");
+    tools.className = "mermaid-tools";
+    const buttons = [["+", "Zoom in", controls.zoomIn],
+                     ["−", "Zoom out", controls.zoomOut],
+                     ["↺", "Reset", controls.reset]];
+    for (const [label, title, action] of buttons) {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = label;
+      button.title = title;
+      button.addEventListener("click", action);
+      tools.appendChild(button);
+    }
+    viewport.appendChild(tools);
+  };
+
+  const makeInteractive = (pre) => {
+    const svg = pre.querySelector("svg");
+    if (!svg) return;
+    const viewport = wrapInViewport(pre);
+    addToolbar(viewport, attachPanZoom(viewport, svg));
+  };
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    unwrapFences();
+    await mermaid.run();
+    document.querySelectorAll("pre.mermaid").forEach(makeInteractive);
   });
 
   mermaid.initialize({
