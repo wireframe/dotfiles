@@ -1,0 +1,20 @@
+<style>
+  pre.mermaid { background: none; padding: 0; text-align: center; overflow-x: auto; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+  // Pandoc renders a fenced block as `<pre class="mermaid"><code>...</code></pre>`, but
+  // mermaid parses the element's innerHTML — the `<code>` tags would become part of the
+  // diagram definition. Unwrap them, then render.
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("pre.mermaid > code").forEach(
+      (code) => (code.parentElement.textContent = code.textContent));
+    mermaid.run();
+  });
+
+  mermaid.initialize({
+    startOnLoad: false,
+    securityLevel: "strict",
+    theme: window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default"
+  });
+</script>

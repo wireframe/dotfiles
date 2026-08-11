@@ -118,8 +118,14 @@
 ;; task lists, and fenced code preview correctly. The default `markdown`
 ;; executable is the original Markdown.pl, which has no table support and emits
 ;; them as literal text. Requires `brew install pandoc`.
+;;
+;; The mermaid header loads mermaid.js so ```mermaid fences render as diagrams.
+;; Note this only applies to `markdown-preview' (which opens a real browser via
+;; `browse-url-of-buffer'), not `markdown-live-preview-mode' — that renders in
+;; eww, which has no JavaScript engine.
 (after! markdown-mode
   (setq markdown-command
         (concat "pandoc --from=gfm --to=html5 --standalone"
                 " --metadata title=Preview"
-                " --include-in-header=" (expand-file-name "markdown-preview.css.html" doom-user-dir))))
+                " --include-in-header=" (expand-file-name "markdown-preview.css.html" doom-user-dir)
+                " --include-in-header=" (expand-file-name "markdown-preview.mermaid.html" doom-user-dir))))
