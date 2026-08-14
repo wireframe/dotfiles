@@ -169,6 +169,9 @@ Development machines crowd the ports around 8080, so this sits well clear of the
 (defun +markdown-preview-live ()
   "Preview this markdown buffer in the browser, re-rendering as you type."
   (interactive)
+  ;; `imp-visit-buffer' carries no autoload cookie, so nothing pulls impatient-mode
+  ;; in on its own. Requiring it here also loads simple-httpd for `httpd-start'.
+  (require 'impatient-mode)
   (unless (process-status "httpd")
     (setq httpd-port (+markdown-preview--claim-port))
     (httpd-start))
