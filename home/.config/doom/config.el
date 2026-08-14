@@ -129,3 +129,64 @@
                 " --metadata title=Preview"
                 " --include-in-header=" (expand-file-name "markdown-preview.css.html" doom-user-dir)
                 " --include-in-header=" (expand-file-name "markdown-preview.mermaid.html" doom-user-dir))))
+
+;; Live markdown preview (SPC m P): serve the buffer from an Emacs-hosted HTTP
+;; server and push a fresh render to the browser as you type. Built-in
+;; `markdown-live-preview-mode' renders into eww instead, which has no JavaScript
+;; engine — mermaid fences stay raw text there. Impatient replaces the iframe with
+;; `document.write', so scripts re-run on every update and the mermaid header keeps
+;; working, pan/zoom included.
+(defvar +markdown-preview-port 8971
+  "Port to serve the live markdown preview on.
+Development machines crowd the ports around 8080, so this sits well clear of them.
+`+markdown-preview--claim-port' walks upward from here when it is already taken.")
+
+(defun +markdown-preview--port-available-p (port)
+  "Return non-nil when PORT can be bound on the loopback interface."
+  (when-let ((probe (ignore-errors
+                      (make-network-process :name "markdown-preview-probe"
+                                            :service port :host 'local
+                                            :server t :noquery t))))
+    (delete-process probe)
+    t))
+
+(defun +markdown-preview--claim-port ()
+  "Return the first free port at or above `+markdown-preview-port'."
+  (or (cl-loop for port from +markdown-preview-port
+               below (+ +markdown-preview-port 10)
+               when (+markdown-preview--port-available-p port) return port)
+      (user-error "Ports %d-%d are all in use"
+                  +markdown-preview-port (+ +markdown-preview-port 9))))
+
+(defun +markdown-preview-filter (buffer)
+  "Render BUFFER with `markdown-command' and hand the HTML to impatient-mode."
+  (let ((html (with-current-buffer buffer
+                (with-current-buffer (markdown-standalone "*imp-markdown*")
+                  (buffer-string)))))
+    (kill-buffer "*imp-markdown*")
+    (princ html)))
+
+(defun +markdown-preview-live ()
+  "Preview this markdown buffer in the browser, re-rendering as you type."
+  (interactive)
+  (unless (process-status "httpd")
+    (setq httpd-port (+markdown-preview--claim-port))
+    (httpd-start))
+  (imp-visit-buffer))
+
+;; Loopback only — the preview server publishes buffer contents, and the default
+;; `httpd-host' of nil listens on every interface.
+(setq httpd-host 'local)
+
+(after! impatient-mode
+  ;; Debounce: every update shells out to pandoc, so don't do it per keystroke.
+  (setq impatient-mode-delay 0.3)
+  ;; `imp-remove-user-filter' matches `major-mode' exactly, so gfm-mode (Doom uses
+  ;; it for READMEs) needs its own entry.
+  (dolist (mode '(markdown-mode gfm-mode))
+    (add-to-list 'imp-default-user-filters (cons mode #'+markdown-preview-filter))))
+
+(map! :after markdown-mode
+      :localleader
+      :map markdown-mode-map
+      :desc "Live preview" "P" #'+markdown-preview-live)

@@ -48,3 +48,10 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+
+;; Live markdown preview: `impatient-mode' publishes the buffer over the
+;; `simple-httpd' server running inside Emacs, so a browser tab re-renders as you
+;; type. See the markdown section of config.el.
+(package! simple-httpd)
+(package! impatient-mode)
