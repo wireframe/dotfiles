@@ -1,0 +1,9 @@
+theme = "github-dark-default"
+mode = "auto"
+line_numbers = false
+wrap_lines = false
+hunk_headers = true
+menu_bar = true
+agent_notes = false
+copy_decorations = false
+cursor_line = "row"

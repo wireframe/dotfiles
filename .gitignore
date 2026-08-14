@@ -56,5 +56,8 @@ home/.config/herdr/*.sock
 home/.config/herdr/session.json
 home/.config/herdr/.plugins.lock
 
+# hunk runtime state (config.toml stays tracked)
+home/.config/hunk/state.json
+
 # Secrets
 home/.config/poe2/tokens.json
