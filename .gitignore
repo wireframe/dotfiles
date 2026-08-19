@@ -55,6 +55,9 @@ home/.config/herdr/*.log
 home/.config/herdr/*.sock
 home/.config/herdr/session.json
 home/.config/herdr/.plugins.lock
+home/.config/herdr/*.hunkdiff-backup
+home/.config/herdr/plugins.json
+home/.config/herdr/plugins/
 
 # hunk runtime state (config.toml stays tracked)
 home/.config/hunk/state.json

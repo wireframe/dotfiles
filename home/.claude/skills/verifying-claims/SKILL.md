@@ -56,8 +56,10 @@ For anything the author has read, search their own notes before the web. Highlig
 
 A quote the author captured themselves but that has no public source is still usable: attribute it by name and leave it unlinked. That is better than dropping real material, and better than hedging it into "some leaders say."
 
-## Disclose Funded Research
-When a study is co-branded with a company that sells the thing it endorses, say so in one clause. "Workhuman sells recognition software, so weigh the framing accordingly, but the direction isn't in dispute" costs eleven words and disarms the reader most likely to go checking. Hiding it is the only way this backfires.
+## Funded Research: Know It, Don't Necessarily Print It
+When a study is co-branded with a company that sells the thing it endorses, **surface it to the author every time** — that is what the check is for. Whether it reaches the page is the author's call, not the checker's.
+
+The non-negotiable part is the citation: right source, right numbers, right strength of claim. A disclosure clause is one option on top of that, and it can disarm the reader most likely to go checking. It is not required, and a post that discloses every funding relationship it touches reads like a compliance filing rather than an argument. Report the conflict, recommend if you have a view, then let the author decide.
 
 ## Verdicts
 | Finding | Action |
@@ -67,4 +69,4 @@ When a study is co-branded with a company that sells the thing it endorses, say 
 | Real claim, wrong or aggregated link | Re-source to the primary |
 | Two findings, one link | Split into two links, signal the separation in prose |
 | Real and correctly cited, but wrong evidence for this claim | Keep the number and fix the claim, or let the argument stand without it |
-| Real, correctly cited, vendor-funded | Keep, and disclose in a clause |
+| Real, correctly cited, vendor-funded | Keep. Report the funding to the author; whether to disclose in the prose is their call |

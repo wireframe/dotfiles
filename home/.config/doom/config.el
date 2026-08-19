@@ -193,3 +193,10 @@ Development machines crowd the ports around 8080, so this sits well clear of the
       :localleader
       :map markdown-mode-map
       :desc "Live preview" "P" #'+markdown-preview-live)
+
+;; nix-darwin's /etc/zshenv unconditionally overwrites PATH when
+;; __NIX_DARWIN_SET_ENVIRONMENT_DONE is unset. A launchd-started daemon has it
+;; unset, so every `zsh -c' subprocess lost /opt/homebrew/bin -- projectile's
+;; `fd' indexing then failed with exit 127. Emacs already has the right PATH via
+;; `doom env'; this tells zsh not to replace it.
+(setenv "__NIX_DARWIN_SET_ENVIRONMENT_DONE" "1")
