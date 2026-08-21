@@ -49,12 +49,6 @@
 - when merging feature branches, and pull requests, do *not* squash the commit history.
 
 ## Resources and Tool usage
-### MCP Context7 Integration
-- **🔧 MANDATORY**: Always use MCP Context7 for API and framework knowledge
-- **Query First**: Verify API patterns and framework best practices through Context7
-- **Integration Knowledge**: Use Context7 for troubleshooting integration issues
-- **Documentation Reference**: Leverage Context7 for current documentation and examples
-
 ### Development Script Discovery
 - **📁 MANDATORY**: Check for usable tools within `bin` or `scripts` directory for performing operations.
 * Create new tools for frequent use in the assocated `bin` or `script` directory.  This helps both humans and Agents to have scripts for common workflow operations.  Follow the Unix philosophy of creating these tools.  Each one should be small, specific, and do one thing really well.
