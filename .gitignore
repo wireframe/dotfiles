@@ -15,6 +15,7 @@ pomo-cli
 secrets.sh
 
 # X-Config files
+home/.config/herdr/release-notes.json
 home/.config/fabric
 home/.config/grammarly-languageserver
 home/.config/raycast
