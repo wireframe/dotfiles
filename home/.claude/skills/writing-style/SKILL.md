@@ -70,6 +70,7 @@ Read your rewrite out loud. If it sounds like something a person would say at a 
 | cutting-edge | (cut or say what's actually new) |
 | revolutionize | (cut — you probably didn't) |
 | transformative | (cut or say what changed) |
+| shape / shaped / shapes (figurative) | Abstract stand-in for the mechanism. "Has the same shape," "shaped the outcome," "shaped by." Say what happened: decided, built, made, set, hit. |
 
 ### Tier 2 — Suspicious in context (check if adding real meaning)
 
@@ -90,7 +91,7 @@ Read your rewrite out loud. If it sounds like something a person would say at a 
 | best-in-class | Says nothing. Prove it or cut it. |
 | world-class | Same. |
 | commitment to | Usually hollow. Show the commitment through actions, don't declare it. |
-| directly influence(s) | Corporate. Use "shapes" or "drives". |
+| directly influence(s) | Corporate. Use "drives" or "sets". |
 | investments into X | Wrong preposition. Use "investments in X". |
 | the same data shows | Academic recitation. Use prose: "The same study found...". |
 | at all (as a closer) | Hedge-dramatic. "How the team thinks together at all" is rhythm without content. |

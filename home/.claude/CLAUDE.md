@@ -110,13 +110,15 @@
 ## Documentation
 
 ### Code comments and documentation
-- Don't repeat yourself.  Working code, that follows Clean Code Principles, is the best form of documentation.  
+- Don't repeat yourself.  Working code, that follows Clean Code Principles, is the best form of documentation.
 - Code comments should be used sparingly.  Class level documentation describing the object's intended purpose is high value.  Method level documentation can be valuable when it is not a boilerplate method.  Keep other method level documentation minimal.
+- **A body comment is a refactoring signal, not a fix.** If you're about to write a comment inside a function body to explain *what* the next few lines do, that's a sign those lines should be their own well-named function instead — the function name carries the meaning the comment was trying to add. Extract first; only keep the comment if, after extraction, something still isn't obvious from the code itself (a non-obvious *why*: a workaround, an invariant, a constraint from outside the code).
+  - Bad: `// Auto-focus unless we're handling a URL redirect` followed by an `if` block.
+  - Good: a call to `autoFocusUnlessHandlingURL()`, whose body is that same `if` block, no comment needed.
+- Default to zero comments in a function body. Add one only when the *why* is genuinely non-obvious even after extraction — never to restate the *what*.
 
 ### Directory Structure
 - the `docs` directory of the project has important information and context that should be loaded when performing relevant operations
-Projects MUST organize documentation using this structure:
-- `docs/features/` - feature requirements and specifications.
 
 ### Naming Conventions
 - Use kebab-case: `user-authentication-guide.md`
