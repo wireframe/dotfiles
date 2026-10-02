@@ -49,11 +49,19 @@ home/.claude/tasks
 home/.claude/telemetry
 home/.claude/policy-limits.json
 home/.claude/remote-settings-consent.json
+home/.claude/policy-limits.json.stamp.json
+home/.claude/daemon
+home/.claude/jobs
+home/.claude/state
+home/.claude/session-env
+home/.claude/skills/synced
 home/.config/cagent
 
 # herdr runtime state (config.toml stays tracked)
 home/.config/herdr/*.log
 home/.config/herdr/*.sock
+home/.config/herdr/*.sock.agent
+home/.config/herdr/session-snapshots/
 home/.config/herdr/session.json
 home/.config/herdr/.plugins.lock
 home/.config/herdr/*.hunkdiff-backup
