@@ -128,5 +128,5 @@
 - Start with clear purpose and audience statement
 - Include practical examples and code snippets
 - Maintain working links and references
-- Update modification date on significant changes
+- Never add or update "Last updated" / modification-date lines; git records when and why a doc changed
 - Include "Related Documents" section for navigation
