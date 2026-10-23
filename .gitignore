@@ -50,6 +50,9 @@ home/.claude/telemetry
 home/.claude/policy-limits.json
 home/.claude/remote-settings-consent.json
 home/.claude/policy-limits.json.stamp.json
+home/.claude/policy-limits.json.signature*.json
+home/.claude/remote-settings.json.signature*.json
+home/.claude/remote-settings.json.synced-at
 home/.claude/daemon
 home/.claude/jobs
 home/.claude/state
