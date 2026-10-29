@@ -20,9 +20,6 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update n
 # (useful when executing time-consuming commands)
 alias badge="tput bel complete"
 
-# Enhanced WHOIS lookups
-alias whois="whois -h whois-servers.net"
-
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
