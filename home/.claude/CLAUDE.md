@@ -122,7 +122,8 @@
 
 ### Naming Conventions
 - Use kebab-case: `user-authentication-guide.md`
-- Prefix by category: `api-authentication.md`, `arch-database-design.md`
+- Name files for their subject, with no category prefixes: `database-design.md`, not `arch-database-design.md`
+- Group related docs with subdirectories when grouping is needed: `docs/architecture/database-design.md`
 
 ### Content Requirements
 - Start with clear purpose and audience statement
